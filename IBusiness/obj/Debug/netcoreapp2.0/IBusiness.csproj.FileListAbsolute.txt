@@ -1,0 +1,11 @@
+D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\IBusiness.deps.json
+D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\IBusiness.dll
+D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\IBusiness.pdb
+D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\CommonEntities.dll
+D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\CommonEntities.pdb
+D:\Projects\UPCTaggingInterface\IBusiness\obj\Debug\netcoreapp2.0\IBusiness.csprojResolveAssemblyReference.cache
+D:\Projects\UPCTaggingInterface\IBusiness\obj\Debug\netcoreapp2.0\IBusiness.csproj.CoreCompileInputs.cache
+D:\Projects\UPCTaggingInterface\IBusiness\obj\Debug\netcoreapp2.0\IBusiness.AssemblyInfoInputs.cache
+D:\Projects\UPCTaggingInterface\IBusiness\obj\Debug\netcoreapp2.0\IBusiness.AssemblyInfo.cs
+D:\Projects\UPCTaggingInterface\IBusiness\obj\Debug\netcoreapp2.0\IBusiness.dll
+D:\Projects\UPCTaggingInterface\IBusiness\obj\Debug\netcoreapp2.0\IBusiness.pdb

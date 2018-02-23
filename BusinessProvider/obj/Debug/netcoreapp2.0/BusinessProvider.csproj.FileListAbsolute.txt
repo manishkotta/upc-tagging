@@ -1,0 +1,13 @@
+D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\BusinessProvider.deps.json
+D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\BusinessProvider.dll
+D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\BusinessProvider.pdb
+D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\CommonEntities.dll
+D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\IBusiness.dll
+D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\IBusiness.pdb
+D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\CommonEntities.pdb
+D:\Projects\UPCTaggingInterface\BusinessProvider\obj\Debug\netcoreapp2.0\BusinessProvider.csproj.CoreCompileInputs.cache
+D:\Projects\UPCTaggingInterface\BusinessProvider\obj\Debug\netcoreapp2.0\BusinessProvider.AssemblyInfoInputs.cache
+D:\Projects\UPCTaggingInterface\BusinessProvider\obj\Debug\netcoreapp2.0\BusinessProvider.AssemblyInfo.cs
+D:\Projects\UPCTaggingInterface\BusinessProvider\obj\Debug\netcoreapp2.0\BusinessProvider.dll
+D:\Projects\UPCTaggingInterface\BusinessProvider\obj\Debug\netcoreapp2.0\BusinessProvider.pdb
+D:\Projects\UPCTaggingInterface\BusinessProvider\obj\Debug\netcoreapp2.0\BusinessProvider.csprojResolveAssemblyReference.cache

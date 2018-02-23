@@ -1,0 +1,8 @@
+D:\Projects\UPCTaggingInterface\IRepository\bin\Debug\netcoreapp2.0\IRepository.deps.json
+D:\Projects\UPCTaggingInterface\IRepository\bin\Debug\netcoreapp2.0\IRepository.dll
+D:\Projects\UPCTaggingInterface\IRepository\bin\Debug\netcoreapp2.0\IRepository.pdb
+D:\Projects\UPCTaggingInterface\IRepository\obj\Debug\netcoreapp2.0\IRepository.csproj.CoreCompileInputs.cache
+D:\Projects\UPCTaggingInterface\IRepository\obj\Debug\netcoreapp2.0\IRepository.AssemblyInfoInputs.cache
+D:\Projects\UPCTaggingInterface\IRepository\obj\Debug\netcoreapp2.0\IRepository.AssemblyInfo.cs
+D:\Projects\UPCTaggingInterface\IRepository\obj\Debug\netcoreapp2.0\IRepository.dll
+D:\Projects\UPCTaggingInterface\IRepository\obj\Debug\netcoreapp2.0\IRepository.pdb
