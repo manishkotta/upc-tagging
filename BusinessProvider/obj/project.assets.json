@@ -219,6 +219,16 @@
         "runtime": {
           "bin/placeholder/IBusiness.dll": {}
         }
+      },
+      "IRepository/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/IRepository.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/IRepository.dll": {}
+        }
       }
     }
   },
@@ -689,11 +699,17 @@
       "type": "project",
       "path": "../IBusiness/IBusiness.csproj",
       "msbuildProject": "../IBusiness/IBusiness.csproj"
+    },
+    "IRepository/1.0.0": {
+      "type": "project",
+      "path": "../IRepository/IRepository.csproj",
+      "msbuildProject": "../IRepository/IRepository.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "IBusiness >= 1.0.0",
+      "IRepository >= 1.0.0",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
   },
@@ -733,6 +749,9 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
+            "D:\\Projects\\UPCTaggingInterface\\IRepository\\IRepository.csproj": {
+              "projectPath": "D:\\Projects\\UPCTaggingInterface\\IRepository\\IRepository.csproj"
+            },
             "D:\\Projects\\UPCTaggingInterface\\IBusiness\\IBusiness.csproj": {
               "projectPath": "D:\\Projects\\UPCTaggingInterface\\IBusiness\\IBusiness.csproj"
             }

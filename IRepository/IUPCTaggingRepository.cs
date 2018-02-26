@@ -6,6 +6,6 @@ namespace IRepository
 {
     public interface IUPCTaggingRepository
     {
-        bool ExtractUntaggedUPCs();
+        bool BulkCopyToDB(IEnumerable<string> strArray);
     }
 }

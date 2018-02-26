@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\IBusiness\IBusiness.csproj" />
+    <ProjectReference Include="..\IRepository\IRepository.csproj" />
   </ItemGroup>
 
 </Project>

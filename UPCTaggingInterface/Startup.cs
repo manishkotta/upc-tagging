@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using ServiceConfiguration;
+using ExcelDataReader;
 
 namespace UPCTaggingInterface
 {
@@ -27,8 +28,8 @@ namespace UPCTaggingInterface
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
             services.RegisterServices();
+            services.AddCors();
             services.AddMvc();
         }
 
@@ -39,12 +40,12 @@ namespace UPCTaggingInterface
             {
                 app.UseDeveloperExceptionPage();
             }
-            
-            app.UseCors(builder => builder.WithOrigins("http://localhost:4200")
-     .AllowAnyMethod()
-     .AllowAnyHeader()
-     .AllowCredentials());
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+
+            app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+
             app.UseMvc();
+
             app.UseDefaultFiles();
             app.UseStaticFiles();
 

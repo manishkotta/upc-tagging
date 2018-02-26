@@ -2,6 +2,27 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v2.0": {
+      "ExcelDataReader/3.4.0": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/ExcelDataReader.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/ExcelDataReader.dll": {}
+        }
+      },
+      "ExcelDataReader.DataSet/3.4.0": {
+        "type": "package",
+        "dependencies": {
+          "ExcelDataReader": "3.4.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/ExcelDataReader.DataSet.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/ExcelDataReader.DataSet.dll": {}
+        }
+      },
       "Libuv/1.10.0": {
         "type": "package",
         "dependencies": {
@@ -2870,6 +2891,18 @@
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
         }
       },
+      "Npgsql/3.2.6": {
+        "type": "package",
+        "dependencies": {
+          "System.Threading.Tasks.Extensions": "4.3.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Npgsql.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Npgsql.dll": {}
+        }
+      },
       "NuGet.Frameworks/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -4734,7 +4767,7 @@
           "Microsoft.NETCore.Platforms": "2.0.0"
         },
         "compile": {
-          "ref/netstandard2.0/_._": {}
+          "ref/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Text.Encoding.CodePages.dll": {}
@@ -5033,7 +5066,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
-          "IBusiness": "1.0.0"
+          "IBusiness": "1.0.0",
+          "IRepository": "1.0.0"
         },
         "compile": {
           "bin/placeholder/BusinessProvider.dll": {}
@@ -5079,7 +5113,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
-          "IRepository": "1.0.0"
+          "IRepository": "1.0.0",
+          "Npgsql": "3.2.6"
         },
         "compile": {
           "bin/placeholder/Repository.dll": {}
@@ -5108,6 +5143,38 @@
     }
   },
   "libraries": {
+    "ExcelDataReader/3.4.0": {
+      "sha512": "sBDS0csMdok65kEttJbhx2Uu2l8PEEO0SqmuPfPWBMgrM5f9+XyC0C8knkrUcEHAX8jEr11TXWsUfyqZu0NZ5g==",
+      "type": "package",
+      "path": "exceldatareader/3.4.0",
+      "files": [
+        "exceldatareader.3.4.0.nupkg.sha512",
+        "exceldatareader.nuspec",
+        "lib/net20/ExcelDataReader.dll",
+        "lib/net20/ExcelDataReader.xml",
+        "lib/net45/ExcelDataReader.dll",
+        "lib/net45/ExcelDataReader.xml",
+        "lib/netstandard1.3/ExcelDataReader.dll",
+        "lib/netstandard1.3/ExcelDataReader.xml",
+        "lib/netstandard2.0/ExcelDataReader.dll",
+        "lib/netstandard2.0/ExcelDataReader.xml"
+      ]
+    },
+    "ExcelDataReader.DataSet/3.4.0": {
+      "sha512": "h0OG+X4tLg85XCzidfNmrsH5g2lzaRtGVT5b9uRpQsMyau0d7b/TvLV7qhldq3UoNm3mjSomikMVegeyFffmaA==",
+      "type": "package",
+      "path": "exceldatareader.dataset/3.4.0",
+      "files": [
+        "exceldatareader.dataset.3.4.0.nupkg.sha512",
+        "exceldatareader.dataset.nuspec",
+        "lib/net20/ExcelDataReader.DataSet.dll",
+        "lib/net20/ExcelDataReader.DataSet.xml",
+        "lib/net45/ExcelDataReader.DataSet.dll",
+        "lib/net45/ExcelDataReader.DataSet.xml",
+        "lib/netstandard2.0/ExcelDataReader.DataSet.dll",
+        "lib/netstandard2.0/ExcelDataReader.DataSet.xml"
+      ]
+    },
     "Libuv/1.10.0": {
       "sha512": "GsCf4q+eyaI49rCPlgYxdxa1SQCysXFFdSJWdstrwxytg4+VPYLYrXD4AT2rjHVJ+UF7SSWX9CapWEYaU4ejVQ==",
       "type": "package",
@@ -8074,6 +8141,23 @@
         "lib/netstandard1.3/Newtonsoft.Json.Bson.xml",
         "newtonsoft.json.bson.1.0.1.nupkg.sha512",
         "newtonsoft.json.bson.nuspec"
+      ]
+    },
+    "Npgsql/3.2.6": {
+      "sha512": "GMjVKgbNLKne/rGSvCQqZHt2aZfBByuw7jUD55V+svkdlG8jKoVCGjUyfPpET3XSoneqrJlf6E578mCh4H5aeg==",
+      "type": "package",
+      "path": "npgsql/3.2.6",
+      "files": [
+        "lib/net45/Npgsql.dll",
+        "lib/net45/Npgsql.xml",
+        "lib/net451/Npgsql.dll",
+        "lib/net451/Npgsql.xml",
+        "lib/netstandard1.3/Npgsql.dll",
+        "lib/netstandard1.3/Npgsql.xml",
+        "lib/netstandard2.0/Npgsql.dll",
+        "lib/netstandard2.0/Npgsql.xml",
+        "npgsql.3.2.6.nupkg.sha512",
+        "npgsql.nuspec"
       ]
     },
     "NuGet.Frameworks/4.0.0": {
@@ -13223,12 +13307,15 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "ExcelDataReader >= 3.4.0",
+      "ExcelDataReader.DataSet >= 3.4.0",
       "IBusiness >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.5",
       "Microsoft.AspNetCore.Cors >= 2.0.1",
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.2",
-      "ServiceConfiguration >= 1.0.0"
+      "ServiceConfiguration >= 1.0.0",
+      "System.Text.Encoding.CodePages >= 4.4.0"
     ]
   },
   "packageFolders": {
@@ -13285,6 +13372,14 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
+          "ExcelDataReader": {
+            "target": "Package",
+            "version": "[3.4.0, )"
+          },
+          "ExcelDataReader.DataSet": {
+            "target": "Package",
+            "version": "[3.4.0, )"
+          },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "[2.0.5, )"
@@ -13301,6 +13396,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[2.0.2, )"
+          },
+          "System.Text.Encoding.CodePages": {
+            "target": "Package",
+            "version": "[4.4.0, )"
           }
         },
         "imports": [

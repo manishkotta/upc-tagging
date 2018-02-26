@@ -10,6 +10,9 @@ using System.Net.Http;
 using System.IO;
 using IBusiness;
 using Microsoft.AspNetCore.Cors;
+using ExcelDataReader;
+using System.Data;
+using System.Diagnostics;
 
 namespace UPCTaggingInterface.Controllers
 {
@@ -17,21 +20,63 @@ namespace UPCTaggingInterface.Controllers
     [Route("api/upload-document")]
     public class UploadDocumentController : Controller
     {
-        IFileService _saveFileService;
-        public UploadDocumentController(IFileService saveFileService)
+        IUPCTaggingService _upcTaggingService;
+        public UploadDocumentController(IUPCTaggingService upcTaggingService)
         {
-            _saveFileService = saveFileService;
+            _upcTaggingService = upcTaggingService;
         }
 
         [HttpPost]
         public async Task<HttpResponseMessage> UploadDocument()
         {
-            var files = Request.Form.Files;
-            if (files.Count() <= 0) return new HttpResponseMessage(HttpStatusCode.NoContent);
-            var rootFolder = Directory.GetCurrentDirectory();
-            var filePath = rootFolder + "\\TemporaryFiles\\" + files[0].FileName;
-            var stream = files[0].OpenReadStream();
-            _saveFileService.SaveFileToTempFolder(stream,filePath);
+            try
+            {
+                Stopwatch stopWatch = new Stopwatch();
+                stopWatch.Start();
+                var files = Request.Form.Files;
+                if (files.Count() <= 0) return new HttpResponseMessage(HttpStatusCode.NoContent);
+                var rootFolder = Directory.GetCurrentDirectory();
+                var file= files[0];
+                var stream = file.OpenReadStream();
+
+                var extension = Path.GetExtension(file.FileName);
+
+                IExcelDataReader reader;
+
+                if (extension.Equals(".xls"))
+                    reader = ExcelReaderFactory.CreateBinaryReader(stream);
+                else if (extension.Equals(".xlsx"))
+                    reader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+                else
+                    return new HttpResponseMessage(HttpStatusCode.NotAcceptable);
+
+                var conf = new ExcelDataSetConfiguration
+                {
+                    ConfigureDataTable = _ => new ExcelDataTableConfiguration
+                    {
+                        UseHeaderRow = true
+                    }
+                };
+
+                var dataSet = reader.AsDataSet(conf);
+                if(dataSet.Tables.Count <= 0 ) return new HttpResponseMessage(HttpStatusCode.NoContent);
+                var dataTable = dataSet.Tables[0];
+                if (dataTable.Rows.Count <= 0) return new HttpResponseMessage(HttpStatusCode.NoContent);
+
+                _upcTaggingService.SaveFileToTable(dataTable,"\t");
+                stopWatch.Stop();
+                // Get the elapsed time as a TimeSpan value.
+                TimeSpan ts = stopWatch.Elapsed;
+
+                // Format and display the TimeSpan value.
+                string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+                    ts.Hours, ts.Minutes, ts.Seconds,
+                    ts.Milliseconds / 10);
+            }
+            catch(Exception ex)
+            {
+                return new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
+            }
 
             return new HttpResponseMessage(HttpStatusCode.OK);
         }

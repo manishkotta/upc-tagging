@@ -8,7 +8,8 @@
     ".NETCoreApp,Version=v2.0": {
       "BusinessProvider/1.0.0": {
         "dependencies": {
-          "IBusiness": "1.0.0"
+          "IBusiness": "1.0.0",
+          "IRepository": "1.0.0"
         },
         "runtime": {
           "BusinessProvider.dll": {}
@@ -26,6 +27,11 @@
         "runtime": {
           "IBusiness.dll": {}
         }
+      },
+      "IRepository/1.0.0": {
+        "runtime": {
+          "IRepository.dll": {}
+        }
       }
     }
   },
@@ -41,6 +47,11 @@
       "sha512": ""
     },
     "IBusiness/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "IRepository/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -6,3 +6,4 @@ D:\Projects\UPCTaggingInterface\IRepository\obj\Debug\netcoreapp2.0\IRepository.
 D:\Projects\UPCTaggingInterface\IRepository\obj\Debug\netcoreapp2.0\IRepository.AssemblyInfo.cs
 D:\Projects\UPCTaggingInterface\IRepository\obj\Debug\netcoreapp2.0\IRepository.dll
 D:\Projects\UPCTaggingInterface\IRepository\obj\Debug\netcoreapp2.0\IRepository.pdb
+D:\Projects\UPCTaggingInterface\IRepository\obj\Debug\netcoreapp2.0\IRepository.csprojResolveAssemblyReference.cache

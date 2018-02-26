@@ -7,11 +7,6 @@ namespace CommonEntities
 {
     public static class Constants
     {
-        private static string CurrentDirectory = Directory.GetCurrentDirectory();
-
-        public static string GetTempFilePath(string fileName)
-        {
-            return CurrentDirectory + @"\TempararyFiles\" + fileName;
-        }
+        public const string PostgresqlConnStr = "PostgresqlConnectionString";
     }
 }

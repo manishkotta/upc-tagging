@@ -5,6 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ExcelDataProvider.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Npgsql" Version="3.2.6" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\IRepository\IRepository.csproj" />
   </ItemGroup>
 
