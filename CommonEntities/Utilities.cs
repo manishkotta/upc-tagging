@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Data;
 using System.Linq;
+using ExcelDataReader;
 
 namespace CommonEntities
 {
@@ -11,13 +12,14 @@ namespace CommonEntities
         public static IEnumerable<string> DataTableToCSV(DataTable datatable, string seperator)
         {
             StringBuilder sb = new StringBuilder();
+
             foreach (DataRow dr in datatable.Rows)
             {
-                for (int i = 0; i < datatable.Columns.Count; i++)
+                for (int i = 0; i < 3; i++)
                 {
                     sb.Append(dr[i].ToString().Replace('\t',' '));
 
-                    if (i < datatable.Columns.Count - 1)
+                    if (i < 3 - 1)
                         sb.Append(seperator);
                 }
                 sb.Append("\n");
@@ -25,5 +27,37 @@ namespace CommonEntities
             var splittedRows = sb.ToString().Split("\n");
             return splittedRows.SkipLast(1);
         }
+
+        public static DataTable ExcelToDataTable(string extension,System.IO.Stream stream)
+        {
+            IExcelDataReader reader;
+
+            if (extension.Equals(".xls"))
+                reader = ExcelReaderFactory.CreateBinaryReader(stream);
+            else if (extension.Equals(".xlsx"))
+                reader = ExcelReaderFactory.CreateOpenXmlReader(stream);
+            else
+                return null;
+
+            var conf = new ExcelDataSetConfiguration
+            {
+                ConfigureDataTable = _ => new ExcelDataTableConfiguration
+                {
+                    UseHeaderRow = true
+                }
+            };
+
+            var dataSet = reader.AsDataSet(conf);
+            if (dataSet.Tables.Count <= 0) return null;
+            var dataTable = dataSet.Tables[0];
+            if (dataTable.Rows.Count <= 0) return null;
+
+            return dataTable;
+        }
+        
     }
+
+
+
+    
 }

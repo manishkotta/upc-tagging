@@ -1,4 +1,4 @@
-﻿using UPCTagging.CommonEntities;
+﻿using CommonEntities;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -23,12 +23,13 @@ namespace ServiceConfiguration
         {
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IUPCTaggingRepository,UPCTaggingRepository>();
-            //services.AddScoped<IDataProvider, ExcelDataProvider>();
+            services.AddScoped<IUntaggedUPCRepository, UntaggedUPCRepository>();
         }
 
         public static void RegisterUPCTaggingServices(IServiceCollection services)
         {
             services.AddScoped<IUPCTaggingService, UPCTaggingService>();
+            services.AddScoped<IUntaggedUPCService, UntagggedUPCService>();
         }
 
     }

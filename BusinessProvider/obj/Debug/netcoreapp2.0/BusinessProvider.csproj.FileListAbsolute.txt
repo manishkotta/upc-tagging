@@ -13,3 +13,5 @@ D:\Projects\UPCTaggingInterface\BusinessProvider\obj\Debug\netcoreapp2.0\Busines
 D:\Projects\UPCTaggingInterface\BusinessProvider\obj\Debug\netcoreapp2.0\BusinessProvider.csprojResolveAssemblyReference.cache
 D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\IRepository.dll
 D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\IRepository.pdb
+D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\Repositories.Entities.dll
+D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\Repositories.Entities.pdb

@@ -9,6 +9,7 @@ namespace IBusiness
     public interface IUPCTaggingService
     {
         void SaveFileToTable(DataTable dt,string seperator);
-       
+
+        bool CaptureUntaggedUPC();
     }
 }

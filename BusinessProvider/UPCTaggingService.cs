@@ -21,5 +21,13 @@ namespace BusinessProvider
             var value = Utilities.DataTableToCSV(dt, seperator);
             _upcRepo.BulkCopyToDB(value);
         }
+
+        public bool CaptureUntaggedUPC()
+        {
+            Dictionary<string, object> dict = new Dictionary<string, object>();
+            dict.Add("userid", 1764);
+            _upcRepo.ExecuteStoreProc("CaptureUntaggedUPC", dict);
+            return true;
+        }
     }
 }

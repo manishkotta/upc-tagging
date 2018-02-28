@@ -13,6 +13,7 @@ using Microsoft.AspNetCore.Cors;
 using ExcelDataReader;
 using System.Data;
 using System.Diagnostics;
+using CommonEntities;
 
 namespace UPCTaggingInterface.Controllers
 {
@@ -41,34 +42,15 @@ namespace UPCTaggingInterface.Controllers
                 var stream = file.OpenReadStream();
 
                 var extension = Path.GetExtension(file.FileName);
+                var dataTable = Utilities.ExcelToDataTable(extension, stream);
 
-                IExcelDataReader reader;
-
-                if (extension.Equals(".xls"))
-                    reader = ExcelReaderFactory.CreateBinaryReader(stream);
-                else if (extension.Equals(".xlsx"))
-                    reader = ExcelReaderFactory.CreateOpenXmlReader(stream);
-                else
-                    return new HttpResponseMessage(HttpStatusCode.NotAcceptable);
-
-                var conf = new ExcelDataSetConfiguration
-                {
-                    ConfigureDataTable = _ => new ExcelDataTableConfiguration
-                    {
-                        UseHeaderRow = true
-                    }
-                };
-
-                var dataSet = reader.AsDataSet(conf);
-                if(dataSet.Tables.Count <= 0 ) return new HttpResponseMessage(HttpStatusCode.NoContent);
-                var dataTable = dataSet.Tables[0];
-                if (dataTable.Rows.Count <= 0) return new HttpResponseMessage(HttpStatusCode.NoContent);
+                if (dataTable.IsNullOrEmpty()) return new HttpResponseMessage(HttpStatusCode.NoContent);
 
                 _upcTaggingService.SaveFileToTable(dataTable,"\t");
-
+                _upcTaggingService.CaptureUntaggedUPC();
 
                 //stopWatch.Stop();
-                
+
                 //TimeSpan ts = stopWatch.Elapsed;
 
                 //string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",

@@ -21,3 +21,5 @@ D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Serv
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\IRepository.pdb
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\BusinessProvider.pdb
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Repository.pdb
+D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Repositories.Entities.dll
+D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Repositories.Entities.pdb

@@ -8,5 +8,7 @@ namespace CommonEntities
     public static class Constants
     {
         public const string PostgresqlConnStr = "PostgresqlConnectionString";
+
+       
     }
 }

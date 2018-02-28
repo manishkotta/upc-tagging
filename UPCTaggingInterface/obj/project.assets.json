@@ -2903,6 +2903,22 @@
           "lib/netstandard2.0/Npgsql.dll": {}
         }
       },
+      "Npgsql.EntityFrameworkCore.PostgreSQL/2.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "2.0.1",
+          "Microsoft.EntityFrameworkCore.Relational": "2.0.1",
+          "Microsoft.Extensions.DependencyInjection": "2.0.0",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
+          "Npgsql": "3.2.6"
+        },
+        "compile": {
+          "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll": {}
+        }
+      },
       "NuGet.Frameworks/4.0.0": {
         "type": "package",
         "dependencies": {
@@ -5079,6 +5095,10 @@
       "CommonEntities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "ExcelDataReader": "3.4.0",
+          "ExcelDataReader.DataSet": "3.4.0"
+        },
         "compile": {
           "bin/placeholder/CommonEntities.dll": {}
         },
@@ -5090,7 +5110,8 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
-          "CommonEntities": "1.0.0"
+          "CommonEntities": "1.0.0",
+          "Repositories.Entities": "1.0.0"
         },
         "compile": {
           "bin/placeholder/IBusiness.dll": {}
@@ -5102,6 +5123,10 @@
       "IRepository/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "CommonEntities": "1.0.0",
+          "Repositories.Entities": "1.0.0"
+        },
         "compile": {
           "bin/placeholder/IRepository.dll": {}
         },
@@ -5109,12 +5134,25 @@
           "bin/placeholder/IRepository.dll": {}
         }
       },
+      "Repositories.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Repositories.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Repositories.Entities.dll": {}
+        }
+      },
       "Repository/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
           "IRepository": "1.0.0",
-          "Npgsql": "3.2.6"
+          "Microsoft.Extensions.Configuration": "2.0.0",
+          "Npgsql": "3.2.6",
+          "Npgsql.EntityFrameworkCore.PostgreSQL": "2.0.1",
+          "Repositories.Entities": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Repository.dll": {}
@@ -8158,6 +8196,16 @@
         "lib/netstandard2.0/Npgsql.xml",
         "npgsql.3.2.6.nupkg.sha512",
         "npgsql.nuspec"
+      ]
+    },
+    "Npgsql.EntityFrameworkCore.PostgreSQL/2.0.1": {
+      "sha512": "dKa3U027m5vSrfSTDztZgK5Wv6PoBdUuUfTL+mqMYWXjzYgMANo4x6JsqHvo56FFDjABAzK8pO8oBMWjK2yKDg==",
+      "type": "package",
+      "path": "npgsql.entityframeworkcore.postgresql/2.0.1",
+      "files": [
+        "lib/netstandard2.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll",
+        "npgsql.entityframeworkcore.postgresql.2.0.1.nupkg.sha512",
+        "npgsql.entityframeworkcore.postgresql.nuspec"
       ]
     },
     "NuGet.Frameworks/4.0.0": {
@@ -13294,6 +13342,11 @@
       "path": "../IRepository/IRepository.csproj",
       "msbuildProject": "../IRepository/IRepository.csproj"
     },
+    "Repositories.Entities/1.0.0": {
+      "type": "project",
+      "path": "../Repositories.Entities/Repositories.Entities.csproj",
+      "msbuildProject": "../Repositories.Entities/Repositories.Entities.csproj"
+    },
     "Repository/1.0.0": {
       "type": "project",
       "path": "../Repository/Repository.csproj",
@@ -13307,13 +13360,13 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
-      "ExcelDataReader >= 3.4.0",
-      "ExcelDataReader.DataSet >= 3.4.0",
+      "CommonEntities >= 1.0.0",
       "IBusiness >= 1.0.0",
       "Microsoft.AspNetCore.All >= 2.0.5",
       "Microsoft.AspNetCore.Cors >= 2.0.1",
       "Microsoft.NETCore.App >= 2.0.0",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.2",
+      "Repositories.Entities >= 1.0.0",
       "ServiceConfiguration >= 1.0.0",
       "System.Text.Encoding.CodePages >= 4.4.0"
     ]
@@ -13357,6 +13410,12 @@
             "D:\\Projects\\UPCTaggingInterface\\ServiceConfiguration\\ServiceConfiguration.csproj": {
               "projectPath": "D:\\Projects\\UPCTaggingInterface\\ServiceConfiguration\\ServiceConfiguration.csproj"
             },
+            "D:\\Projects\\UPCTaggingInterface\\Repositories.Entities\\Repositories.Entities.csproj": {
+              "projectPath": "D:\\Projects\\UPCTaggingInterface\\Repositories.Entities\\Repositories.Entities.csproj"
+            },
+            "D:\\Projects\\UPCTaggingInterface\\CommonEntities\\CommonEntities.csproj": {
+              "projectPath": "D:\\Projects\\UPCTaggingInterface\\CommonEntities\\CommonEntities.csproj"
+            },
             "D:\\Projects\\UPCTaggingInterface\\IBusiness\\IBusiness.csproj": {
               "projectPath": "D:\\Projects\\UPCTaggingInterface\\IBusiness\\IBusiness.csproj"
             }
@@ -13372,14 +13431,6 @@
     "frameworks": {
       "netcoreapp2.0": {
         "dependencies": {
-          "ExcelDataReader": {
-            "target": "Package",
-            "version": "[3.4.0, )"
-          },
-          "ExcelDataReader.DataSet": {
-            "target": "Package",
-            "version": "[3.4.0, )"
-          },
           "Microsoft.AspNetCore.All": {
             "target": "Package",
             "version": "[2.0.5, )"

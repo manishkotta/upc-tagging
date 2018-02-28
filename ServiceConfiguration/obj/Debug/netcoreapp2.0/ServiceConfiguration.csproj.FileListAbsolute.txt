@@ -17,3 +17,5 @@ D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\Rep
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\CommonEntities.pdb
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\obj\Debug\netcoreapp2.0\ServiceConfiguration.dll
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\obj\Debug\netcoreapp2.0\ServiceConfiguration.pdb
+D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\Repositories.Entities.dll
+D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\Repositories.Entities.pdb

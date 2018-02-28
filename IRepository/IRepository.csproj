@@ -8,4 +8,9 @@
     <Compile Remove="IDataProvider.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CommonEntities\CommonEntities.csproj" />
+    <ProjectReference Include="..\Repositories.Entities\Repositories.Entities.csproj" />
+  </ItemGroup>
+
 </Project>
