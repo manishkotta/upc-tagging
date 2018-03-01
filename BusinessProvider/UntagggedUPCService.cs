@@ -6,26 +6,30 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using IRepository;
+using Business.Entities;
 
 namespace BusinessProvider
 {
     public class UntagggedUPCService : IUntaggedUPCService
     {
         protected IUntaggedUPCRepository _untagggedUPCRepo;
-        public UntagggedUPCService(IUntaggedUPCRepository untagggedUPCRepo)
+        protected IObjectMapper _objectMapper;
+        public UntagggedUPCService(IUntaggedUPCRepository untagggedUPCRepo,IObjectMapper objectMapper)
         {
             _untagggedUPCRepo = untagggedUPCRepo;
+            _objectMapper = objectMapper;
         }
 
-        public async Task<Result<List<UntaggedUPC>>> GetUPCList()
+        public async Task<Result<List<UntaggedUPCBusinessModal>>> GetUPCList()
         {
             try
             {
-                return await _untagggedUPCRepo.GetUntaggedUPCList();
+                var untaggedGroup = await _untagggedUPCRepo.GetUntaggedUPCList();
+                return  Result.Ok(_objectMapper.GroupMapper(untaggedGroup.Value));
             }
             catch(Exception ex)
             {
-                return Result.Fail<List<UntaggedUPC>>(ex.Message);
+                return Result.Fail<List<UntaggedUPCBusinessModal>>(ex.Message);
             }
         }
     }

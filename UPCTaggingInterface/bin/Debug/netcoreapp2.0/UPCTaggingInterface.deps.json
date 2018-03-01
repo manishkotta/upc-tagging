@@ -4107,8 +4107,17 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
+      "Business.Entities/1.0.0": {
+        "runtime": {
+          "Business.Entities.dll": {}
+        },
+        "compile": {
+          "Business.Entities.dll": {}
+        }
+      },
       "BusinessProvider/1.0.0": {
         "dependencies": {
+          "Business.Entities": "1.0.0",
           "IBusiness": "1.0.0",
           "IRepository": "1.0.0"
         },
@@ -4133,6 +4142,7 @@
       },
       "IBusiness/1.0.0": {
         "dependencies": {
+          "Business.Entities": "1.0.0",
           "CommonEntities": "1.0.0",
           "Repositories.Entities": "1.0.0"
         },
@@ -6532,6 +6542,11 @@
       "sha512": "sha512-W6ZZ0/o7+3Qb77mRAQyLjPudHG3OMeeQ4p9yY13PUdJArmRCx2cLMm5F4tpIjJXxzHC0ew0oK7DMDGILMdfCnw==",
       "path": "windowsazure.storage/8.1.4",
       "hashPath": "windowsazure.storage.8.1.4.nupkg.sha512"
+    },
+    "Business.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "BusinessProvider/1.0.0": {
       "type": "project",

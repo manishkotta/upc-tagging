@@ -788,10 +788,21 @@
           "lib/netstandard1.0/System.Threading.Tasks.Extensions.dll": {}
         }
       },
+      "Business.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Business.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Business.Entities.dll": {}
+        }
+      },
       "BusinessProvider/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
+          "Business.Entities": "1.0.0",
           "IBusiness": "1.0.0",
           "IRepository": "1.0.0"
         },
@@ -820,6 +831,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
+          "Business.Entities": "1.0.0",
           "CommonEntities": "1.0.0",
           "Repositories.Entities": "1.0.0"
         },
@@ -3113,6 +3125,11 @@
         "system.threading.tasks.extensions.4.3.0.nupkg.sha512",
         "system.threading.tasks.extensions.nuspec"
       ]
+    },
+    "Business.Entities/1.0.0": {
+      "type": "project",
+      "path": "../Business.Entities/Business.Entities.csproj",
+      "msbuildProject": "../Business.Entities/Business.Entities.csproj"
     },
     "BusinessProvider/1.0.0": {
       "type": "project",

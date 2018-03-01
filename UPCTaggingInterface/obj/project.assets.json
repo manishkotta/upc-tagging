@@ -5078,10 +5078,21 @@
           "lib/netstandard1.3/Microsoft.WindowsAzure.Storage.dll": {}
         }
       },
+      "Business.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Business.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Business.Entities.dll": {}
+        }
+      },
       "BusinessProvider/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
+          "Business.Entities": "1.0.0",
           "IBusiness": "1.0.0",
           "IRepository": "1.0.0"
         },
@@ -5110,6 +5121,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
+          "Business.Entities": "1.0.0",
           "CommonEntities": "1.0.0",
           "Repositories.Entities": "1.0.0"
         },
@@ -13321,6 +13333,11 @@
         "windowsazure.storage.8.1.4.nupkg.sha512",
         "windowsazure.storage.nuspec"
       ]
+    },
+    "Business.Entities/1.0.0": {
+      "type": "project",
+      "path": "../Business.Entities/Business.Entities.csproj",
+      "msbuildProject": "../Business.Entities/Business.Entities.csproj"
     },
     "BusinessProvider/1.0.0": {
       "type": "project",

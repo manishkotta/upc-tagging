@@ -26,9 +26,9 @@ namespace Repositories.Entities
         [Column("productsizing")]
         public string ProductSizing { get; set; }
         [Column("itemassingedto")]
-        public int? ItemAssingedTo { get; set; } 
+        public int? ItemAssignedTo { get; set; } 
         [Column("itemassignedby")]
-        public int? ItemAssingedBy { get; set; } 
+        public int? ItemAssignedBy { get; set; } 
 
         [Column("iteminsertedat",TypeName = "timestamp")]
         public DateTime? ItemInsertedAt { get; set; } = null;

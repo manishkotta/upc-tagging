@@ -15,3 +15,5 @@ D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\IReposi
 D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\IRepository.pdb
 D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\Repositories.Entities.dll
 D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\Repositories.Entities.pdb
+D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\Business.Entities.dll
+D:\Projects\UPCTaggingInterface\BusinessProvider\bin\Debug\netcoreapp2.0\Business.Entities.pdb

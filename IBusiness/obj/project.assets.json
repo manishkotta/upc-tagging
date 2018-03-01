@@ -218,6 +218,16 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Business.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Business.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Business.Entities.dll": {}
+        }
+      },
       "CommonEntities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
@@ -734,6 +744,11 @@
         "netstandard.library.nuspec"
       ]
     },
+    "Business.Entities/1.0.0": {
+      "type": "project",
+      "path": "../Business.Entities/Business.Entities.csproj",
+      "msbuildProject": "../Business.Entities/Business.Entities.csproj"
+    },
     "CommonEntities/1.0.0": {
       "type": "project",
       "path": "../CommonEntities/CommonEntities.csproj",
@@ -747,6 +762,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "Business.Entities >= 1.0.0",
       "CommonEntities >= 1.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "Repositories.Entities >= 1.0.0"
@@ -788,6 +804,9 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
+            "D:\\Projects\\UPCTaggingInterface\\Business.Entities\\Business.Entities.csproj": {
+              "projectPath": "D:\\Projects\\UPCTaggingInterface\\Business.Entities\\Business.Entities.csproj"
+            },
             "D:\\Projects\\UPCTaggingInterface\\Repositories.Entities\\Repositories.Entities.csproj": {
               "projectPath": "D:\\Projects\\UPCTaggingInterface\\Repositories.Entities\\Repositories.Entities.csproj"
             },

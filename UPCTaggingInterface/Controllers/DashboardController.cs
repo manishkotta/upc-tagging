@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using IBusiness;
-using Repositories.Entities;
+using Business.Entities;
 
 namespace UPCTaggingInterface.Controllers
 {
@@ -19,9 +19,9 @@ namespace UPCTaggingInterface.Controllers
             _untaggedUPCService = untaggedUPCService;
         }
 
-        [HttpGet]
+        [HttpPost]
         [Route("get-untagged-upc")]
-        public async Task<List<UntaggedUPC>> GetUntaggedUPCList()
+        public async Task<List<UntaggedUPCBusinessModal>> GetUntaggedUPCList([FromBody] UPCSearchFilter filter)
         {
             var result = await _untaggedUPCService.GetUPCList();
             return result.Value;

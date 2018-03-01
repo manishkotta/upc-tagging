@@ -50,7 +50,7 @@ namespace Repository
             modelBuilder.Entity<ProductSubCategory>(entity => {
                 entity.ToTable("subcategory");
                 entity.HasKey(e => e.SubCategoryID);
-                entity.Property(e => e.Subcategory).HasColumnName("subcategory");
+                entity.Property(e => e.SubcategoryName).HasColumnName("subcategory");
                 entity.Property(e => e.SubCategoryID).HasColumnName("subcategoryid");
                 
             });
