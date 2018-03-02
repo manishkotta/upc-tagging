@@ -23,6 +23,7 @@
     ".NETCoreApp,Version=v2.0": {
       "UPCTaggingInterface/1.0.0": {
         "dependencies": {
+          "Business.Entities": "1.0.0",
           "CommonEntities": "1.0.0",
           "IBusiness": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.5",

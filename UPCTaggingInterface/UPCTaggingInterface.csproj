@@ -27,6 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Business.Entities\Business.Entities.csproj" />
     <ProjectReference Include="..\CommonEntities\CommonEntities.csproj" />
     <ProjectReference Include="..\IBusiness\IBusiness.csproj" />
     <ProjectReference Include="..\Repositories.Entities\Repositories.Entities.csproj" />

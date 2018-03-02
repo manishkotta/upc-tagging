@@ -12,7 +12,10 @@ namespace Repository
         public DbSet<UntaggedUPC> UntaggedUPC { get; set; }
         public DbSet<TaggedUPC> TaggedUPC { get; set; }
 
-    
+        public DbSet<ProductType> ProductType { get; set; }
+        public DbSet<ProductCategory> ProductCategory { get; set; }
+        public DbSet<ProductSubCategory> ProductSubCategory { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UntaggedUPC>().ToTable("untaggedupc");

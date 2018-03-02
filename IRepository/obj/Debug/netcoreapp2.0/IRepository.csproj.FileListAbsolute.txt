@@ -11,3 +11,5 @@ D:\Projects\UPCTaggingInterface\IRepository\bin\Debug\netcoreapp2.0\CommonEntiti
 D:\Projects\UPCTaggingInterface\IRepository\bin\Debug\netcoreapp2.0\Repositories.Entities.dll
 D:\Projects\UPCTaggingInterface\IRepository\bin\Debug\netcoreapp2.0\CommonEntities.pdb
 D:\Projects\UPCTaggingInterface\IRepository\bin\Debug\netcoreapp2.0\Repositories.Entities.pdb
+D:\Projects\UPCTaggingInterface\IRepository\bin\Debug\netcoreapp2.0\Microsoft.EntityFrameworkCore.dll
+D:\Projects\UPCTaggingInterface\IRepository\bin\Debug\netcoreapp2.0\Microsoft.EntityFrameworkCore.xml
