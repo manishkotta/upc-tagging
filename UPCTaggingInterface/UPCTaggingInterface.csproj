@@ -6,12 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="clientApp\src\app\modals\product.category.ts" />
+    <None Remove="clientApp\src\app\modals\product.subcategory.ts" />
+    <None Remove="clientApp\src\app\modals\product.type.ts" />
     <None Remove="clientApp\src\app\modals\upc.filter.ts" />
     <None Remove="clientApp\src\app\modals\upc.untagged.ts" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="TemporaryFiles\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
@@ -35,6 +37,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="clientApp\src\app\modals\product.category.ts" />
+    <TypeScriptCompile Include="clientApp\src\app\modals\product.subcategory.ts" />
+    <TypeScriptCompile Include="clientApp\src\app\modals\product.type.ts" />
     <TypeScriptCompile Include="clientApp\src\app\modals\upc.filter.ts" />
     <TypeScriptCompile Include="clientApp\src\app\modals\upc.untagged.ts" />
   </ItemGroup>
