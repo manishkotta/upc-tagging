@@ -8,6 +8,6 @@ namespace IRepository
 {
     public interface IUntaggedUPCRepository
     {
-        Task<Result<List<Repositories.Entities.UntaggedUPC>>> GetUntaggedUPCList();
+        Task<Result<List<Repositories.Entities.UntaggedUPC>>> GetUntaggedUPCList(UPCSearchFilter upcSearch);
     }
 }

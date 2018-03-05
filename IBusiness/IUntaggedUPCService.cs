@@ -6,6 +6,6 @@ namespace IBusiness
 {
     public interface IUntaggedUPCService
     {
-        Task<Result<List<Business.Entities.UntaggedUPCBusinessModal>>> GetUPCList();
+        Task<Result<List<Business.Entities.UntaggedUPCBusinessModal>>> GetUPCList(UPCSearchFilter upcFilter);
     }
 }

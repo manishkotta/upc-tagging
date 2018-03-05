@@ -20,11 +20,11 @@ namespace BusinessProvider
             _objectMapper = objectMapper;
         }
 
-        public async Task<Result<List<UntaggedUPCBusinessModal>>> GetUPCList()
+        public async Task<Result<List<UntaggedUPCBusinessModal>>> GetUPCList(UPCSearchFilter searchFilter)
         {
             try
             {
-                var untaggedGroup = await _untagggedUPCRepo.GetUntaggedUPCList();
+                var untaggedGroup = await _untagggedUPCRepo.GetUntaggedUPCList(searchFilter);
                 return  Result.Ok(_objectMapper.GroupMapper(untaggedGroup.Value));
             }
             catch(Exception ex)

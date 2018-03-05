@@ -9,7 +9,8 @@
       "IRepository/1.0.0": {
         "dependencies": {
           "CommonEntities": "1.0.0",
-          "Repositories.Entities": "1.0.0"
+          "Repositories.Entities": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "2.0.1.0"
         },
         "runtime": {
           "IRepository.dll": {}
@@ -41,6 +42,11 @@
         "runtime": {
           "Repositories.Entities.dll": {}
         }
+      },
+      "Microsoft.EntityFrameworkCore/2.0.1.0": {
+        "runtime": {
+          "Microsoft.EntityFrameworkCore.dll": {}
+        }
       }
     }
   },
@@ -71,6 +77,11 @@
     },
     "Repositories.Entities/1.0.0": {
       "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.EntityFrameworkCore/2.0.1.0": {
+      "type": "reference",
       "serviceable": false,
       "sha512": ""
     }

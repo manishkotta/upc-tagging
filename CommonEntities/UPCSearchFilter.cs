@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Business.Entities
+namespace CommonEntities
 {
     public class UPCSearchFilter
     {
-        public List<string> UPCCode { get; set; }
+        public string UPCCode { get; set; }
+
+        public string Description { get; set; }
 
         public List<int> Type { get; set; }
 
@@ -15,6 +17,14 @@ namespace Business.Entities
         public List<int> ProductSubcategory { get; set; }
 
         public string ProductSizing { get; set; }
+
+        public int SortOrder { get; set; }
+
+        public string SortField { get; set; }
+
+        public int Rows { get; set; }
+
+        public int First { get; set; }
 
         public int UserID { get; set; }
     }
