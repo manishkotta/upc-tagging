@@ -218,12 +218,24 @@
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
       },
+      "Business.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Business.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Business.Entities.dll": {}
+        }
+      },
       "CommonEntities/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
+          "Business.Entities": "1.0.0",
           "ExcelDataReader": "3.4.0",
-          "ExcelDataReader.DataSet": "3.4.0"
+          "ExcelDataReader.DataSet": "3.4.0",
+          "Repositories.Entities": "1.0.0"
         },
         "compile": {
           "bin/placeholder/CommonEntities.dll": {}
@@ -733,6 +745,11 @@
         "netstandard.library.2.0.0.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "Business.Entities/1.0.0": {
+      "type": "project",
+      "path": "../Business.Entities/Business.Entities.csproj",
+      "msbuildProject": "../Business.Entities/Business.Entities.csproj"
     },
     "CommonEntities/1.0.0": {
       "type": "project",

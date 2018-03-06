@@ -13,11 +13,9 @@ namespace BusinessProvider
     public class UntagggedUPCService : IUntaggedUPCService
     {
         protected IUntaggedUPCRepository _untagggedUPCRepo;
-        protected IObjectMapper _objectMapper;
-        public UntagggedUPCService(IUntaggedUPCRepository untagggedUPCRepo,IObjectMapper objectMapper)
+        public UntagggedUPCService(IUntaggedUPCRepository untagggedUPCRepo)
         {
             _untagggedUPCRepo = untagggedUPCRepo;
-            _objectMapper = objectMapper;
         }
 
         public async Task<Result<List<UntaggedUPCBusinessModal>>> GetUPCList(UPCSearchFilter searchFilter)
@@ -25,7 +23,7 @@ namespace BusinessProvider
             try
             {
                 var untaggedGroup = await _untagggedUPCRepo.GetUntaggedUPCList(searchFilter);
-                return  Result.Ok(_objectMapper.GroupMapper(untaggedGroup.Value));
+                return  Result.Ok(ObjectMapper.GroupMapper(untaggedGroup.Value));
             }
             catch(Exception ex)
             {

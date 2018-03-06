@@ -217,6 +217,26 @@
         "build": {
           "build/netstandard2.0/NETStandard.Library.targets": {}
         }
+      },
+      "Business.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Business.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Business.Entities.dll": {}
+        }
+      },
+      "Repositories.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "compile": {
+          "bin/placeholder/Repositories.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Repositories.Entities.dll": {}
+        }
       }
     }
   },
@@ -709,13 +729,25 @@
         "netstandard.library.2.0.0.nupkg.sha512",
         "netstandard.library.nuspec"
       ]
+    },
+    "Business.Entities/1.0.0": {
+      "type": "project",
+      "path": "../Business.Entities/Business.Entities.csproj",
+      "msbuildProject": "../Business.Entities/Business.Entities.csproj"
+    },
+    "Repositories.Entities/1.0.0": {
+      "type": "project",
+      "path": "../Repositories.Entities/Repositories.Entities.csproj",
+      "msbuildProject": "../Repositories.Entities/Repositories.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
+      "Business.Entities >= 1.0.0",
       "ExcelDataReader >= 3.4.0",
       "ExcelDataReader.DataSet >= 3.4.0",
-      "Microsoft.NETCore.App >= 2.0.0"
+      "Microsoft.NETCore.App >= 2.0.0",
+      "Repositories.Entities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -753,7 +785,14 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\Projects\\UPCTaggingInterface\\Business.Entities\\Business.Entities.csproj": {
+              "projectPath": "D:\\Projects\\UPCTaggingInterface\\Business.Entities\\Business.Entities.csproj"
+            },
+            "D:\\Projects\\UPCTaggingInterface\\Repositories.Entities\\Repositories.Entities.csproj": {
+              "projectPath": "D:\\Projects\\UPCTaggingInterface\\Repositories.Entities\\Repositories.Entities.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

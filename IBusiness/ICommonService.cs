@@ -1,5 +1,5 @@
 ﻿using CommonEntities;
-using Repositories.Entities;
+using Business.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using IBusiness;
 using Business.Entities;
-using Repositories.Entities;
+
 using CommonEntities;
 
 namespace UPCTaggingInterface.Controllers

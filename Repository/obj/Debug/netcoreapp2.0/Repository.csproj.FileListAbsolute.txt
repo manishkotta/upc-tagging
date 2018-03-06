@@ -13,3 +13,5 @@ D:\Projects\UPCTaggingInterface\Repository\obj\Debug\netcoreapp2.0\Repository.As
 D:\Projects\UPCTaggingInterface\Repository\obj\Debug\netcoreapp2.0\Repository.AssemblyInfo.cs
 D:\Projects\UPCTaggingInterface\Repository\obj\Debug\netcoreapp2.0\Repository.dll
 D:\Projects\UPCTaggingInterface\Repository\obj\Debug\netcoreapp2.0\Repository.pdb
+D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\Business.Entities.dll
+D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\Business.Entities.pdb

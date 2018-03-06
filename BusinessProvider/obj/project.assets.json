@@ -232,8 +232,10 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
+          "Business.Entities": "1.0.0",
           "ExcelDataReader": "3.4.0",
-          "ExcelDataReader.DataSet": "3.4.0"
+          "ExcelDataReader.DataSet": "3.4.0",
+          "Repositories.Entities": "1.0.0"
         },
         "compile": {
           "bin/placeholder/CommonEntities.dll": {}

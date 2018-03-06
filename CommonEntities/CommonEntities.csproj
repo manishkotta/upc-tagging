@@ -9,4 +9,9 @@
     <PackageReference Include="ExcelDataReader.DataSet" Version="3.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Business.Entities\Business.Entities.csproj" />
+    <ProjectReference Include="..\Repositories.Entities\Repositories.Entities.csproj" />
+  </ItemGroup>
+
 </Project>

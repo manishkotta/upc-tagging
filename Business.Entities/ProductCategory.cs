@@ -1,6 +1,5 @@
 ﻿
-
-namespace Repositories.Entities
+namespace Business.Entities
 {
     public class ProductCategory
     {

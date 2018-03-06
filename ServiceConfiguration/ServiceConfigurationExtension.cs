@@ -31,7 +31,6 @@ namespace ServiceConfiguration
         {
             services.AddScoped<IUPCTaggingService, UPCTaggingService>();
             services.AddScoped<IUntaggedUPCService, UntagggedUPCService>();
-            services.AddScoped<IObjectMapper, ObjectMapper>();
             services.AddScoped<ICommonService, CommonService>();
         }
 

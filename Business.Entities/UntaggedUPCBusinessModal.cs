@@ -12,12 +12,6 @@ namespace Business.Entities
 
         public string UPCCode { get; set; }
 
-        public int? ProductTypeID { get; set; }
-
-        public int? ProductCategoryID { get; set; }
-
-        public int? ProductSubcategoryID { get; set; }
-
         public string ProductSizing { get; set; }
  
         public int? ItemAssignedTo { get; set; }
@@ -26,11 +20,11 @@ namespace Business.Entities
 
         public int? StatusID { get; set; }
 
-        public string ProductType { get; set; }
+        public ProductType ProductType { get; set; }
 
-        public string ProductCategory { get; set; }
+        public ProductCategory ProductCategory { get; set; }
 
-        public string ProductSubCategory { get; set; }
+        public ProductSubCategory ProductSubCategory { get; set; }
 
     }
 }

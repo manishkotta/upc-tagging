@@ -7,3 +7,7 @@ D:\Projects\UPCTaggingInterface\CommonEntities\obj\Debug\netcoreapp2.0\CommonEnt
 D:\Projects\UPCTaggingInterface\CommonEntities\obj\Debug\netcoreapp2.0\CommonEntities.AssemblyInfo.cs
 D:\Projects\UPCTaggingInterface\CommonEntities\obj\Debug\netcoreapp2.0\CommonEntities.dll
 D:\Projects\UPCTaggingInterface\CommonEntities\obj\Debug\netcoreapp2.0\CommonEntities.pdb
+D:\Projects\UPCTaggingInterface\CommonEntities\bin\Debug\netcoreapp2.0\Business.Entities.dll
+D:\Projects\UPCTaggingInterface\CommonEntities\bin\Debug\netcoreapp2.0\Repositories.Entities.dll
+D:\Projects\UPCTaggingInterface\CommonEntities\bin\Debug\netcoreapp2.0\Business.Entities.pdb
+D:\Projects\UPCTaggingInterface\CommonEntities\bin\Debug\netcoreapp2.0\Repositories.Entities.pdb

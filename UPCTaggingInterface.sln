@@ -15,23 +15,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccess", "DataAccess", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{E36F2843-4A50-4114-9F2F-F6127A80684D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IBusiness", "IBusiness\IBusiness.csproj", "{074B2173-60A8-4590-9E97-66E74F433998}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IBusiness", "IBusiness\IBusiness.csproj", "{074B2173-60A8-4590-9E97-66E74F433998}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessProvider", "BusinessProvider\BusinessProvider.csproj", "{1A1EEA4E-1421-4C4A-B0F5-2EA2933F7181}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessProvider", "BusinessProvider\BusinessProvider.csproj", "{1A1EEA4E-1421-4C4A-B0F5-2EA2933F7181}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonEntities", "CommonEntities\CommonEntities.csproj", "{E0A1902D-2D15-42EE-AC6D-CBBD04F51DDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonEntities", "CommonEntities\CommonEntities.csproj", "{E0A1902D-2D15-42EE-AC6D-CBBD04F51DDE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceConfiguration", "ServiceConfiguration\ServiceConfiguration.csproj", "{1B7C0129-C567-4AA0-82A1-1787B538B268}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceConfiguration", "ServiceConfiguration\ServiceConfiguration.csproj", "{1B7C0129-C567-4AA0-82A1-1787B538B268}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IRepository", "IRepository\IRepository.csproj", "{677683EE-2475-4746-953A-3C9199D4202D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IRepository", "IRepository\IRepository.csproj", "{677683EE-2475-4746-953A-3C9199D4202D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "Repository\Repository.csproj", "{24BB06F8-D76C-45D6-89B8-28925F4D1A67}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "Repository\Repository.csproj", "{24BB06F8-D76C-45D6-89B8-28925F4D1A67}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business.Entities", "Business.Entities\Business.Entities.csproj", "{CE8BA465-8E12-48F4-A99F-CB72103CECB8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business.Entities", "Business.Entities\Business.Entities.csproj", "{CE8BA465-8E12-48F4-A99F-CB72103CECB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories.Entities", "Repositories.Entities\Repositories.Entities.csproj", "{EB8B45D6-8786-48A0-BCF3-8B6FD5F934E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories.Entities", "Repositories.Entities\Repositories.Entities.csproj", "{EB8B45D6-8786-48A0-BCF3-8B6FD5F934E2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel.Entities", "ViewModel.Entities\ViewModel.Entities.csproj", "{E88BBC53-CFDC-4F5D-B713-B552CA52C61B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModel.Entities", "ViewModel.Entities\ViewModel.Entities.csproj", "{E88BBC53-CFDC-4F5D-B713-B552CA52C61B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

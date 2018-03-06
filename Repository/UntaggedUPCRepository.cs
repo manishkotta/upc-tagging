@@ -61,7 +61,7 @@ namespace Repository
                         _context.OrderBy(s => s.ProductType.ProductTypeName);
                         break;
                     case "productCategory":
-                        _context.OrderBy(s => s.ProductCategory.Category);
+                        _context.OrderBy(s => s.ProductCategory.CategoryName);
                         break;
                     case "productSubCategory":
                         _context.OrderBy(s => s.ProductSubCategory.SubcategoryName);
@@ -92,7 +92,7 @@ namespace Repository
                         _context.OrderByDescending(s => s.ProductType.ProductTypeName);
                         break;
                     case "productCategory":
-                        _context.OrderByDescending(s => s.ProductCategory.Category);
+                        _context.OrderByDescending(s => s.ProductCategory.CategoryName);
                         break;
                     case "productSubCategory":
                         _context.OrderByDescending(s => s.ProductSubCategory.SubcategoryName);
@@ -123,8 +123,9 @@ namespace Repository
                     .Include(s => s.ProductSubCategory);
 
                 var filteredSet = CustomWhere(set, upcSearch);
-
-                var orderedSet = CustomSort(filteredSet, upcSearch).Skip(upcSearch.First).Take(upcSearch.Rows / 2);
+                var test = CustomSort(filteredSet, upcSearch).AsQueryable();
+                var t = test.ToString();
+                var orderedSet = test.Skip(upcSearch.First).Take(upcSearch.Rows / 2);
 
                 return Result.Ok(await orderedSet.ToListAsync());
             }

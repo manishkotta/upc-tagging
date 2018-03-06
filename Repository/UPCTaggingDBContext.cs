@@ -45,7 +45,7 @@ namespace Repository
             modelBuilder.Entity<ProductCategory>(entity => {
                 entity.ToTable("category");
                 entity.HasKey(e => e.CategoryID);
-                entity.Property(e => e.Category).HasColumnName("category");
+                entity.Property(e => e.CategoryName).HasColumnName("category");
                 entity.Property(e => e.CategoryID).HasColumnName("categoryid");
 
             });
