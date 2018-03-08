@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "f792a4b2352542164d81bf6508209eaf9919610d"
+    "signature": "b24526eb5585a746872c3e2074982bcad2d2c104"
   },
   "compilationOptions": {},
   "targets": {
@@ -117,6 +117,15 @@
       "Microsoft.Extensions.Logging.Abstractions/2.0.0": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Console/2.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Logging": "2.0.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Console.dll": {}
         }
       },
       "Microsoft.Extensions.Options/2.0.0": {
@@ -375,7 +384,7 @@
           "BusinessProvider.dll": {}
         }
       },
-      "CommonEntities/1.0.0": {
+      "Common/1.0.0": {
         "dependencies": {
           "Business.Entities": "1.0.0",
           "ExcelDataReader": "3.4.0",
@@ -383,13 +392,13 @@
           "Repositories.Entities": "1.0.0"
         },
         "runtime": {
-          "CommonEntities.dll": {}
+          "Common.dll": {}
         }
       },
       "IBusiness/1.0.0": {
         "dependencies": {
           "Business.Entities": "1.0.0",
-          "CommonEntities": "1.0.0",
+          "Common": "1.0.0",
           "Repositories.Entities": "1.0.0"
         },
         "runtime": {
@@ -398,7 +407,7 @@
       },
       "IRepository/1.0.0": {
         "dependencies": {
-          "CommonEntities": "1.0.0",
+          "Common": "1.0.0",
           "Repositories.Entities": "1.0.0"
         },
         "runtime": {
@@ -414,6 +423,7 @@
         "dependencies": {
           "IRepository": "1.0.0",
           "Microsoft.Extensions.Configuration": "2.0.0",
+          "Microsoft.Extensions.Logging.Console": "2.0.0",
           "Npgsql": "3.2.6",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "2.0.1",
           "Repositories.Entities": "1.0.0"
@@ -520,6 +530,13 @@
       "sha512": "sha512-6ZCllUYGFukkymSTx3Yr0G/ajRxoNJp7/FqSxSB4fGISST54ifBhgu4Nc0ItGi3i6DqwuNd8SUyObmiC++AO2Q==",
       "path": "microsoft.extensions.logging.abstractions/2.0.0",
       "hashPath": "microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Console/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-NBjNp899FW7byDsex2ch/CkwNd2GbuHQIXCbvUVqOzSbnIsYrxOaR//BY2h2apJhnqm10IPLGkcjXxUyfAcIKA==",
+      "path": "microsoft.extensions.logging.console/2.0.0",
+      "hashPath": "microsoft.extensions.logging.console.2.0.0.nupkg.sha512"
     },
     "Microsoft.Extensions.Options/2.0.0": {
       "type": "package",
@@ -762,7 +779,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CommonEntities/1.0.0": {
+    "Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

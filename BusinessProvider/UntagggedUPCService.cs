@@ -1,5 +1,4 @@
-﻿using CommonEntities;
-using IBusiness;
+﻿using IBusiness;
 using Repositories.Entities;
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,8 @@ using System.Text;
 using System.Threading.Tasks;
 using IRepository;
 using Business.Entities;
+using Common.CommonUtilities;
+using Common.CommonEntities;
 
 namespace BusinessProvider
 {
@@ -20,15 +21,22 @@ namespace BusinessProvider
 
         public async Task<Result<List<UntaggedUPCBusinessModal>>> GetUPCList(UPCSearchFilter searchFilter)
         {
-            try
-            {
                 var untaggedGroup = await _untagggedUPCRepo.GetUntaggedUPCList(searchFilter);
-                return  Result.Ok(ObjectMapper.GroupMapper(untaggedGroup.Value));
-            }
-            catch(Exception ex)
-            {
-                return Result.Fail<List<UntaggedUPCBusinessModal>>(ex.Message);
-            }
+                return  Result.Ok(ObjectMapper.CreateMap(untaggedGroup.Value));  
         }
+
+        public async Task<Result<UntaggedUPCBusinessModal>> UpdateUntaggedUPC(UntaggedUPCBusinessModal upcBusinessModal,int userID)
+        {
+            var untaggedUPCRepoObj = ObjectMapper.CreateMap(upcBusinessModal);
+
+            untaggedUPCRepoObj.ItemModifiedBy = userID;
+            untaggedUPCRepoObj.ItemModifiedAt = DateTime.UtcNow;
+            untaggedUPCRepoObj.StatusID = (int)UPCType.SavedUPC;
+
+            var result = await _untagggedUPCRepo.UpdateUntaggedUPC(untaggedUPCRepoObj);
+            if (result == null) return Result.Fail<UntaggedUPCBusinessModal>(Constants.BadRequestErrorMessage);
+            return Result.Ok(ObjectMapper.CreateMap(result.Value));
+        }
+     
     }
 }

@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v2.0": {
       "IRepository/1.0.0": {
         "dependencies": {
-          "CommonEntities": "1.0.0",
+          "Common": "1.0.0",
           "Repositories.Entities": "1.0.0",
           "Microsoft.EntityFrameworkCore": "2.0.1.0"
         },
@@ -34,7 +34,7 @@
           "Business.Entities.dll": {}
         }
       },
-      "CommonEntities/1.0.0": {
+      "Common/1.0.0": {
         "dependencies": {
           "Business.Entities": "1.0.0",
           "ExcelDataReader": "3.4.0",
@@ -42,7 +42,7 @@
           "Repositories.Entities": "1.0.0"
         },
         "runtime": {
-          "CommonEntities.dll": {}
+          "Common.dll": {}
         }
       },
       "Repositories.Entities/1.0.0": {
@@ -82,7 +82,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CommonEntities/1.0.0": {
+    "Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

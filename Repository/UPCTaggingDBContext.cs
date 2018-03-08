@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 using Repositories.Entities;
 
 namespace Repository
@@ -7,7 +9,20 @@ namespace Repository
     {
         public UPCTaggingDBContext(DbContextOptions<UPCTaggingDBContext> options)
            : base(options)
-        { }
+        {
+
+        }
+
+        // public static readonly LoggerFactory MyLoggerFactory
+        //= new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
+
+        public static readonly LoggerFactory MyLoggerFactory
+= new LoggerFactory(new[]
+{
+        new ConsoleLoggerProvider((category, level)
+            => category == DbLoggerCategory.Database.Command.Name
+               && level == LogLevel.Information, true)
+});
 
         public DbSet<UntaggedUPC> UntaggedUPC { get; set; }
         public DbSet<TaggedUPC> TaggedUPC { get; set; }
@@ -22,7 +37,7 @@ namespace Repository
             modelBuilder.Entity<UntaggedUPC>(entity =>
             {
                 entity.HasKey(e => e.UntaggedUPCID);
-                entity.Property(e => e.Description).HasMaxLength(255);  
+                entity.Property(e => e.Description).HasMaxLength(255);
             });
 
             modelBuilder.Entity<TaggedUPC>().ToTable("TaggedUPC");
@@ -33,8 +48,9 @@ namespace Repository
                 entity.Property(e => e.IsMigrated).HasDefaultValue(false);
             });
 
-            
-            modelBuilder.Entity<ProductType>(entity => {
+
+            modelBuilder.Entity<ProductType>(entity =>
+            {
                 entity.ToTable("type");
                 entity.HasKey(e => e.TypeID);
                 entity.Property(e => e.ProductTypeName).HasMaxLength(255).HasColumnName("producttype");
@@ -42,7 +58,8 @@ namespace Repository
 
             });
 
-            modelBuilder.Entity<ProductCategory>(entity => {
+            modelBuilder.Entity<ProductCategory>(entity =>
+            {
                 entity.ToTable("category");
                 entity.HasKey(e => e.CategoryID);
                 entity.Property(e => e.CategoryName).HasColumnName("category");
@@ -50,15 +67,23 @@ namespace Repository
 
             });
 
-            modelBuilder.Entity<ProductSubCategory>(entity => {
+            modelBuilder.Entity<ProductSubCategory>(entity =>
+            {
                 entity.ToTable("subcategory");
                 entity.HasKey(e => e.SubCategoryID);
                 entity.Property(e => e.SubcategoryName).HasColumnName("subcategory");
                 entity.Property(e => e.SubCategoryID).HasColumnName("subcategoryid");
-                
+
             });
 
 
-        } 
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder
+        .UseLoggerFactory(MyLoggerFactory); // Warning: Do not create a new ILoggerFactory instance each time
+
+        }
     }
 }

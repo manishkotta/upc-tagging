@@ -228,7 +228,7 @@
           "bin/placeholder/Business.Entities.dll": {}
         }
       },
-      "CommonEntities/1.0.0": {
+      "Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
@@ -238,10 +238,10 @@
           "Repositories.Entities": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/CommonEntities.dll": {}
+          "bin/placeholder/Common.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CommonEntities.dll": {}
+          "bin/placeholder/Common.dll": {}
         }
       },
       "Repositories.Entities/1.0.0": {
@@ -751,10 +751,10 @@
       "path": "../Business.Entities/Business.Entities.csproj",
       "msbuildProject": "../Business.Entities/Business.Entities.csproj"
     },
-    "CommonEntities/1.0.0": {
+    "Common/1.0.0": {
       "type": "project",
-      "path": "../CommonEntities/CommonEntities.csproj",
-      "msbuildProject": "../CommonEntities/CommonEntities.csproj"
+      "path": "../CommonEntities/Common.csproj",
+      "msbuildProject": "../CommonEntities/Common.csproj"
     },
     "Repositories.Entities/1.0.0": {
       "type": "project",
@@ -765,7 +765,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "Business.Entities >= 1.0.0",
-      "CommonEntities >= 1.0.0",
+      "Common >= 1.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "Repositories.Entities >= 1.0.0"
     ]
@@ -809,11 +809,11 @@
             "D:\\Projects\\UPCTaggingInterface\\Business.Entities\\Business.Entities.csproj": {
               "projectPath": "D:\\Projects\\UPCTaggingInterface\\Business.Entities\\Business.Entities.csproj"
             },
+            "D:\\Projects\\UPCTaggingInterface\\CommonEntities\\Common.csproj": {
+              "projectPath": "D:\\Projects\\UPCTaggingInterface\\CommonEntities\\Common.csproj"
+            },
             "D:\\Projects\\UPCTaggingInterface\\Repositories.Entities\\Repositories.Entities.csproj": {
               "projectPath": "D:\\Projects\\UPCTaggingInterface\\Repositories.Entities\\Repositories.Entities.csproj"
-            },
-            "D:\\Projects\\UPCTaggingInterface\\CommonEntities\\CommonEntities.csproj": {
-              "projectPath": "D:\\Projects\\UPCTaggingInterface\\CommonEntities\\CommonEntities.csproj"
             }
           }
         }

@@ -5,7 +5,7 @@ using System.Data;
 using System.Linq;
 using ExcelDataReader;
 
-namespace CommonEntities
+namespace Common.CommonUtilities
 {
     public static class Utilities
     {

@@ -1,12 +1,10 @@
 D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\Repository.deps.json
 D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\Repository.dll
 D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\Repository.pdb
-D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\CommonEntities.dll
 D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\IRepository.dll
 D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\Repositories.Entities.dll
 D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\IRepository.pdb
 D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\Repositories.Entities.pdb
-D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\CommonEntities.pdb
 D:\Projects\UPCTaggingInterface\Repository\obj\Debug\netcoreapp2.0\Repository.csprojResolveAssemblyReference.cache
 D:\Projects\UPCTaggingInterface\Repository\obj\Debug\netcoreapp2.0\Repository.csproj.CoreCompileInputs.cache
 D:\Projects\UPCTaggingInterface\Repository\obj\Debug\netcoreapp2.0\Repository.AssemblyInfoInputs.cache
@@ -15,3 +13,5 @@ D:\Projects\UPCTaggingInterface\Repository\obj\Debug\netcoreapp2.0\Repository.dl
 D:\Projects\UPCTaggingInterface\Repository\obj\Debug\netcoreapp2.0\Repository.pdb
 D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\Business.Entities.dll
 D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\Business.Entities.pdb
+D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\Common.dll
+D:\Projects\UPCTaggingInterface\Repository\bin\Debug\netcoreapp2.0\Common.pdb

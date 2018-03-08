@@ -10,10 +10,9 @@ using System.Net.Http;
 using System.IO;
 using IBusiness;
 using Microsoft.AspNetCore.Cors;
-using ExcelDataReader;
 using System.Data;
 using System.Diagnostics;
-using CommonEntities;
+using Common.CommonUtilities;
 
 namespace UPCTaggingInterface.Controllers
 {
@@ -28,7 +27,7 @@ namespace UPCTaggingInterface.Controllers
         }
 
         [HttpPost]
-        public async Task<HttpResponseMessage> UploadDocument()
+        public async Task<IActionResult> UploadDocument()
         {
             try
             {
@@ -36,7 +35,7 @@ namespace UPCTaggingInterface.Controllers
                 //stopWatch.Start();
 
                 var files = Request.Form.Files;
-                if (files.Count() <= 0) return new HttpResponseMessage(HttpStatusCode.NoContent);
+                if (files.Count() <= 0) return BadRequest(Constants.BadRequestErrorMessage);
                 var rootFolder = Directory.GetCurrentDirectory();
                 var file= files[0];
                 var stream = file.OpenReadStream();
@@ -44,7 +43,7 @@ namespace UPCTaggingInterface.Controllers
                 var extension = Path.GetExtension(file.FileName);
                 var dataTable = Utilities.ExcelToDataTable(extension, stream);
 
-                if (dataTable.IsNullOrEmpty()) return new HttpResponseMessage(HttpStatusCode.NoContent);
+                if (dataTable.IsNullOrEmpty()) return BadRequest(Constants.BadRequestErrorMessage);
 
                 _upcTaggingService.SaveFileToTable(dataTable,"\t");
                 _upcTaggingService.CaptureUntaggedUPC();
@@ -59,10 +58,10 @@ namespace UPCTaggingInterface.Controllers
             }
             catch(Exception ex)
             {
-                return new HttpResponseMessage(HttpStatusCode.ExpectationFailed);
+                return BadRequest(Constants.BadRequestErrorMessage);
             }
 
-            return new HttpResponseMessage(HttpStatusCode.OK);
+            return Ok();
         }
     }
 }

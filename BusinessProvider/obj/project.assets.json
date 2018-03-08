@@ -228,7 +228,7 @@
           "bin/placeholder/Business.Entities.dll": {}
         }
       },
-      "CommonEntities/1.0.0": {
+      "Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
@@ -238,10 +238,10 @@
           "Repositories.Entities": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/CommonEntities.dll": {}
+          "bin/placeholder/Common.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CommonEntities.dll": {}
+          "bin/placeholder/Common.dll": {}
         }
       },
       "IBusiness/1.0.0": {
@@ -249,7 +249,7 @@
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
           "Business.Entities": "1.0.0",
-          "CommonEntities": "1.0.0",
+          "Common": "1.0.0",
           "Repositories.Entities": "1.0.0"
         },
         "compile": {
@@ -263,7 +263,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
-          "CommonEntities": "1.0.0",
+          "Common": "1.0.0",
           "Repositories.Entities": "1.0.0"
         },
         "compile": {
@@ -780,10 +780,10 @@
       "path": "../Business.Entities/Business.Entities.csproj",
       "msbuildProject": "../Business.Entities/Business.Entities.csproj"
     },
-    "CommonEntities/1.0.0": {
+    "Common/1.0.0": {
       "type": "project",
-      "path": "../CommonEntities/CommonEntities.csproj",
-      "msbuildProject": "../CommonEntities/CommonEntities.csproj"
+      "path": "../CommonEntities/Common.csproj",
+      "msbuildProject": "../CommonEntities/Common.csproj"
     },
     "IBusiness/1.0.0": {
       "type": "project",

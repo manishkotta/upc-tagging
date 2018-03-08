@@ -1,4 +1,6 @@
-﻿using CommonEntities;
+﻿using Common.CommonEntities;
+using Common.CommonUtilities;
+using Repositories.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -8,6 +10,8 @@ namespace IRepository
 {
     public interface IUntaggedUPCRepository
     {
-        Task<Result<List<Repositories.Entities.UntaggedUPC>>> GetUntaggedUPCList(UPCSearchFilter upcSearch);
+        Task<Result<List<UntaggedUPC>>> GetUntaggedUPCList(UPCSearchFilter upcSearch);
+
+        Task<Result<UntaggedUPC>> UpdateUntaggedUPC(UntaggedUPC upc);
     }
 }

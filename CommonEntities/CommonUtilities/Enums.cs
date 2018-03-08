@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CommonEntities
+namespace Common.CommonUtilities
 {
     public enum UPCType
     {
-        Tagged = 1,
-        UnTagged = 2,
-        SavedUPC = 3
+        UnTagged = 1,
+        SavedUPC = 2,
+        Approved = 3
     }
    
 }

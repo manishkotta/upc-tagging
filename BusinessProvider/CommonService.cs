@@ -1,12 +1,11 @@
-﻿using CommonEntities;
-using Business.Entities;
+﻿using Business.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using IBusiness;
 using IRepository;
-
+using Common.CommonUtilities;
 
 namespace BusinessProvider
 {
@@ -18,11 +17,11 @@ namespace BusinessProvider
             _commonRepo = commonRepo;
         }
 
-        public async Task<Result<List<ProductType>>> GetTypeGroup() => Result.Ok(ObjectMapper.GroupMapper((await (_commonRepo.GetTypeGroup())).Value));
+        public async Task<Result<List<ProductType>>> GetTypeGroup() => Result.Ok(ObjectMapper.CreateMap((await (_commonRepo.GetTypeGroup())).Value));
 
-        public async Task<Result<List<ProductCategory>>> GetProductCategoryGroup() => Result.Ok(ObjectMapper.GroupMapper((await  _commonRepo.GetProductCategoryGroup()).Value));
+        public async Task<Result<List<ProductCategory>>> GetProductCategoryGroup() => Result.Ok(ObjectMapper.CreateMap((await  _commonRepo.GetProductCategoryGroup()).Value));
 
-        public async Task<Result<List<ProductSubCategory>>> GetProductSubCategoryGroup() => Result.Ok(ObjectMapper.GroupMapper((await _commonRepo.GetProductSubCategoryGroup()).Value));
+        public async Task<Result<List<ProductSubCategory>>> GetProductSubCategoryGroup() => Result.Ok(ObjectMapper.CreateMap((await _commonRepo.GetProductSubCategoryGroup()).Value));
 
     }
 }

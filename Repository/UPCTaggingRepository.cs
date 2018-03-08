@@ -6,7 +6,7 @@ using System.Text;
 using System.Linq;
 using System.Data;
 using Microsoft.Extensions.Configuration;
-using CommonEntities;
+using Common.CommonUtilities;
 
 namespace Repository
 {
@@ -20,9 +20,7 @@ namespace Repository
 
         public bool BulkCopyToDB(IEnumerable<string> strArray)
         {
-            try
-            {
-                var connString = Configuration[Constants.PostgresqlConnStr];
+               var connString = Configuration[Constants.PostgresqlConnStr];
 
                 using (var conn = new NpgsqlConnection(connString))
                 {
@@ -36,19 +34,11 @@ namespace Repository
                     }
 
                 }
-            }
-            catch(Exception ex)
-            {
-                var f = ex;
-                return false;
-            }
             return true;
         }
 
         public bool ExecuteStoreProc(string cmdText,IDictionary<string,object> parameters)
         {
-            try
-            {
                 var connString = Configuration[Constants.PostgresqlConnStr];
 
                 using (var conn = new NpgsqlConnection(connString))
@@ -74,11 +64,6 @@ namespace Repository
                         tran.Commit();
                     }
                 }
-            }
-            catch (Exception ex)
-            {
-                return false;
-            }
             return true;
         }
 

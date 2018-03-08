@@ -13,8 +13,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using ServiceConfiguration;
 using Microsoft.EntityFrameworkCore;
-
-
+using UPCTaggingInterface.Diagnostics;
 
 namespace UPCTaggingInterface
 {
@@ -30,8 +29,9 @@ namespace UPCTaggingInterface
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var connectionString = Configuration[CommonEntities.Constants.PostgresqlConnStr];
+            var connectionString = Configuration[Common.CommonUtilities.Constants.PostgresqlConnStr];
             services.AddEntityFrameworkNpgsql().AddDbContext<Repository.UPCTaggingDBContext>(options => options.UseNpgsql(connectionString));
+                                               
 
             services.RegisterServices();
            
@@ -49,12 +49,13 @@ namespace UPCTaggingInterface
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials());
-
+            app.UseMiddleware<ExceptionHandlingMiddleware>();
             app.UseMvc();
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
 
         }
+       
     }
 }

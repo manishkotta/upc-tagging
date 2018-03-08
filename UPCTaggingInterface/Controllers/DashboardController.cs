@@ -6,8 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using IBusiness;
 using Business.Entities;
-
-using CommonEntities;
+using Common.CommonEntities;
+using Common.CommonUtilities;
 
 namespace UPCTaggingInterface.Controllers
 {
@@ -24,23 +24,36 @@ namespace UPCTaggingInterface.Controllers
         }
 
         [HttpPost]
-        [Route("get-untagged-upc")]
-        public async Task<List<UntaggedUPCBusinessModal>> GetUntaggedUPCList([FromBody] UPCSearchFilter filter)
+        [Route("untagged-upc")]
+        public async Task<IActionResult> GetUntaggedUPCList([FromBody] UPCSearchFilter filter)
         {
-            return  (await _untaggedUPCService.GetUPCList(filter)).Value;
+            var result = (await _untaggedUPCService.GetUPCList(filter));
+            if (!result.IsSuccessed) return BadRequest(Constants.BadRequestErrorMessage);
+                return Ok(result.Value);
         }
 
+
+        [HttpPost]
+        [Route("update-untagged-upc")]
+        public async Task<IActionResult> UpdateUntaggedUPC([FromBody] UntaggedUPCBusinessModal untaggedUPCBusinessModal)
+        {
+            var result = (await _untaggedUPCService.UpdateUntaggedUPC(untaggedUPCBusinessModal, 1764));
+            if (!result.IsSuccessed) return BadRequest(result.GetErrorString());
+            return Ok(result.Value);
+        }
+
+
         [HttpGet]
-        [Route("get-producttype")]
-        public async Task<List<ProductType>> GetTypeGroup() => (await _commonService.GetTypeGroup()).Value;
+        [Route("product-type")]
+        public async Task<IActionResult> GetTypeGroup() => Ok((await _commonService.GetTypeGroup()).Value);
  
         [HttpGet]
-        [Route("get-productcategory")]
-        public async Task<List<ProductCategory>> GetCategoryGroup() => (await _commonService.GetProductCategoryGroup()).Value;
+        [Route("product-category")]
+        public async Task<IActionResult> GetCategoryGroup() => Ok((await _commonService.GetProductCategoryGroup()).Value);
      
         [HttpGet]
-        [Route("get-productsubcategory")]
-        public async Task<List<ProductSubCategory>> GetSubCategoryGroup() => (await _commonService.GetProductSubCategoryGroup()).Value;
+        [Route("product-subcategory")]
+        public async Task<IActionResult> GetSubCategoryGroup() => Ok((await _commonService.GetProductSubCategoryGroup()).Value);
 
     }
 }

@@ -159,6 +159,19 @@
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
       },
+      "Microsoft.Extensions.Logging.Console/2.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "2.0.0",
+          "Microsoft.Extensions.Logging": "2.0.0"
+        },
+        "compile": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Console.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Logging.Console.dll": {}
+        }
+      },
       "Microsoft.Extensions.Options/2.0.0": {
         "type": "package",
         "dependencies": {
@@ -798,7 +811,7 @@
           "bin/placeholder/Business.Entities.dll": {}
         }
       },
-      "CommonEntities/1.0.0": {
+      "Common/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
@@ -808,17 +821,17 @@
           "Repositories.Entities": "1.0.0"
         },
         "compile": {
-          "bin/placeholder/CommonEntities.dll": {}
+          "bin/placeholder/Common.dll": {}
         },
         "runtime": {
-          "bin/placeholder/CommonEntities.dll": {}
+          "bin/placeholder/Common.dll": {}
         }
       },
       "IRepository/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v2.0",
         "dependencies": {
-          "CommonEntities": "1.0.0",
+          "Common": "1.0.0",
           "Repositories.Entities": "1.0.0"
         },
         "compile": {
@@ -1045,6 +1058,17 @@
         "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
         "microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512",
         "microsoft.extensions.logging.abstractions.nuspec"
+      ]
+    },
+    "Microsoft.Extensions.Logging.Console/2.0.0": {
+      "sha512": "NBjNp899FW7byDsex2ch/CkwNd2GbuHQIXCbvUVqOzSbnIsYrxOaR//BY2h2apJhnqm10IPLGkcjXxUyfAcIKA==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.console/2.0.0",
+      "files": [
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Console.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Console.xml",
+        "microsoft.extensions.logging.console.2.0.0.nupkg.sha512",
+        "microsoft.extensions.logging.console.nuspec"
       ]
     },
     "Microsoft.Extensions.Options/2.0.0": {
@@ -3086,10 +3110,10 @@
       "path": "../Business.Entities/Business.Entities.csproj",
       "msbuildProject": "../Business.Entities/Business.Entities.csproj"
     },
-    "CommonEntities/1.0.0": {
+    "Common/1.0.0": {
       "type": "project",
-      "path": "../CommonEntities/CommonEntities.csproj",
-      "msbuildProject": "../CommonEntities/CommonEntities.csproj"
+      "path": "../CommonEntities/Common.csproj",
+      "msbuildProject": "../CommonEntities/Common.csproj"
     },
     "IRepository/1.0.0": {
       "type": "project",
@@ -3106,6 +3130,7 @@
     ".NETCoreApp,Version=v2.0": [
       "IRepository >= 1.0.0",
       "Microsoft.Extensions.Configuration >= 2.0.0",
+      "Microsoft.Extensions.Logging.Console >= 2.0.0",
       "Microsoft.NETCore.App >= 2.0.0",
       "Npgsql >= 3.2.6",
       "Npgsql.EntityFrameworkCore.PostgreSQL >= 2.0.1",
@@ -3167,6 +3192,10 @@
       "netcoreapp2.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration": {
+            "target": "Package",
+            "version": "[2.0.0, )"
+          },
+          "Microsoft.Extensions.Logging.Console": {
             "target": "Package",
             "version": "[2.0.0, )"
           },

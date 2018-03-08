@@ -5,14 +5,12 @@ D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\UPCT
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\UPCTaggingInterface.pdb
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Business.Entities.dll
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\BusinessProvider.dll
-D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\CommonEntities.dll
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\IBusiness.dll
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\IRepository.dll
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Repositories.Entities.dll
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Repository.dll
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\ServiceConfiguration.dll
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Business.Entities.pdb
-D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\CommonEntities.pdb
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\IBusiness.pdb
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Repositories.Entities.pdb
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\ServiceConfiguration.pdb
@@ -25,3 +23,5 @@ D:\Projects\UPCTaggingInterface\UPCTaggingInterface\obj\Debug\netcoreapp2.0\UPCT
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\obj\Debug\netcoreapp2.0\UPCTaggingInterface.AssemblyInfo.cs
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\obj\Debug\netcoreapp2.0\UPCTaggingInterface.dll
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\obj\Debug\netcoreapp2.0\UPCTaggingInterface.pdb
+D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Common.dll
+D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Common.pdb

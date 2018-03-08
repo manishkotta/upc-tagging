@@ -2,10 +2,8 @@ D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\IBusiness.deps
 D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\IBusiness.dll
 D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\IBusiness.pdb
 D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\Business.Entities.dll
-D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\CommonEntities.dll
 D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\Repositories.Entities.dll
 D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\Business.Entities.pdb
-D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\CommonEntities.pdb
 D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\Repositories.Entities.pdb
 D:\Projects\UPCTaggingInterface\IBusiness\obj\Debug\netcoreapp2.0\IBusiness.csprojResolveAssemblyReference.cache
 D:\Projects\UPCTaggingInterface\IBusiness\obj\Debug\netcoreapp2.0\IBusiness.csproj.CoreCompileInputs.cache
@@ -13,3 +11,5 @@ D:\Projects\UPCTaggingInterface\IBusiness\obj\Debug\netcoreapp2.0\IBusiness.Asse
 D:\Projects\UPCTaggingInterface\IBusiness\obj\Debug\netcoreapp2.0\IBusiness.AssemblyInfo.cs
 D:\Projects\UPCTaggingInterface\IBusiness\obj\Debug\netcoreapp2.0\IBusiness.dll
 D:\Projects\UPCTaggingInterface\IBusiness\obj\Debug\netcoreapp2.0\IBusiness.pdb
+D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\Common.dll
+D:\Projects\UPCTaggingInterface\IBusiness\bin\Debug\netcoreapp2.0\Common.pdb

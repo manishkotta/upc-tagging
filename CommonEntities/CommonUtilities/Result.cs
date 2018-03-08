@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CommonEntities
+namespace Common.CommonUtilities
 {
     public class Result<T> : Result
     {

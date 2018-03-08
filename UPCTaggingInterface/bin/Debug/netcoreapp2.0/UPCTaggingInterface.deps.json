@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "d7e1ce582b9f51d4ef50fad5299c34d62703a427"
+    "signature": "c8e07da019f605d04aa55b093b6903435389d3de"
   },
   "compilationOptions": {
     "defines": [
@@ -23,8 +23,9 @@
     ".NETCoreApp,Version=v2.0": {
       "UPCTaggingInterface/1.0.0": {
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "3.2.0",
           "Business.Entities": "1.0.0",
-          "CommonEntities": "1.0.0",
+          "Common": "1.0.0",
           "IBusiness": "1.0.0",
           "Microsoft.AspNetCore.All": "2.0.5",
           "Microsoft.AspNetCore.Cors": "2.0.1",
@@ -39,6 +40,47 @@
         },
         "compile": {
           "UPCTaggingInterface.dll": {}
+        }
+      },
+      "AutoMapper/6.1.1": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.4.0",
+          "System.Collections": "4.3.0",
+          "System.Collections.Concurrent": "4.3.0",
+          "System.Collections.Specialized": "4.3.0",
+          "System.ComponentModel.TypeConverter": "4.3.0",
+          "System.Diagnostics.Debug": "4.3.0",
+          "System.Dynamic.Runtime": "4.3.0",
+          "System.Globalization": "4.3.0",
+          "System.Linq": "4.3.0",
+          "System.Linq.Expressions": "4.3.0",
+          "System.Linq.Queryable": "4.3.0",
+          "System.Reflection": "4.3.0",
+          "System.Reflection.Extensions": "4.3.0",
+          "System.Resources.ResourceManager": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Runtime.Extensions": "4.3.0",
+          "System.Text.RegularExpressions": "4.3.0",
+          "System.Threading": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.3/AutoMapper.dll": {}
+        },
+        "compile": {
+          "lib/netstandard1.3/AutoMapper.dll": {}
+        }
+      },
+      "AutoMapper.Extensions.Microsoft.DependencyInjection/3.2.0": {
+        "dependencies": {
+          "AutoMapper": "6.1.1",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
+          "Microsoft.Extensions.DependencyModel": "2.0.3"
+        },
+        "runtime": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
+        },
+        "compile": {
+          "lib/netstandard2.0/AutoMapper.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
       "ExcelDataReader/3.4.0": {
@@ -2560,7 +2602,7 @@
           "System.Diagnostics.Debug": "4.3.0",
           "System.Linq": "4.3.0",
           "System.Linq.Expressions": "4.3.0",
-          "System.Linq.Queryable": "4.0.1",
+          "System.Linq.Queryable": "4.3.0",
           "System.ObjectModel": "4.3.0",
           "System.Reflection": "4.3.0",
           "System.Reflection.Extensions": "4.3.0",
@@ -3296,7 +3338,7 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
-      "System.Linq.Queryable/4.0.1": {
+      "System.Linq.Queryable/4.3.0": {
         "dependencies": {
           "System.Collections": "4.3.0",
           "System.Diagnostics.Debug": "4.3.0",
@@ -4129,7 +4171,7 @@
           "BusinessProvider.dll": {}
         }
       },
-      "CommonEntities/1.0.0": {
+      "Common/1.0.0": {
         "dependencies": {
           "Business.Entities": "1.0.0",
           "ExcelDataReader": "3.4.0",
@@ -4137,16 +4179,16 @@
           "Repositories.Entities": "1.0.0"
         },
         "runtime": {
-          "CommonEntities.dll": {}
+          "Common.dll": {}
         },
         "compile": {
-          "CommonEntities.dll": {}
+          "Common.dll": {}
         }
       },
       "IBusiness/1.0.0": {
         "dependencies": {
           "Business.Entities": "1.0.0",
-          "CommonEntities": "1.0.0",
+          "Common": "1.0.0",
           "Repositories.Entities": "1.0.0"
         },
         "runtime": {
@@ -4158,7 +4200,7 @@
       },
       "IRepository/1.0.0": {
         "dependencies": {
-          "CommonEntities": "1.0.0",
+          "Common": "1.0.0",
           "Repositories.Entities": "1.0.0"
         },
         "runtime": {
@@ -4180,6 +4222,7 @@
         "dependencies": {
           "IRepository": "1.0.0",
           "Microsoft.Extensions.Configuration": "2.0.0",
+          "Microsoft.Extensions.Logging.Console": "2.0.0",
           "Npgsql": "3.2.6",
           "Npgsql.EntityFrameworkCore.PostgreSQL": "2.0.1",
           "Repositories.Entities": "1.0.0"
@@ -4389,6 +4432,20 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "AutoMapper/6.1.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-A+6PAblvzmkXPS20nFBQJvlNSW5oEdyfN5+cxT/Du35fTNyuP5pNDXT64KT/jBgxt7CPduOM0Y7oLnNe0E5IXg==",
+      "path": "automapper/6.1.1",
+      "hashPath": "automapper.6.1.1.nupkg.sha512"
+    },
+    "AutoMapper.Extensions.Microsoft.DependencyInjection/3.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-528nEpAwniNn8Z6Ae9qTiM/kN4f0BxmWE9mDMEkqKKGxbuElmv6Kj9DVvTXECJkIt6ARerb9+vYbOifNpcwvXQ==",
+      "path": "automapper.extensions.microsoft.dependencyinjection/3.2.0",
+      "hashPath": "automapper.extensions.microsoft.dependencyinjection.3.2.0.nupkg.sha512"
     },
     "ExcelDataReader/3.4.0": {
       "type": "package",
@@ -6119,12 +6176,12 @@
       "path": "system.linq.parallel/4.3.0",
       "hashPath": "system.linq.parallel.4.3.0.nupkg.sha512"
     },
-    "System.Linq.Queryable/4.0.1": {
+    "System.Linq.Queryable/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Yn/WfYe9RoRfmSLvUt2JerP0BTGGykCZkQPgojaxgzF2N0oPo+/AhB8TXOpdCcNlrG3VRtsamtK2uzsp3cqRVw==",
-      "path": "system.linq.queryable/4.0.1",
-      "hashPath": "system.linq.queryable.4.0.1.nupkg.sha512"
+      "sha512": "sha512-In1Bmmvl/j52yPu3xgakQSI0YIckPUr870w4K5+Lak3JCCa8hl+my65lABOuKfYs4ugmZy25ScFerC4nz8+b6g==",
+      "path": "system.linq.queryable/4.3.0",
+      "hashPath": "system.linq.queryable.4.3.0.nupkg.sha512"
     },
     "System.Net.Http/4.3.0": {
       "type": "package",
@@ -6556,7 +6613,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "CommonEntities/1.0.0": {
+    "Common/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

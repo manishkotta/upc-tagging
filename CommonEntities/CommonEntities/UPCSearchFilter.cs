@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace CommonEntities
+namespace Common.CommonEntities
 {
     public class UPCSearchFilter
     {
@@ -17,6 +17,8 @@ namespace CommonEntities
         public List<int> ProductSubcategory { get; set; }
 
         public string ProductSizing { get; set; }
+
+        public List<int> Status { get; set; }
 
         public int SortOrder { get; set; }
 

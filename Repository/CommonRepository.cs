@@ -1,5 +1,4 @@
-﻿using CommonEntities;
-using Repositories.Entities;
+﻿using Repositories.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,6 +6,7 @@ using System.Threading.Tasks;
 using IRepository;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Common.CommonUtilities;
 
 namespace Repository
 {

@@ -761,9 +761,9 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "D:\\Projects\\UPCTaggingInterface\\CommonEntities\\CommonEntities.csproj",
-      "projectName": "CommonEntities",
-      "projectPath": "D:\\Projects\\UPCTaggingInterface\\CommonEntities\\CommonEntities.csproj",
+      "projectUniqueName": "D:\\Projects\\UPCTaggingInterface\\CommonEntities\\Common.csproj",
+      "projectName": "Common",
+      "projectPath": "D:\\Projects\\UPCTaggingInterface\\CommonEntities\\Common.csproj",
       "packagesPath": "C:\\Users\\manish.kotta\\.nuget\\packages\\",
       "outputPath": "D:\\Projects\\UPCTaggingInterface\\CommonEntities\\obj\\",
       "projectStyle": "PackageReference",

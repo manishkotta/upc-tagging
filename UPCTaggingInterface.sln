@@ -19,7 +19,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IBusiness", "IBusiness\IBus
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessProvider", "BusinessProvider\BusinessProvider.csproj", "{1A1EEA4E-1421-4C4A-B0F5-2EA2933F7181}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommonEntities", "CommonEntities\CommonEntities.csproj", "{E0A1902D-2D15-42EE-AC6D-CBBD04F51DDE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "CommonEntities\Common.csproj", "{E0A1902D-2D15-42EE-AC6D-CBBD04F51DDE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ServiceConfiguration", "ServiceConfiguration\ServiceConfiguration.csproj", "{1B7C0129-C567-4AA0-82A1-1787B538B268}"
 EndProject

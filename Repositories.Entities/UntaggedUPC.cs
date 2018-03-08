@@ -40,7 +40,7 @@ namespace Repositories.Entities
         [Column("itemmodifiedby")]
         public int? ItemModifiedBy { get; set; } 
         [Column("statusid")]
-        public int? StatusID { get; set; }
+        public int StatusID { get; set; }
 
         [ForeignKey("producttypeid")]
         public virtual ProductType ProductType { get; set; }

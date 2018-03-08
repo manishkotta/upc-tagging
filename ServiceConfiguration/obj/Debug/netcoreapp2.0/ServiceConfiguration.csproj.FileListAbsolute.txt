@@ -3,7 +3,6 @@ D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\Ser
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\ServiceConfiguration.pdb
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\Business.Entities.dll
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\BusinessProvider.dll
-D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\CommonEntities.dll
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\IBusiness.dll
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\IRepository.dll
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\Repositories.Entities.dll
@@ -13,7 +12,6 @@ D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\IBu
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\IRepository.pdb
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\Repository.pdb
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\Business.Entities.pdb
-D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\CommonEntities.pdb
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\Repositories.Entities.pdb
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\obj\Debug\netcoreapp2.0\ServiceConfiguration.csprojResolveAssemblyReference.cache
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\obj\Debug\netcoreapp2.0\ServiceConfiguration.csproj.CoreCompileInputs.cache
@@ -21,3 +19,5 @@ D:\Projects\UPCTaggingInterface\ServiceConfiguration\obj\Debug\netcoreapp2.0\Ser
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\obj\Debug\netcoreapp2.0\ServiceConfiguration.AssemblyInfo.cs
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\obj\Debug\netcoreapp2.0\ServiceConfiguration.dll
 D:\Projects\UPCTaggingInterface\ServiceConfiguration\obj\Debug\netcoreapp2.0\ServiceConfiguration.pdb
+D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\Common.dll
+D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\Common.pdb
