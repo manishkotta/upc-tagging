@@ -11,6 +11,8 @@ using NpgsqlTypes;
 using Common.CommonEntities;
 using Common.CommonUtilities;
 using Microsoft.Extensions.Logging;
+using System.Data;
+using System.Dynamic;
 
 namespace Repository
 {
@@ -26,122 +28,102 @@ namespace Repository
             //_logger = logger;
         }
 
-        private IQueryable<UntaggedUPC> CustomWhere(IQueryable<UntaggedUPC> query, UPCSearchFilter upcSearch)
+        private StringBuilder CustomWhereQuery(StringBuilder query, UPCSearchFilter upcSearch)
         {
-            if (upcSearch.Status != null && upcSearch.Status.Count > 0)
-                 
-
             if (!string.IsNullOrEmpty(upcSearch.UPCCode))
-                query.Where(s => s.UPCCode == upcSearch.UPCCode);
+                return query.AppendFormat($" WHERE s.upccode =@upccode");
 
-            if (upcSearch.Type != null && upcSearch.Type.Count >= 0)
-                query.Where(i => (i.ProductType != null && upcSearch.Type.Contains(i.ProductType.TypeID)));
+            if (upcSearch.Status != null && upcSearch.Status.Count > 0)
+                query.AppendFormat($" WHERE s.statusid IN ({string.Join(",", upcSearch.Status.Select(s => s.ToString())) })");
 
-            if (upcSearch.ProductCategory != null && upcSearch.ProductCategory.Count >= 0)
-            {
-                query.Where(i => upcSearch.ProductCategory.Any(x => x.Equals(i.ProductCategory.CategoryID)));
-            }
-            if (upcSearch.ProductSubcategory != null && upcSearch.ProductSubcategory.Count >= 0)
-                query.Where(i => (i.ProductSubCategory != null && upcSearch.ProductSubcategory.Contains(i.ProductSubCategory.SubCategoryID)));
+            if (upcSearch.Type != null && upcSearch.Type.Count > 0)
+                query.AppendFormat($" AND s.producttypeid IN ({string.Join(",", upcSearch.Type.Select(s => s.ToString())) })");
+
+            if (upcSearch.ProductCategory != null && upcSearch.ProductCategory.Count > 0)
+                query.AppendFormat($" AND s.productcategoryid IN ({string.Join(",", upcSearch.ProductCategory.Select(s => s.ToString())) })");
+
+            if (upcSearch.ProductSubcategory != null && upcSearch.ProductSubcategory.Count > 0)
+                query.AppendFormat($" AND s.productsubcategoryid IN ({string.Join(",", upcSearch.ProductSubcategory.Select(s => s.ToString())) })");
 
             if (!string.IsNullOrEmpty(upcSearch.ProductSizing))
-                query.Where(i => (i.ProductSizing == upcSearch.ProductSizing));
+                query.AppendFormat($" AND s.productsizing =@productsizing");
 
             if (!string.IsNullOrEmpty(upcSearch.Description))
-                query.Where(i => (i.Description.Contains(upcSearch.Description)));
-
-                //_context.Where(i => i.StatusID == 2);
+                query.AppendFormat($" AND s.description LIKE %@description%");
             return query;
         }
 
-        private IQueryable<UntaggedUPC> CustomSort(IQueryable<UntaggedUPC> query, UPCSearchFilter upcSearch)
+        private StringBuilder CustomSort(StringBuilder query, UPCSearchFilter upcSearch)
         {
-
-            if (upcSearch.SortOrder == 1)
+            var sortOrder = upcSearch.SortOrder == 1 ? "asc" : "desc";
+            if (!string.IsNullOrEmpty(upcSearch.SortField))
             {
+                query.AppendFormat(" ORDER BY");
                 switch (upcSearch.SortField)
                 {
                     case "descriptionID":
-                        query.OrderBy(s => s.DescriptionID);
+                        query.AppendFormat($" s.descriptionid {sortOrder}");
                         break;
                     case "description":
-                        query.OrderBy(s => s.Description);
+                        query.AppendFormat($" s.description {sortOrder}");
                         break;
                     case "upcCode":
-                        query.OrderBy(s => s.UPCCode);
+                        query.AppendFormat($" s.upcCode {sortOrder}");
                         break;
                     case "productType":
-                        query.OrderBy(s => s.ProductType.ProductTypeName);
+                        query.AppendFormat($" pt.producttype {sortOrder}");
                         break;
                     case "productCategory":
-                        query.OrderBy(s => s.ProductCategory.CategoryName);
+                        query.AppendFormat($" pc.category {sortOrder}");
                         break;
                     case "productSubCategory":
-                        query.OrderBy(s => s.ProductSubCategory.SubcategoryName);
+                        query.AppendFormat($" pst.subcategory {sortOrder}");
                         break;
                     case "productSizing":
-                        query.OrderBy(s => s.ProductSizing);
+                        query.AppendFormat($" s.productsizing {sortOrder}");
                         break;
                     default:
-                        query.OrderByDescending(s => s.ItemModifiedAt);
+                        query.AppendFormat($" s.descriptionID {sortOrder}");
                         break;
                 }
             }
-
-            else if (upcSearch.SortOrder == -1)
-            {
-                switch (upcSearch.SortField)
-                {
-                    case "descriptionID":
-                        query.OrderByDescending(s => s.DescriptionID);
-                        break;
-                    case "description":
-                        query.OrderByDescending(s => s.Description);
-                        break;
-                    case "upcCode":
-                        query.OrderByDescending(s => s.UPCCode);
-                        break;
-                    case "productType":
-                        query.OrderByDescending(s => s.ProductType.ProductTypeName);
-                        break;
-                    case "productCategory":
-                        query.OrderByDescending(s => s.ProductCategory.CategoryName);
-                        break;
-                    case "productSubCategory":
-                        query.OrderByDescending(s => s.ProductSubCategory.SubcategoryName);
-                        break;
-                    case "productSizing":
-                        query.OrderByDescending(s => s.ProductSizing);
-                        break;
-                    default:
-                        query.OrderByDescending(s => s.ItemModifiedAt);
-                        break;
-                }
-            }
-
             return query;
         }
 
         public async Task<Result<List<UntaggedUPC>>> GetUntaggedUPCList(UPCSearchFilter upcSearch)
         {
+            var query = new StringBuilder();
 
-            var x = from m in _dbContext.UntaggedUPC
-                    where upcSearch.Status.Contains(m.StatusID)
-                    select m;
+            query.AppendFormat(Constants.UnTaggedUPCQuery);
+            var whereQuery = CustomWhereQuery(query, upcSearch);
+            var orderQuery = CustomSort(query, upcSearch);
 
-            var query = _dbContext.UntaggedUPC
-                .Include(s => s.ProductType)
-                .Include(s => s.ProductCategory)
-                .Include(s => s.ProductSubCategory).AsQueryable();
+            orderQuery.AppendFormat($" LIMIT {upcSearch.Rows / 2} OFFSET  {upcSearch.First} ");
 
-            //var test = set.Where(i => i.StatusID == 2).ToList();
+           
 
-            
+            DataTable dt = new DataTable();
+            using (var command = _dbContext.Database.GetDbConnection().CreateCommand())
+            {
+                var upcCode = command.CreateParameter();
+                upcCode.ParameterName = "upccode";
+                upcCode.Value = upcSearch.UPCCode;
 
-            var filteredSet = CustomWhere(query, upcSearch);
-            var orderedSet =CustomSort(filteredSet, upcSearch).Skip(upcSearch.First).Take(upcSearch.Rows / 2).ToList();
-            //var result = orderedSet.ToList();
-            return Result.Ok(orderedSet);
+                var description = command.CreateParameter();
+                description.ParameterName = "description";
+                description.Value = upcSearch.Description;
+
+                var productSizing = command.CreateParameter();
+                productSizing.ParameterName = "productsizing";
+                productSizing.Value = upcSearch.ProductSizing;
+
+                command.CommandText = orderQuery.ToString();
+                _dbContext.Database.OpenConnection();
+                using (var result = await command.ExecuteReaderAsync())
+                    dt.Load(result);
+            }
+
+            return Result.Ok(DataTableToRepositoryModalMapper.DataTableToRepositoryObject(dt));
         }
 
         public async Task<Result<UntaggedUPC>> UpdateUntaggedUPC(UntaggedUPC upc)

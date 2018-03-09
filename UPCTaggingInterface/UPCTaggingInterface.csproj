@@ -11,6 +11,7 @@
     <None Remove="clientApp\src\app\modals\product.type.ts" />
     <None Remove="clientApp\src\app\modals\upc.filter.ts" />
     <None Remove="clientApp\src\app\modals\upc.untagged.ts" />
+    <None Remove="clientApp\src\app\utilities\utilities.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,6 +44,7 @@
     <TypeScriptCompile Include="clientApp\src\app\modals\product.type.ts" />
     <TypeScriptCompile Include="clientApp\src\app\modals\upc.filter.ts" />
     <TypeScriptCompile Include="clientApp\src\app\modals\upc.untagged.ts" />
+    <TypeScriptCompile Include="clientApp\src\app\utilities\utilities.ts" />
   </ItemGroup>
 
 </Project>

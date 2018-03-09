@@ -51,7 +51,7 @@ namespace Repository
 
             modelBuilder.Entity<ProductType>(entity =>
             {
-                entity.ToTable("type");
+                entity.ToTable("producttype");
                 entity.HasKey(e => e.TypeID);
                 entity.Property(e => e.ProductTypeName).HasMaxLength(255).HasColumnName("producttype");
                 entity.Property(e => e.TypeID).HasColumnName("typeid");
