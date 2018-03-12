@@ -4221,6 +4221,7 @@
       "Repository/1.0.0": {
         "dependencies": {
           "IRepository": "1.0.0",
+          "Microsoft.EntityFrameworkCore.Design": "2.0.1",
           "Microsoft.Extensions.Configuration": "2.0.0",
           "Microsoft.Extensions.Logging.Console": "2.0.0",
           "Npgsql": "3.2.6",

@@ -21,22 +21,31 @@ namespace BusinessProvider
 
         public async Task<Result<List<UntaggedUPCBusinessModal>>> GetUPCList(UPCSearchFilter searchFilter)
         {
-                var untaggedGroup = await _untagggedUPCRepo.GetUntaggedUPCList(searchFilter);
-                return  Result.Ok(ObjectMapper.CreateMap(untaggedGroup.Value));  
+            var untaggedGroup = await _untagggedUPCRepo.GetUntaggedUPCList(searchFilter);
+
+            if (!untaggedGroup.IsSuccessed) return Result.Fail<List<UntaggedUPCBusinessModal>>(untaggedGroup.GetErrorString());
+            return Result.Ok(ObjectMapper.CreateMap(untaggedGroup.Value));
         }
 
-        public async Task<Result<UntaggedUPCBusinessModal>> UpdateUntaggedUPC(UntaggedUPCBusinessModal upcBusinessModal,int userID)
+        public async Task<Result<UntaggedUPCBusinessModal>> UpdateUntaggedUPC(UntaggedUPCBusinessModal upcBusinessModal, int userID)
         {
-            var untaggedUPCRepoObj = ObjectMapper.CreateMap(upcBusinessModal);
+            try
+            {
+                var untaggedUPCRepoObj = ObjectMapper.CreateMap(upcBusinessModal);
 
-            untaggedUPCRepoObj.ItemModifiedBy = userID;
-            untaggedUPCRepoObj.ItemModifiedAt = DateTime.UtcNow;
-            untaggedUPCRepoObj.StatusID = (int)UPCType.SavedUPC;
+                untaggedUPCRepoObj.ItemModifiedBy = userID;
+                untaggedUPCRepoObj.ItemModifiedAt = DateTime.UtcNow;
+                untaggedUPCRepoObj.StatusID = (int)UPCType.SavedUPC;
 
-            var result = await _untagggedUPCRepo.UpdateUntaggedUPC(untaggedUPCRepoObj);
-            if (result == null) return Result.Fail<UntaggedUPCBusinessModal>(Constants.BadRequestErrorMessage);
-            return Result.Ok(ObjectMapper.CreateMap(result.Value));
+                var result = await _untagggedUPCRepo.UpdateUntaggedUPC(untaggedUPCRepoObj);
+                if (result == null) return Result.Fail<UntaggedUPCBusinessModal>(Constants.BadRequestErrorMessage);
+                return Result.Ok(ObjectMapper.CreateMap(result.Value));
+            }
+            catch(Exception ex)
+            {
+                return null;
+            }
         }
-     
+
     }
 }

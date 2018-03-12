@@ -25,6 +25,7 @@ namespace ServiceConfiguration
             services.AddScoped<IUPCTaggingRepository,UPCTaggingRepository>();
             services.AddScoped<IUntaggedUPCRepository, UntaggedUPCRepository>();
             services.AddScoped<ICommonRepository, CommonRepository>();
+            services.AddScoped<ITaggedUPCRepository, TaggedUPCRepository>();
         }
 
         public static void RegisterUPCTaggingServices(IServiceCollection services)
@@ -32,6 +33,7 @@ namespace ServiceConfiguration
             services.AddScoped<IUPCTaggingService, UPCTaggingService>();
             services.AddScoped<IUntaggedUPCService, UntagggedUPCService>();
             services.AddScoped<ICommonService, CommonService>();
+            services.AddScoped<ITaggedUPCService, TaggedUPCService>();
         }
 
     }

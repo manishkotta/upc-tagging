@@ -13,16 +13,15 @@ namespace Repository
 
         }
 
-        // public static readonly LoggerFactory MyLoggerFactory
-        //= new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
 
-        public static readonly LoggerFactory MyLoggerFactory
-= new LoggerFactory(new[]
-{
-        new ConsoleLoggerProvider((category, level)
-            => category == DbLoggerCategory.Database.Command.Name
-               && level == LogLevel.Information, true)
-});
+
+//        public static readonly LoggerFactory MyLoggerFactory
+//= new LoggerFactory(new[]
+//{
+//        new ConsoleLoggerProvider((category, level)
+//            => category == DbLoggerCategory.Database.Command.Name
+//               && level == LogLevel.Information, true)
+//});
 
         public DbSet<UntaggedUPC> UntaggedUPC { get; set; }
         public DbSet<TaggedUPC> TaggedUPC { get; set; }
@@ -30,6 +29,9 @@ namespace Repository
         public DbSet<ProductType> ProductType { get; set; }
         public DbSet<ProductCategory> ProductCategory { get; set; }
         public DbSet<ProductSubCategory> ProductSubCategory { get; set; }
+
+        public DbSet<Role> Role { get; set; }
+        public DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -76,14 +78,25 @@ namespace Repository
 
             });
 
+            modelBuilder.Entity<Role>(entity =>
+            {
+                entity.ToTable("roles");
+                entity.HasKey(e => e.RoleID);
+            });
 
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.ToTable("upcuser");
+                entity.HasKey(e => e.UserID).HasName("userid");
+            });
+            base.OnModelCreating(modelBuilder);
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder
-        .UseLoggerFactory(MyLoggerFactory); // Warning: Do not create a new ILoggerFactory instance each time
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder
+        //.UseLoggerFactory(MyLoggerFactory); // Warning: Do not create a new ILoggerFactory instance each time
 
-        }
+        //}
     }
 }

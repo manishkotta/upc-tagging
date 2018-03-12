@@ -49,7 +49,7 @@ namespace Repository
                 query.AppendFormat($" AND s.productsizing =@productsizing");
 
             if (!string.IsNullOrEmpty(upcSearch.Description))
-                query.AppendFormat($" AND s.description LIKE %@description%");
+                query.AppendFormat($" AND s.description LIKE '%@description%'");
             return query;
         }
 
@@ -98,7 +98,7 @@ namespace Repository
             var whereQuery = CustomWhereQuery(query, upcSearch);
             var orderQuery = CustomSort(query, upcSearch);
 
-            orderQuery.AppendFormat($" LIMIT {upcSearch.Rows / 2} OFFSET  {upcSearch.First} ");
+            orderQuery.AppendFormat($" LIMIT {upcSearch.Rows} OFFSET  {upcSearch.First} ");
 
            
 
@@ -123,7 +123,10 @@ namespace Repository
                     dt.Load(result);
             }
 
-            return Result.Ok(DataTableToRepositoryModalMapper.DataTableToRepositoryObject(dt));
+            var unTaggedUPCGrp = dt.DataTableToUntaggedUPCGroup();
+            if (unTaggedUPCGrp.Count <= 0) return Result.Fail<List<UntaggedUPC>>(Constants.No_Records_Found);
+
+            return Result.Ok(unTaggedUPCGrp);
         }
 
         public async Task<Result<UntaggedUPC>> UpdateUntaggedUPC(UntaggedUPC upc)

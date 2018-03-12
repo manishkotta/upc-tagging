@@ -3,8 +3,7 @@
 namespace Business.Entities
 {
     public class UntaggedUPCBusinessModal
-    {
-       
+    {  
         public int UntaggedUPCID { get; set; }
   
         public int DescriptionID { get; set; }

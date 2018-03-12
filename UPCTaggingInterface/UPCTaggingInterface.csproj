@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <TypeScriptToolsVersion>2.5</TypeScriptToolsVersion>
+    <GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
   </PropertyGroup>
 
   <ItemGroup>
@@ -10,7 +11,9 @@
     <None Remove="clientApp\src\app\modals\product.subcategory.ts" />
     <None Remove="clientApp\src\app\modals\product.type.ts" />
     <None Remove="clientApp\src\app\modals\upc.filter.ts" />
+    <None Remove="clientApp\src\app\modals\upc.tagged.ts" />
     <None Remove="clientApp\src\app\modals\upc.untagged.ts" />
+    <None Remove="clientApp\src\app\modals\user.ts" />
     <None Remove="clientApp\src\app\utilities\utilities.ts" />
   </ItemGroup>
 
@@ -28,6 +31,8 @@
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.1" />
+    <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -43,7 +48,9 @@
     <TypeScriptCompile Include="clientApp\src\app\modals\product.subcategory.ts" />
     <TypeScriptCompile Include="clientApp\src\app\modals\product.type.ts" />
     <TypeScriptCompile Include="clientApp\src\app\modals\upc.filter.ts" />
+    <TypeScriptCompile Include="clientApp\src\app\modals\upc.tagged.ts" />
     <TypeScriptCompile Include="clientApp\src\app\modals\upc.untagged.ts" />
+    <TypeScriptCompile Include="clientApp\src\app\modals\user.ts" />
     <TypeScriptCompile Include="clientApp\src\app\utilities\utilities.ts" />
   </ItemGroup>
 

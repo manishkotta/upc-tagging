@@ -22,5 +22,9 @@ namespace Common.CommonUtilities
                                                  LEFT JOIN subcategory AS pst ON s.productsubcategoryid = pst.subcategoryid
                                                  LEFT JOIN category AS pc ON s.productcategoryid = pc.categoryid
                                                  LEFT JOIN producttype AS pt ON s.producttypeid = pt.typeid";
+
+
+        public const string No_Records_Found = "No records found";
+
     }
 }

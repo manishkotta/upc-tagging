@@ -10,5 +10,11 @@ namespace Common.CommonUtilities
         SavedUPC = 2,
         Approved = 3
     }
+
+    public enum Role
+    {
+        Admin = 1,
+        User = 2
+    }
    
 }

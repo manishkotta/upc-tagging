@@ -14,5 +14,7 @@ namespace IBusiness
         Task<Result<List<ProductCategory>>> GetProductCategoryGroup();
 
         Task<Result<List<ProductSubCategory>>> GetProductSubCategoryGroup();
+
+        Task<Result<List<User>>> GetUsersWhoCanTag();
     }
 }

@@ -1,11 +1,12 @@
 ﻿using Business.Entities;
 using Repositories.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace BusinessProvider
 {
-    public static class ObjectMapper 
+    public static class ObjectMapper
     {
 
         public static List<UntaggedUPCBusinessModal> CreateMap(List<UntaggedUPC> repoObject)
@@ -36,7 +37,7 @@ namespace BusinessProvider
 
         public static Business.Entities.UntaggedUPCBusinessModal CreateMap(UntaggedUPC repoObject)
         {
-            return  new UntaggedUPCBusinessModal()
+            return new UntaggedUPCBusinessModal()
             {
                 UPCCode = repoObject.UPCCode,
                 UntaggedUPCID = repoObject.UntaggedUPCID,
@@ -66,7 +67,7 @@ namespace BusinessProvider
                 ProductCategory = ObjectMapper.CreateMap(businessObject.ProductCategory),
                 ProductSubCategory = ObjectMapper.CreateMap(businessObject.ProductSubCategory),
                 ProductSizing = businessObject.ProductSizing,
-                StatusID = businessObject.StatusID.Value
+                StatusID = businessObject.StatusID.HasValue ? businessObject.StatusID.Value : default(int?)
             };
         }
 
@@ -75,8 +76,8 @@ namespace BusinessProvider
         {
             return repoObject.Select(s => new Business.Entities.ProductType()
             {
-                 ProductTypeName = s.ProductTypeName,
-                 TypeID = s.TypeID
+                ProductTypeName = s.ProductTypeName,
+                TypeID = s.TypeID
 
             }).ToList();
         }
@@ -135,6 +136,20 @@ namespace BusinessProvider
         {
             if (productSubCategory == null) return null;
             return new Repositories.Entities.ProductSubCategory { SubcategoryName = productSubCategory.SubcategoryName, SubCategoryID = productSubCategory.SubCategoryID };
+        }
+
+
+        public static List<Business.Entities.User> CreateMap(List<Repositories.Entities.User> userRepoObj)
+        {
+            return userRepoObj.Select(s =>
+                new Business.Entities.User
+                {
+                    Email = s.Email,
+                    Name = s.Name,
+                    RoleID = s.RoleID,
+                    UserID = s.UserID,
+                    UserName = s.UserName
+                }).ToList();
         }
 
 

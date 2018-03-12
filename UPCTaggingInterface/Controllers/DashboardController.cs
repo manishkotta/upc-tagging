@@ -17,10 +17,12 @@ namespace UPCTaggingInterface.Controllers
     {
         protected IUntaggedUPCService _untaggedUPCService;
         protected ICommonService _commonService;
-        public DashboardController(IUntaggedUPCService untaggedUPCService,ICommonService commonService)
+        protected ITaggedUPCService _taggedUPCService;
+        public DashboardController(IUntaggedUPCService untaggedUPCService,ICommonService commonService,ITaggedUPCService taggedUPCService)
         {
             _untaggedUPCService = untaggedUPCService;
             _commonService = commonService;
+            _taggedUPCService = taggedUPCService;
         }
 
         [HttpPost]
@@ -32,6 +34,15 @@ namespace UPCTaggingInterface.Controllers
                 return Ok(result.Value);
         }
 
+
+        [HttpPost]
+        [Route("tagged-upc")]
+        public async Task<IActionResult> GetTaggedUPCList([FromBody] UPCSearchFilter filter)
+        {
+            var result = (await _taggedUPCService.GetUPCList(filter));
+            if (!result.IsSuccessed) return BadRequest(Constants.BadRequestErrorMessage);
+            return Ok(result.Value);
+        }
 
         [HttpPost]
         [Route("update-untagged-upc")]
@@ -54,6 +65,15 @@ namespace UPCTaggingInterface.Controllers
         [HttpGet]
         [Route("product-subcategory")]
         public async Task<IActionResult> GetSubCategoryGroup() => Ok((await _commonService.GetProductSubCategoryGroup()).Value);
+
+        [HttpGet]
+        [Route("non-admins")]
+        public async Task<IActionResult> GetUsers()
+        {
+           var result =  await _commonService.GetUsersWhoCanTag();
+            if (result.IsSuccessed) return Ok(result.Value.Select(s=>new { s.Name, s.UserID }));
+            return BadRequest(result.GetErrorString());
+        }
 
     }
 }
