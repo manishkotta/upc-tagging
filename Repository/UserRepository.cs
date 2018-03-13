@@ -27,5 +27,12 @@ namespace Repository
             return Result.Ok(users);
         }
 
+        public async Task<Result<User>> GetUser(int userID)
+        {
+            var user = await _dbContext.User.Where(s => s.UserID == userID).FirstOrDefaultAsync();
+            if (user == null) return Result.Fail<User>(Constants.No_Records_Found);
+            return Result.Ok(user);
+        }
+
     }
 }

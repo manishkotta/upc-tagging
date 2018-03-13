@@ -18,7 +18,7 @@ namespace BusinessProvider
                 Description = s.Description,
                 DescriptionID = s.DescriptionID,
                 ItemAssignedBy = s.ItemAssignedBy,
-                ItemAssignedTo = s.ItemAssignedTo,
+                ItemAssignedTo = ObjectMapper.CreateMap(s.ItemAssignedTo),
                 ProductType = ObjectMapper.CreateMap(s.ProductType),
                 ProductCategory = ObjectMapper.CreateMap(s.ProductCategory),
                 ProductSubCategory = ObjectMapper.CreateMap(s.ProductSubCategory),
@@ -44,7 +44,7 @@ namespace BusinessProvider
                 Description = repoObject.Description,
                 DescriptionID = repoObject.DescriptionID,
                 ItemAssignedBy = repoObject.ItemAssignedBy,
-                ItemAssignedTo = repoObject.ItemAssignedTo,
+                ItemAssignedTo = ObjectMapper.CreateMap(repoObject.ItemAssignedTo),
                 ProductType = ObjectMapper.CreateMap(repoObject.ProductType),
                 ProductCategory = ObjectMapper.CreateMap(repoObject.ProductCategory),
                 ProductSubCategory = ObjectMapper.CreateMap(repoObject.ProductSubCategory),
@@ -62,7 +62,7 @@ namespace BusinessProvider
                 Description = businessObject.Description,
                 DescriptionID = businessObject.DescriptionID,
                 ItemAssignedBy = businessObject.ItemAssignedBy,
-                ItemAssignedTo = businessObject.ItemAssignedTo,
+                ItemAssignedTo = ObjectMapper.CreateMap(businessObject.ItemAssignedTo),
                 ProductType = ObjectMapper.CreateMap(businessObject.ProductType),
                 ProductCategory = ObjectMapper.CreateMap(businessObject.ProductCategory),
                 ProductSubCategory = ObjectMapper.CreateMap(businessObject.ProductSubCategory),
@@ -152,6 +152,31 @@ namespace BusinessProvider
                 }).ToList();
         }
 
+        public static Repositories.Entities.User CreateMap(Business.Entities.User userBusinessObj)
+        {
+            if (userBusinessObj == null) return null;
+            return new Repositories.Entities.User
+            {
+                Email = userBusinessObj.Email,
+                Name = userBusinessObj.Name,
+                RoleID = userBusinessObj.RoleID,
+                UserID = userBusinessObj.UserID,
+                UserName = userBusinessObj.UserName
+            };
+        }
+
+        public static Business.Entities.User CreateMap(Repositories.Entities.User userRepoObj)
+        {
+            if (userRepoObj == null) return null;
+            return new Business.Entities.User
+            {
+                Email = userRepoObj.Email,
+                Name = userRepoObj.Name,
+                RoleID = userRepoObj.RoleID,
+                UserID = userRepoObj.UserID,
+                UserName = userRepoObj.UserName
+            };
+        }
 
     }
 }

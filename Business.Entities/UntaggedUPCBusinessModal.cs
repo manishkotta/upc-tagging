@@ -13,7 +13,7 @@ namespace Business.Entities
 
         public string ProductSizing { get; set; }
  
-        public int? ItemAssignedTo { get; set; }
+        public User ItemAssignedTo { get; set; }
 
         public int? ItemAssignedBy { get; set; }
 

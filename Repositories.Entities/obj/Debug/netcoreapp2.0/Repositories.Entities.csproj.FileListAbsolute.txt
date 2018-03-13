@@ -7,3 +7,5 @@ D:\Projects\UPCTaggingInterface\Repositories.Entities\obj\Debug\netcoreapp2.0\Re
 D:\Projects\UPCTaggingInterface\Repositories.Entities\obj\Debug\netcoreapp2.0\Repositories.Entities.AssemblyInfo.cs
 D:\Projects\UPCTaggingInterface\Repositories.Entities\obj\Debug\netcoreapp2.0\Repositories.Entities.dll
 D:\Projects\UPCTaggingInterface\Repositories.Entities\obj\Debug\netcoreapp2.0\Repositories.Entities.pdb
+D:\Projects\UPCTaggingInterface\Repositories.Entities\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Identity.Stores.dll
+D:\Projects\UPCTaggingInterface\Repositories.Entities\bin\Debug\netcoreapp2.0\Microsoft.Extensions.Identity.Stores.xml

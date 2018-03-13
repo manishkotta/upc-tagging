@@ -25,8 +25,11 @@ namespace Repositories.Entities
 
         [Column("productsizing")]
         public string ProductSizing { get; set; }
-        [Column("itemassingedto")]
-        public int? ItemAssignedTo { get; set; } 
+
+
+        [ForeignKey("itemassingedto")]
+        public User ItemAssignedTo { get; set; } 
+
         [Column("itemassignedby")]
         public int? ItemAssignedBy { get; set; } 
 

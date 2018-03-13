@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v2.0": {
       "ViewModel.Entities/1.0.0": {
+        "dependencies": {
+          "Business.Entities": "1.0.0"
+        },
         "runtime": {
           "ViewModel.Entities.dll": {}
+        }
+      },
+      "Business.Entities/1.0.0": {
+        "runtime": {
+          "Business.Entities.dll": {}
         }
       }
     }
   },
   "libraries": {
     "ViewModel.Entities/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Business.Entities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

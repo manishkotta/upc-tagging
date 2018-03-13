@@ -30,10 +30,10 @@ namespace Repositories.Entities
         public virtual ProductType ProductType { get; set; }
 
         [ForeignKey("productcategoryid")]
-        public ProductCategory ProductCategory { get; set; }
+        public virtual ProductCategory ProductCategory { get; set; }
 
         [ForeignKey("productsubcategoryid")]
-        public ProductSubCategory ProductSubCategory { get; set; }
+        public virtual ProductSubCategory ProductSubCategory { get; set; }
 
     }
 }

@@ -33,7 +33,8 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "2.0.2",
           "Repositories.Entities": "1.0.0",
           "ServiceConfiguration": "1.0.0",
-          "System.Text.Encoding.CodePages": "4.4.0"
+          "System.Text.Encoding.CodePages": "4.4.0",
+          "ViewModel.Entities": "1.0.0"
         },
         "runtime": {
           "UPCTaggingInterface.dll": {}
@@ -4250,6 +4251,17 @@
           "ServiceConfiguration.dll": {}
         }
       },
+      "ViewModel.Entities/1.0.0": {
+        "dependencies": {
+          "Business.Entities": "1.0.0"
+        },
+        "runtime": {
+          "ViewModel.Entities.dll": {}
+        },
+        "compile": {
+          "ViewModel.Entities.dll": {}
+        }
+      },
       "Microsoft.NETCore.App/2.0.0": {
         "dependencies": {
           "Microsoft.NETCore.DotNetHostPolicy": "2.0.0",
@@ -6640,6 +6652,11 @@
       "sha512": ""
     },
     "ServiceConfiguration/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ViewModel.Entities/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

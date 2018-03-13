@@ -23,23 +23,40 @@ namespace Repository
 
         private StringBuilder CustomWhereQuery(StringBuilder query, UPCSearchFilter upcSearch)
         {
+            bool whereAppended = false;
+
             if (!string.IsNullOrEmpty(upcSearch.UPCCode))
-                return query.AppendFormat($" WHERE s.upccode =@upccode");
+                return query.AppendFormat($" WHERE s.upccode ='@upccode'");
 
             if (upcSearch.Type != null && upcSearch.Type.Count > 0)
-                query.AppendFormat($" AND s.producttypeid IN ({string.Join(",", upcSearch.Type.Select(s => s.ToString())) })");
-
+            {
+                query.AppendFormat($" { Utilities.AppendWhereOrAnd(whereAppended) } s.producttypeid IN ({string.Join(",", upcSearch.Type.Select(s => s.ToString())) })");
+                whereAppended = true;
+            }
             if (upcSearch.ProductCategory != null && upcSearch.ProductCategory.Count > 0)
-                query.AppendFormat($" AND s.productcategoryid IN ({string.Join(",", upcSearch.ProductCategory.Select(s => s.ToString())) })");
+            {
+                query.AppendFormat($" { Utilities.AppendWhereOrAnd(whereAppended)} s.productcategoryid IN ({string.Join(",", upcSearch.ProductCategory.Select(s => s.ToString())) })");
+                whereAppended = true;
+            }
 
             if (upcSearch.ProductSubcategory != null && upcSearch.ProductSubcategory.Count > 0)
-                query.AppendFormat($" AND s.productsubcategoryid IN ({string.Join(",", upcSearch.ProductSubcategory.Select(s => s.ToString())) })");
+            {
+                query.AppendFormat($" { Utilities.AppendWhereOrAnd(whereAppended) } s.productsubcategoryid IN ({string.Join(",", upcSearch.ProductSubcategory.Select(s => s.ToString())) })");
+                whereAppended = true;
+            }
 
             if (!string.IsNullOrEmpty(upcSearch.ProductSizing))
-                query.AppendFormat($" AND s.productsizing =@productsizing");
+            {
+                query.AppendFormat($" { Utilities.AppendWhereOrAnd(whereAppended) } s.productsizing ='@productsizing'");
+                whereAppended = true;
+            }
 
             if (!string.IsNullOrEmpty(upcSearch.Description))
-                query.AppendFormat($" AND s.description LIKE '%@description%'");
+            {
+                query.AppendFormat($" { Utilities.AppendWhereOrAnd(whereAppended) } s.description LIKE '%@description%'");
+                whereAppended = true;
+            }
+
             return query;
         }
 
@@ -114,7 +131,7 @@ namespace Repository
             }
 
             var taggedUPCGrp = dt.DataTableToTaggedUPCGroup();
-            if (taggedUPCGrp.Count <= 0) return Result.Fail<List<TaggedUPC>>(Constants.No_Records_Found);
+            //if (taggedUPCGrp.Count <= 0) return Result.Fail<List<TaggedUPC>>(Constants.No_Records_Found);
 
             return Result.Ok(taggedUPCGrp);
         }

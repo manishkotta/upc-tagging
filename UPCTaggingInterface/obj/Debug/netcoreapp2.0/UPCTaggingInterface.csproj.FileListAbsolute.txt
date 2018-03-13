@@ -25,3 +25,5 @@ D:\Projects\UPCTaggingInterface\UPCTaggingInterface\obj\Debug\netcoreapp2.0\UPCT
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\obj\Debug\netcoreapp2.0\UPCTaggingInterface.pdb
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Common.dll
 D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Common.pdb
+D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\ViewModel.Entities.dll
+D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\ViewModel.Entities.pdb

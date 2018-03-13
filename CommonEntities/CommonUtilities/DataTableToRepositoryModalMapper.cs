@@ -13,11 +13,11 @@ namespace Common.CommonUtilities
             List<UntaggedUPC> untaggedUPCGroup = new List<UntaggedUPC>();
             foreach (DataRow dr in dt.Rows)
             {
-               var untaggedUPC = new UntaggedUPC()
+                var untaggedUPC = new UntaggedUPC()
                 {
                     UntaggedUPCID = Convert.ToInt32(dr["untaggedupcid"]),
                     Description = dr["description"] == DBNull.Value ? string.Empty : Convert.ToString(dr["description"]),
-                    UPCCode = dr["upccode"] ==DBNull.Value ? string.Empty : Convert.ToString(dr["upccode"]),
+                    UPCCode = dr["upccode"] == DBNull.Value ? string.Empty : Convert.ToString(dr["upccode"]),
                     DescriptionID = dr["descriptionid"] == DBNull.Value ? default(int) : Convert.ToInt32(dr["descriptionid"]),
                     ProductCategory = dr["categoryid"] == DBNull.Value ? null : new ProductCategory
                     {
@@ -34,7 +34,10 @@ namespace Common.CommonUtilities
                         SubcategoryName = Convert.ToString(dr["subcategory"]),
                         SubCategoryID = Convert.ToInt32(dr["subcategoryid"])
                     },
-                    ItemAssignedTo = dr["itemassingedto"] == DBNull.Value ? default(int?) : Convert.ToInt32(dr["itemassingedto"]),
+                    ItemAssignedTo = new User {
+                        UserID = dr["itemassingedto"] == DBNull.Value ? default(int) : Convert.ToInt32(dr["itemassingedto"]),
+                        Name = dr["name"] == DBNull.Value ? string.Empty : Convert.ToString(dr["name"]),
+                    },
                     ProductSizing = dr["productsizing"] == DBNull.Value ? string.Empty : Convert.ToString(dr["productsizing"])
                 };
                 untaggedUPCGroup.Add(untaggedUPC);

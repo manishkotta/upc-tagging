@@ -10,5 +10,6 @@ namespace IRepository
     public interface IUserRepository
     {
         Task<Result<List<User>>> GetUsers(int roleID);
+        Task<Result<User>> GetUser(int userID);
     }
 }

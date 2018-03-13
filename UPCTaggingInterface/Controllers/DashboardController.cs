@@ -8,6 +8,7 @@ using IBusiness;
 using Business.Entities;
 using Common.CommonEntities;
 using Common.CommonUtilities;
+using ViewModel.Entities;
 
 namespace UPCTaggingInterface.Controllers
 {
@@ -73,6 +74,27 @@ namespace UPCTaggingInterface.Controllers
            var result =  await _commonService.GetUsersWhoCanTag();
             if (result.IsSuccessed) return Ok(result.Value.Select(s=>new { s.Name, s.UserID }));
             return BadRequest(result.GetErrorString());
+        }
+
+        
+        [HttpPost]
+        [Route("assign-untagged-upc")]
+        public async Task<IActionResult> AssignUntaggedUPCToUser([FromBody] AssignUntagUpcDTO upcDTO)
+        {
+            if (upcDTO == null) return BadRequest(Constants.BadRequestErrorMessage);
+            else if (upcDTO.untaggedUPCIDs.Count() <= 0) return BadRequest(Constants.BadRequestErrorMessage);
+            else if (upcDTO.user?.UserID == 0) return BadRequest(Constants.BadRequestErrorMessage);
+            var result = await _untaggedUPCService.AssignUserToUntaggedUPC(upcDTO.untaggedUPCIDs, upcDTO.user, 1764);
+            if (result.IsSuccessed) return Ok();
+            return BadRequest(result.GetErrorString());
+        }
+
+        [HttpPost]
+        [Route("approve-saved-upc")]
+        public async Task<IActionResult> ApproveSavedUPC([FromBody] int[] savedUPC)
+        {
+            var f = savedUPC;
+            return null;
         }
 
     }

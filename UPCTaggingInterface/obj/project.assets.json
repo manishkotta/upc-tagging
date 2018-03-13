@@ -5236,6 +5236,19 @@
         "runtime": {
           "bin/placeholder/ServiceConfiguration.dll": {}
         }
+      },
+      "ViewModel.Entities/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.0",
+        "dependencies": {
+          "Business.Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ViewModel.Entities.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ViewModel.Entities.dll": {}
+        }
       }
     }
   },
@@ -13445,6 +13458,11 @@
       "type": "project",
       "path": "../ServiceConfiguration/ServiceConfiguration.csproj",
       "msbuildProject": "../ServiceConfiguration/ServiceConfiguration.csproj"
+    },
+    "ViewModel.Entities/1.0.0": {
+      "type": "project",
+      "path": "../ViewModel.Entities/ViewModel.Entities.csproj",
+      "msbuildProject": "../ViewModel.Entities/ViewModel.Entities.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -13459,7 +13477,8 @@
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.0.2",
       "Repositories.Entities >= 1.0.0",
       "ServiceConfiguration >= 1.0.0",
-      "System.Text.Encoding.CodePages >= 4.4.0"
+      "System.Text.Encoding.CodePages >= 4.4.0",
+      "ViewModel.Entities >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -13506,6 +13525,9 @@
             },
             "D:\\Projects\\UPCTaggingInterface\\CommonEntities\\Common.csproj": {
               "projectPath": "D:\\Projects\\UPCTaggingInterface\\CommonEntities\\Common.csproj"
+            },
+            "D:\\Projects\\UPCTaggingInterface\\ViewModel.Entities\\ViewModel.Entities.csproj": {
+              "projectPath": "D:\\Projects\\UPCTaggingInterface\\ViewModel.Entities\\ViewModel.Entities.csproj"
             },
             "D:\\Projects\\UPCTaggingInterface\\Repositories.Entities\\Repositories.Entities.csproj": {
               "projectPath": "D:\\Projects\\UPCTaggingInterface\\Repositories.Entities\\Repositories.Entities.csproj"

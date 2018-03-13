@@ -38,18 +38,18 @@ namespace UPCTaggingInterface
             services.AddCors();
             services.AddMvc();
 
-            services.AddIdentity<IdentityUser, IdentityRole>()
-                    .AddEntityFrameworkStores<Repository.UPCTaggingDBContext>()
-                    .AddDefaultTokenProviders();
+            //services.AddIdentity<Repositories.Entities.User, IdentityRole>()
+            //        .AddEntityFrameworkStores<Repository.UPCTaggingDBContext>()
+            //        .AddDefaultTokenProviders();
 
             services.ConfigureApplicationCookie(options =>
             {
                 // Cookie settings
                 options.Cookie.HttpOnly = true;
                 options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-                options.LoginPath = "/Account/Login"; // If the LoginPath is not set here, ASP.NET Core will default to /Account/Login
-                options.LogoutPath = "/Account/Logout"; // If the LogoutPath is not set here, ASP.NET Core will default to /Account/Logout
-                options.AccessDeniedPath = "/Account/AccessDenied"; // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied
+                options.LoginPath = "/login"; // If the LoginPath is not set here, ASP.NET Core will default to /Account/Login
+                options.LogoutPath = "/logout"; // If the LogoutPath is not set here, ASP.NET Core will default to /Account/Logout
+                options.AccessDeniedPath = ""; // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied
                 options.SlidingExpiration = true;
             });
 
@@ -85,7 +85,7 @@ namespace UPCTaggingInterface
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             //app.UseMiddleware<ExceptionHandlingMiddleware>();
             app.UseMvc();
-
+            //app.UseAuthentication();
             app.UseDefaultFiles();
             app.UseStaticFiles();
 

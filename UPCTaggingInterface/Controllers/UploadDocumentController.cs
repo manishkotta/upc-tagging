@@ -33,7 +33,7 @@ namespace UPCTaggingInterface.Controllers
             {
                 //Stopwatch stopWatch = new Stopwatch();
                 //stopWatch.Start();
-
+                
                 var files = Request.Form.Files;
                 if (files.Count() <= 0) return BadRequest(Constants.BadRequestErrorMessage);
                 var rootFolder = Directory.GetCurrentDirectory();

@@ -41,6 +41,7 @@
     <ProjectReference Include="..\IBusiness\IBusiness.csproj" />
     <ProjectReference Include="..\Repositories.Entities\Repositories.Entities.csproj" />
     <ProjectReference Include="..\ServiceConfiguration\ServiceConfiguration.csproj" />
+    <ProjectReference Include="..\ViewModel.Entities\ViewModel.Entities.csproj" />
   </ItemGroup>
 
   <ItemGroup>

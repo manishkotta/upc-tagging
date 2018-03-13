@@ -54,7 +54,8 @@ namespace Common.CommonUtilities
 
             return dataTable;
         }
-        
+
+        public static string AppendWhereOrAnd(bool isWhereAppended) => isWhereAppended ? "AND" : "WHERE";
     }
 
 

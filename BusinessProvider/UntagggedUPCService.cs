@@ -14,9 +14,11 @@ namespace BusinessProvider
     public class UntagggedUPCService : IUntaggedUPCService
     {
         protected IUntaggedUPCRepository _untagggedUPCRepo;
-        public UntagggedUPCService(IUntaggedUPCRepository untagggedUPCRepo)
+        protected IUserRepository _userRepository;
+        public UntagggedUPCService(IUntaggedUPCRepository untagggedUPCRepo,IUserRepository userRepository)
         {
             _untagggedUPCRepo = untagggedUPCRepo;
+            _userRepository = userRepository;
         }
 
         public async Task<Result<List<UntaggedUPCBusinessModal>>> GetUPCList(UPCSearchFilter searchFilter)
@@ -47,5 +49,18 @@ namespace BusinessProvider
             }
         }
 
+
+        public async Task<Result> AssignUserToUntaggedUPC(int[] untaggedUPCIDs, Business.Entities.User user,int adminUserID)
+        {
+
+            if (untaggedUPCIDs.Length <= 0) return Result.Fail(Constants.Untagged_UPC_Group_Is_Empty);
+
+            else if (user?.UserID == default(int)) return Result.Fail(Constants.Assignee_Details_Empty);
+
+            else if (!(await _userRepository.GetUser(user.UserID)).IsSuccessed) return Result.Fail(Constants.Assignee_Not_Found);
+
+            return  await _untagggedUPCRepo.AssignUserToUntaggedUPC(untaggedUPCIDs, ObjectMapper.CreateMap(user), adminUserID);
+            
+        }
     }
 }
