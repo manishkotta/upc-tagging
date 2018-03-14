@@ -15,5 +15,9 @@ namespace IRepository
         Task<Result<UntaggedUPC>> UpdateUntaggedUPC(UntaggedUPC upc);
 
         Task<Result> AssignUserToUntaggedUPC(int[] untaggedUPCIDs, User user, int adminUserID);
+
+        Task<Result<UntaggedUPC>> GetUntaggedUPCOnID(int untaggedUPCID);
+
+        Task<Result> Delete(int untaggedUPCID);
     }
 }

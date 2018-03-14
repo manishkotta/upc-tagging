@@ -9,7 +9,6 @@ namespace IBusiness
     {
         Task<Result<List<Business.Entities.UntaggedUPCBusinessModal>>> GetUPCList(UPCSearchFilter upcFilter);
         Task<Result<Business.Entities.UntaggedUPCBusinessModal>> UpdateUntaggedUPC(Business.Entities.UntaggedUPCBusinessModal upcBusinessModal, int userID);
-
         Task<Result> AssignUserToUntaggedUPC(int[] untaggedUPCIDs, Business.Entities.User user, int adminUserID);
     }
 }

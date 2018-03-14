@@ -16,16 +16,18 @@ namespace Repositories.Entities
 
         [Column("upccode")]
         public string UPCCode { get; set; }
-        //[Column("producttypeid")]
-        //public int? ProductTypeID { get; set; } 
-        //[Column("productcategoryid")]
-        //public int? ProductCategoryID { get; set; }
-        //[Column("productsubcategoryid")]
-        //public int? ProductSubcategoryID { get; set; } 
+        [Column("producttypeid")]
+        public int? ProductTypeID { get; set; }
+        [Column("productcategoryid")]
+        public int? ProductCategoryID { get; set; }
+        [Column("productsubcategoryid")]
+        public int? ProductSubcategoryID { get; set; }
 
         [Column("productsizing")]
         public string ProductSizing { get; set; }
 
+        [Column("itemassingedto")]
+        public int? ItemAssignedToFk { get; set; }
 
         [ForeignKey("itemassingedto")]
         public User ItemAssignedTo { get; set; } 

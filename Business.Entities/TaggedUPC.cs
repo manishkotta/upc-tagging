@@ -7,11 +7,11 @@
 
         public string UPCCode { get; set; }
 
-        public int ProductTypeID { get; set; }
+        public ProductType ProductType { get; set; }
 
-        public int ProductCategoryID { get; set; }
+        public ProductCategory ProductCategory { get; set; }
 
-        public int ProductSubcategoryID { get; set; }
+        public ProductSubCategory ProductSubCategory { get; set; }
 
         public string ProductSizing { get; set; }
 

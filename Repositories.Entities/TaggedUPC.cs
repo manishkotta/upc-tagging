@@ -16,6 +16,7 @@ namespace Repositories.Entities
         public string UPCCode { get; set; }
         [Column("producttypeid")]
         public int? ProductTypeID { get; set; }
+
         [Column("productcategoryid")]
         public int? ProductCategoryID { get; set; }
         [Column("productsubcategoryid")]
@@ -24,16 +25,19 @@ namespace Repositories.Entities
         [Column("productsizing")]
         public string ProductSizing { get; set; }
 
-        public bool IsMigrated { get; set; }
+        //[Column("ismigrated")]
+        //public bool IsMigrated { get; set; }
 
-        [ForeignKey("producttypeid")]
+        //[ForeignKey("producttypeid")]
         public virtual ProductType ProductType { get; set; }
 
-        [ForeignKey("productcategoryid")]
+        //[ForeignKey("productcategoryid")]
         public virtual ProductCategory ProductCategory { get; set; }
 
-        [ForeignKey("productsubcategoryid")]
+        //[ForeignKey("productsubcategoryid")]
         public virtual ProductSubCategory ProductSubCategory { get; set; }
+
+        //public virtual UPCHistory UPCHistroy { get; set; }
 
     }
 }

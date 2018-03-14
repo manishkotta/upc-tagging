@@ -93,8 +93,9 @@ namespace UPCTaggingInterface.Controllers
         [Route("approve-saved-upc")]
         public async Task<IActionResult> ApproveSavedUPC([FromBody] int[] savedUPC)
         {
-            var f = savedUPC;
-            return null;
+            var result = await _commonService.ApprovedSavedUPC(savedUPC, 1764);
+            if (!result.IsSuccessed) return BadRequest(result.GetErrorString());
+            return Ok();
         }
 
     }

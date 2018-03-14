@@ -136,5 +136,21 @@ namespace Repository
             return Result.Ok(taggedUPCGrp);
         }
 
+        public async Task<Result<TaggedUPC>> Insert(TaggedUPC taggedUPC,UPCHistory upcHistory)
+        {
+            try
+            {
+                _dbContext.Add<TaggedUPC>(taggedUPC);
+                //_dbContext.Add<UPCHistory>(upcHistory);
+                var result = await _dbContext.SaveChangesAsync();
+                if (result <= 0) return Result.Fail<TaggedUPC>(Constants.No_Rows_Added);
+                return Result.Ok(taggedUPC);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+        }
+
     }
 }

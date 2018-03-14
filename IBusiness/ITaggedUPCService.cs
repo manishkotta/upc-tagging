@@ -10,5 +10,7 @@ namespace IBusiness
     public interface ITaggedUPCService
     {
         Task<Result<List<Business.Entities.TaggedUPC>>> GetUPCList(UPCSearchFilter upcFilter);
+
+        Task<Result> InsertTaggedUPC(Business.Entities.TaggedUPC taggedUPC, Business.Entities.UPCHistory upcHistory);
     }
 }

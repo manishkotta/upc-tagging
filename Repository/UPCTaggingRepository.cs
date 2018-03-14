@@ -44,8 +44,7 @@ namespace Repository
                 using (var conn = new NpgsqlConnection(connString))
                 {
                     conn.Open();
-                    using (var tran = conn.BeginTransaction())
-                    {
+                   
                         using (var command = conn.CreateCommand())
                         {
                             command.CommandText = cmdText; //"SELECT capture_untagged_upcs";
@@ -59,10 +58,8 @@ namespace Repository
                                 command.Parameters.Add(param);
                             }
 
-                            command.ExecuteScalar();
+                            var upc = command.ExecuteScalar();
                         }
-                        tran.Commit();
-                    }
                 }
             return true;
         }

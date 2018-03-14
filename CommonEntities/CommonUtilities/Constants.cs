@@ -34,5 +34,11 @@ namespace Common.CommonUtilities
         public const string Assignee_Not_Found = "Assignee not found";
 
         public const string No_Rows_Updated = "No rows got updated";
+
+        public const string No_Rows_Deleted = "No rows got deleted";
+
+        public const string No_Rows_Added = "No rows added";
+
+        public const string SaveUPC_Group_To_Be_Approved_Are_Empty = "Save UPC group to be approved are empty";
     }
 }

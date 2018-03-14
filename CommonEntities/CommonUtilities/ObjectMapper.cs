@@ -30,8 +30,13 @@ namespace BusinessProvider
         {
             return repoObject.Select(s => new Business.Entities.TaggedUPC()
             {
-                UPCCode = s.UPCCode
-
+                UPCCode = s.UPCCode,
+                Description = s.Description,
+                DescriptionID = s.DescriptionID,
+                ProductType = CreateMap(s.ProductType),
+                ProductCategory = CreateMap(s.ProductCategory),
+                ProductSubCategory = CreateMap(s.ProductSubCategory),
+                ProductSizing = s.ProductSizing
             }).ToList();
         }
 
@@ -71,6 +76,50 @@ namespace BusinessProvider
             };
         }
 
+
+        public static Business.Entities.TaggedUPC CreateMap(Repositories.Entities.TaggedUPC repoObject)
+        {
+            return new Business.Entities.TaggedUPC()
+            {
+                UPCCode = repoObject.UPCCode,
+                Description = repoObject.Description,
+                DescriptionID = repoObject.DescriptionID,
+                ProductSizing = repoObject.ProductSizing,
+                ProductType = ObjectMapper.CreateMap(repoObject.ProductType),
+                ProductCategory = ObjectMapper.CreateMap(repoObject.ProductCategory),
+                ProductSubCategory = ObjectMapper.CreateMap(repoObject.ProductSubCategory)
+            };
+        }
+
+        public static Repositories.Entities.TaggedUPC CreateMap(Business.Entities.TaggedUPC businessObject)
+        {
+            return new Repositories.Entities.TaggedUPC()
+            {
+                UPCCode = businessObject.UPCCode,
+                Description = businessObject.Description,
+                DescriptionID = businessObject.DescriptionID,
+                ProductSizing = businessObject.ProductSizing,
+                ProductTypeID = businessObject.ProductType != null ? businessObject.ProductType.TypeID : default(int?),
+                ProductCategoryID = businessObject.ProductCategory != null ? businessObject.ProductCategory.CategoryID : default(int?),
+                ProductSubcategoryID = businessObject.ProductSubCategory !=null ? businessObject.ProductSubCategory.SubCategoryID : default(int?)
+            };
+        }
+
+
+        public static Repositories.Entities.UPCHistory CreateMap(Business.Entities.UPCHistory history)
+        {
+            return new Repositories.Entities.UPCHistory
+            {
+                TaggedUPCCode = history.TaggedUPCCode,
+                SubmittedBy = history.SubmittedBy,
+                ApprovedBy = history.ApprovedBy,
+                ItemInsertedAt = history.ItemInsertedAt,
+                ItemModifiedAt = history.ItemModifiedAt,
+                ModifiedSubmittedBy = history.ModifiedSubmittedBy,
+                ModifiedApprovedBy = history.ModifiedApprovedBy,
+                UPCHistoryID = history.UPCHistoryID
+            };
+        }
 
         public static List<Business.Entities.ProductType> CreateMap(List<Repositories.Entities.ProductType> repoObject)
         {

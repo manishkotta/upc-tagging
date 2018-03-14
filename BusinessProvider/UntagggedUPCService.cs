@@ -33,11 +33,19 @@ namespace BusinessProvider
         {
             try
             {
-                var untaggedUPCRepoObj = ObjectMapper.CreateMap(upcBusinessModal);
+                var upcResult = await _untagggedUPCRepo.GetUntaggedUPCOnID(upcBusinessModal.UntaggedUPCID);
+
+                if (!upcResult.IsSuccessed) return Result.Fail<UntaggedUPCBusinessModal>(Constants.No_Records_Found);
+
+                var untaggedUPCRepoObj = upcResult.Value;
 
                 untaggedUPCRepoObj.ItemModifiedBy = userID;
                 untaggedUPCRepoObj.ItemModifiedAt = DateTime.UtcNow;
                 untaggedUPCRepoObj.StatusID = (int)UPCType.SavedUPC;
+                untaggedUPCRepoObj.ProductSizing = upcBusinessModal.ProductSizing;
+                untaggedUPCRepoObj.ProductTypeID = upcBusinessModal.ProductType != null ? upcBusinessModal.ProductType.TypeID : default(int?);
+                untaggedUPCRepoObj.ProductCategoryID = upcBusinessModal.ProductCategory != null ? upcBusinessModal.ProductCategory.CategoryID : default(int?);
+                untaggedUPCRepoObj.ProductSubcategoryID = upcBusinessModal.ProductSubCategory != null ? upcBusinessModal.ProductSubCategory.SubCategoryID : default(int?);
 
                 var result = await _untagggedUPCRepo.UpdateUntaggedUPC(untaggedUPCRepoObj);
                 if (result == null) return Result.Fail<UntaggedUPCBusinessModal>(Constants.BadRequestErrorMessage);

@@ -11,5 +11,7 @@ namespace IRepository
     public interface ITaggedUPCRepository
     {
         Task<Result<List<TaggedUPC>>> GetTaggedUPCList(UPCSearchFilter upcSearch);
+
+        Task<Result<TaggedUPC>> Insert(TaggedUPC taggedUPC,UPCHistory upcHistory);
     }
 }

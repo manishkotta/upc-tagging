@@ -143,29 +143,31 @@ namespace Repository
         {
             try
             {
-                _dbContext.Entry(upc.ItemAssignedTo).State = EntityState.Unchanged;
-                upc.ItemAssignedTo = null;
+                //_dbContext.Entry(upc.ItemAssignedTo).State = EntityState.Unchanged;
+                //upc.ItemAssignedTo = null;
                 _dbContext.UntaggedUPC.Update(upc);
                 await _dbContext.SaveChangesAsync();
                 return Result.Ok(upc);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 throw ex;
             }
         }
 
 
-        public async Task<Result> AssignUserToUntaggedUPC(int[] untaggedUPCIDs, User user,int adminUserID)
+        public async Task<Result> AssignUserToUntaggedUPC(int[] untaggedUPCIDs, User user, int adminUserID)
         {
             try
             {
-                user = await _dbContext.User.FirstOrDefaultAsync(s => s.UserID == user.UserID);
+                //user = await _dbContext.User.FirstOrDefaultAsync(s => s.UserID == user.UserID);
                 foreach (var i in untaggedUPCIDs)
                 {
-                    var upc = await _dbContext.UntaggedUPC.FirstOrDefaultAsync(s => s.UntaggedUPCID == i);
-                    if (upc == null) continue;
-                    upc.ItemAssignedTo = user;
+                    var upcResult = await GetUntaggedUPCOnID(i);
+                    
+                    if (!upcResult.IsSuccessed) continue;
+                    var upc = upcResult.Value;
+                    upc.ItemAssignedToFk = user.UserID;
                     upc.ItemAssignedBy = adminUserID;
                     upc.ItemModifiedAt = DateTime.UtcNow;
                     upc.ItemModifiedBy = adminUserID;
@@ -175,6 +177,43 @@ namespace Repository
                 var result = await _dbContext.SaveChangesAsync();
 
                 if (result <= 0) return Result.Fail(Constants.No_Rows_Updated);
+                return Result.Ok();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public async Task<Result<UntaggedUPC>> GetUntaggedUPCOnID(int untaggedUPCID)
+        {
+            try
+            {
+                var untaggedUPC = await _dbContext.UntaggedUPC.Include(s => s.ItemAssignedTo)
+                    .Include(s => s.ProductType)
+                    .Include(s => s.ProductCategory)
+                    .Include(s => s.ProductSubCategory)
+                    .AsNoTracking()
+                    .SingleOrDefaultAsync(s => s.UntaggedUPCID == untaggedUPCID);
+
+                if (untaggedUPC == null) return Result.Fail<UntaggedUPC>(Constants.No_Records_Found);
+                return Result.Ok(untaggedUPC);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public async Task<Result> Delete(int untaggedUPCID)
+        {
+            try
+            {
+                var untaggedUPC = new UntaggedUPC { UntaggedUPCID = untaggedUPCID };
+                _dbContext.Entry(untaggedUPC).State = EntityState.Deleted;
+                var result = await _dbContext.SaveChangesAsync();
+                if (result <= 0) return Result.Fail(Constants.No_Rows_Deleted);
                 return Result.Ok();
             }
             catch(Exception ex)

@@ -26,7 +26,7 @@ namespace BusinessProvider
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
             dict.Add("userid", 1764);
-            _upcRepo.ExecuteStoreProc("CaptureUntaggedUPC", dict);
+            _upcRepo.ExecuteStoreProc("captureuntaggedupc", dict);
             return true;
         }
     }
