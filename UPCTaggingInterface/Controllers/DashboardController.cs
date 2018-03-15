@@ -9,6 +9,7 @@ using Business.Entities;
 using Common.CommonEntities;
 using Common.CommonUtilities;
 using ViewModel.Entities;
+using Microsoft.AspNetCore.Identity;
 
 namespace UPCTaggingInterface.Controllers
 {
@@ -16,23 +17,39 @@ namespace UPCTaggingInterface.Controllers
     [Route("api/dashboard")]
     public class DashboardController : Controller
     {
+        private readonly UserManager<Repositories.Entities.User> _userManager;
+        private readonly SignInManager<Repositories.Entities.User> _signInManager;
+
+
         protected IUntaggedUPCService _untaggedUPCService;
         protected ICommonService _commonService;
         protected ITaggedUPCService _taggedUPCService;
-        public DashboardController(IUntaggedUPCService untaggedUPCService,ICommonService commonService,ITaggedUPCService taggedUPCService)
+        public DashboardController(IUntaggedUPCService untaggedUPCService,ICommonService commonService,
+            ITaggedUPCService taggedUPCService,
+            UserManager<Repositories.Entities.User> userManager,
+            SignInManager<Repositories.Entities.User> signInManager)
         {
             _untaggedUPCService = untaggedUPCService;
             _commonService = commonService;
             _taggedUPCService = taggedUPCService;
+            _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         [HttpPost]
         [Route("untagged-upc")]
         public async Task<IActionResult> GetUntaggedUPCList([FromBody] UPCSearchFilter filter)
         {
-            var result = (await _untaggedUPCService.GetUPCList(filter));
-            if (!result.IsSuccessed) return BadRequest(Constants.BadRequestErrorMessage);
+            try
+            {
+                var result = (await _untaggedUPCService.GetUPCList(filter));
+                if (!result.IsSuccessed) return BadRequest(Constants.BadRequestErrorMessage);
                 return Ok(result.Value);
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
 

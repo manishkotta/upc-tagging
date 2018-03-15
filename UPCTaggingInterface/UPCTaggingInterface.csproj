@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="clientApp\src\app\modals\login.ts" />
     <None Remove="clientApp\src\app\modals\product.category.ts" />
     <None Remove="clientApp\src\app\modals\product.subcategory.ts" />
     <None Remove="clientApp\src\app\modals\product.type.ts" />
@@ -45,6 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="clientApp\src\app\modals\login.ts" />
     <TypeScriptCompile Include="clientApp\src\app\modals\product.category.ts" />
     <TypeScriptCompile Include="clientApp\src\app\modals\product.subcategory.ts" />
     <TypeScriptCompile Include="clientApp\src\app\modals\product.type.ts" />

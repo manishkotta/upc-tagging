@@ -11,3 +11,16 @@ D:\Projects\UPCTaggingInterface\CommonEntities\obj\Debug\netcoreapp2.0\Common.As
 D:\Projects\UPCTaggingInterface\CommonEntities\bin\Debug\netcoreapp2.0\Common.pdb
 D:\Projects\UPCTaggingInterface\CommonEntities\obj\Debug\netcoreapp2.0\Common.dll
 D:\Projects\UPCTaggingInterface\CommonEntities\obj\Debug\netcoreapp2.0\Common.pdb
+D:\Projects\upc-tagging\CommonEntities\obj\Debug\netcoreapp2.0\Common.csprojResolveAssemblyReference.cache
+D:\Projects\upc-tagging\CommonEntities\obj\Debug\netcoreapp2.0\Common.csproj.CoreCompileInputs.cache
+D:\Projects\upc-tagging\CommonEntities\obj\Debug\netcoreapp2.0\Common.AssemblyInfoInputs.cache
+D:\Projects\upc-tagging\CommonEntities\obj\Debug\netcoreapp2.0\Common.AssemblyInfo.cs
+D:\Projects\upc-tagging\CommonEntities\obj\Debug\netcoreapp2.0\Common.dll
+D:\Projects\upc-tagging\CommonEntities\obj\Debug\netcoreapp2.0\Common.pdb
+D:\Projects\upc-tagging\CommonEntities\bin\Debug\netcoreapp2.0\Common.deps.json
+D:\Projects\upc-tagging\CommonEntities\bin\Debug\netcoreapp2.0\Common.dll
+D:\Projects\upc-tagging\CommonEntities\bin\Debug\netcoreapp2.0\Common.pdb
+D:\Projects\upc-tagging\CommonEntities\bin\Debug\netcoreapp2.0\Business.Entities.dll
+D:\Projects\upc-tagging\CommonEntities\bin\Debug\netcoreapp2.0\Repositories.Entities.dll
+D:\Projects\upc-tagging\CommonEntities\bin\Debug\netcoreapp2.0\Business.Entities.pdb
+D:\Projects\upc-tagging\CommonEntities\bin\Debug\netcoreapp2.0\Repositories.Entities.pdb

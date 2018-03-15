@@ -38,9 +38,9 @@ namespace UPCTaggingInterface
             services.AddCors();
             services.AddMvc();
 
-            //services.AddIdentity<Repositories.Entities.User, IdentityRole>()
-            //        .AddEntityFrameworkStores<Repository.UPCTaggingDBContext>()
-            //        .AddDefaultTokenProviders();
+            services.AddIdentity<Repositories.Entities.User, IdentityRole>()
+                    .AddEntityFrameworkStores<Repository.UPCTaggingDBContext>()
+                    .AddDefaultTokenProviders();
 
             services.ConfigureApplicationCookie(options =>
             {
@@ -56,11 +56,11 @@ namespace UPCTaggingInterface
             services.Configure<IdentityOptions>(options =>
             {
                 // Password settings
-                //options.Password.RequireDigit = true;
-                //options.Password.RequiredLength = 8;
-                //options.Password.RequireNonAlphanumeric = false;
-                //options.Password.RequireUppercase = true;
-                //options.Password.RequireLowercase = false;
+                options.Password.RequireDigit = false;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
 
                 // Lockout settings
                 options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
@@ -85,7 +85,7 @@ namespace UPCTaggingInterface
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             //app.UseMiddleware<ExceptionHandlingMiddleware>();
             app.UseMvc();
-            //app.UseAuthentication();
+            app.UseAuthentication();
             app.UseDefaultFiles();
             app.UseStaticFiles();
 

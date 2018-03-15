@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "4ca21ac40d8e743b68509f865407f85bd9a8e448"
+    "signature": "8f1646e1c97b984ba97f16293b4af64c71ac94e5"
   },
   "compilationOptions": {},
   "targets": {
@@ -31,12 +31,25 @@
           "lib/netstandard2.0/ExcelDataReader.DataSet.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Cryptography.Internal/2.0.2": {
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.Internal.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Cryptography.KeyDerivation/2.0.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.Internal": "2.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll": {}
+        }
+      },
       "Microsoft.CSharp/4.4.0": {},
       "Microsoft.EntityFrameworkCore/2.0.1": {
         "dependencies": {
           "Microsoft.Extensions.Caching.Memory": "2.0.0",
           "Microsoft.Extensions.DependencyInjection": "2.0.0",
-          "Microsoft.Extensions.Logging": "2.0.0",
+          "Microsoft.Extensions.Logging": "2.0.1",
           "Remotion.Linq": "2.1.1",
           "System.Collections.Immutable": "1.4.0",
           "System.ComponentModel.Annotations": "4.4.0",
@@ -45,14 +58,6 @@
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.EntityFrameworkCore.dll": {}
-        }
-      },
-      "Microsoft.EntityFrameworkCore.Design/2.0.1": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore.Relational": "2.0.1"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.EntityFrameworkCore.Design.dll": {}
         }
       },
       "Microsoft.EntityFrameworkCore.Relational/2.0.1": {
@@ -77,7 +82,7 @@
         "dependencies": {
           "Microsoft.Extensions.Caching.Abstractions": "2.0.0",
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
-          "Microsoft.Extensions.Options": "2.0.0"
+          "Microsoft.Extensions.Options": "2.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Caching.Memory.dll": {}
@@ -112,17 +117,38 @@
           "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {}
         }
       },
-      "Microsoft.Extensions.Logging/2.0.0": {
+      "Microsoft.Extensions.Identity.Core/2.0.2": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Cryptography.KeyDerivation": "2.0.2",
+          "Microsoft.Extensions.Logging": "2.0.1",
+          "Microsoft.Extensions.Options": "2.0.1",
+          "System.ComponentModel.Annotations": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Identity.Core.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Identity.Stores/2.0.2": {
+        "dependencies": {
+          "Microsoft.Extensions.Identity.Core": "2.0.2",
+          "Microsoft.Extensions.Logging": "2.0.1",
+          "System.ComponentModel.Annotations": "4.4.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Microsoft.Extensions.Identity.Stores.dll": {}
+        }
+      },
+      "Microsoft.Extensions.Logging/2.0.1": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
-          "Microsoft.Extensions.Logging.Abstractions": "2.0.0",
-          "Microsoft.Extensions.Options": "2.0.0"
+          "Microsoft.Extensions.Logging.Abstractions": "2.0.1",
+          "Microsoft.Extensions.Options": "2.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Logging.dll": {}
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/2.0.0": {
+      "Microsoft.Extensions.Logging.Abstractions/2.0.1": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {}
         }
@@ -130,13 +156,13 @@
       "Microsoft.Extensions.Logging.Console/2.0.0": {
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "2.0.0",
-          "Microsoft.Extensions.Logging": "2.0.0"
+          "Microsoft.Extensions.Logging": "2.0.1"
         },
         "runtime": {
           "lib/netstandard2.0/Microsoft.Extensions.Logging.Console.dll": {}
         }
       },
-      "Microsoft.Extensions.Options/2.0.0": {
+      "Microsoft.Extensions.Options/2.0.1": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection.Abstractions": "2.0.0",
           "Microsoft.Extensions.Primitives": "2.0.0"
@@ -397,6 +423,7 @@
           "Business.Entities": "1.0.0",
           "ExcelDataReader": "3.4.0",
           "ExcelDataReader.DataSet": "3.4.0",
+          "Microsoft.Extensions.Identity.Stores": "2.0.2",
           "Repositories.Entities": "1.0.0"
         },
         "runtime": {
@@ -430,7 +457,6 @@
       "Repository/1.0.0": {
         "dependencies": {
           "IRepository": "1.0.0",
-          "Microsoft.EntityFrameworkCore.Design": "2.0.1",
           "Microsoft.Extensions.Configuration": "2.0.0",
           "Microsoft.Extensions.Logging.Console": "2.0.0",
           "Npgsql": "3.2.6",
@@ -463,6 +489,20 @@
       "path": "exceldatareader.dataset/3.4.0",
       "hashPath": "exceldatareader.dataset.3.4.0.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Cryptography.Internal/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-pCJyY7vC6YWY94ssKcgGzVFGsK/bk7RVEH/BxwHmc+T3t5VmXlBq7VvUmhLfk+P5Uc1l0hDIJX0ZJRLy9Sz1jg==",
+      "path": "microsoft.aspnetcore.cryptography.internal/2.0.2",
+      "hashPath": "microsoft.aspnetcore.cryptography.internal.2.0.2.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Cryptography.KeyDerivation/2.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JblI3dWCRga40Y6PFUNsdGMAgmMu7Igb9sAtcG3nY8O2tvfuqwkpzGao8KE081KBndGGBcLUD4iWDkoMoGOQVQ==",
+      "path": "microsoft.aspnetcore.cryptography.keyderivation/2.0.2",
+      "hashPath": "microsoft.aspnetcore.cryptography.keyderivation.2.0.2.nupkg.sha512"
+    },
     "Microsoft.CSharp/4.4.0": {
       "type": "package",
       "serviceable": true,
@@ -476,13 +516,6 @@
       "sha512": "sha512-RlwInZHfIUWwFgQJCpUMKrLeE8QJ64MA/GxD881oTMFa9j7iiGKCtI0xK4J1NNgRKvgVDPJbh9CIGJiu0KEdeA==",
       "path": "microsoft.entityframeworkcore/2.0.1",
       "hashPath": "microsoft.entityframeworkcore.2.0.1.nupkg.sha512"
-    },
-    "Microsoft.EntityFrameworkCore.Design/2.0.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-gEdT/YSI/buO15X/UN+gQY6D7qeozRYU80WuesZCj33jJBw4wCHHn8SYcp38k2BPOBDC4I2AfsOFH6Vaf8CeLQ==",
-      "path": "microsoft.entityframeworkcore.design/2.0.1",
-      "hashPath": "microsoft.entityframeworkcore.design.2.0.1.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/2.0.1": {
       "type": "package",
@@ -533,19 +566,33 @@
       "path": "microsoft.extensions.dependencyinjection.abstractions/2.0.0",
       "hashPath": "microsoft.extensions.dependencyinjection.abstractions.2.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Logging/2.0.0": {
+    "Microsoft.Extensions.Identity.Core/2.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-VP10syWV/vxYYMKgZ2eDESmUsz3gPxvBn5J6tkVN8lI4M+dF43RN8fWsEPbcAneDmZrHl3Pv23z05nmyGkJlpg==",
-      "path": "microsoft.extensions.logging/2.0.0",
-      "hashPath": "microsoft.extensions.logging.2.0.0.nupkg.sha512"
+      "sha512": "sha512-Lx5bFoGV2q83SdNh6SrzZczngu/FQ8N/VegNxyEl8h+UwFQJrVj9S3Ukp5Xd1jdFaRT4Xus8P8aGBdy8V7Iwew==",
+      "path": "microsoft.extensions.identity.core/2.0.2",
+      "hashPath": "microsoft.extensions.identity.core.2.0.2.nupkg.sha512"
     },
-    "Microsoft.Extensions.Logging.Abstractions/2.0.0": {
+    "Microsoft.Extensions.Identity.Stores/2.0.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-6ZCllUYGFukkymSTx3Yr0G/ajRxoNJp7/FqSxSB4fGISST54ifBhgu4Nc0ItGi3i6DqwuNd8SUyObmiC++AO2Q==",
-      "path": "microsoft.extensions.logging.abstractions/2.0.0",
-      "hashPath": "microsoft.extensions.logging.abstractions.2.0.0.nupkg.sha512"
+      "sha512": "sha512-9BTVdltrgFh+O69zm4fHZ50PV+GDEdGqcp+KMlbrOW+RmAgbVkQvMV25ZZChUAlT/uQb7BnAF1h5+2xWEyNQzA==",
+      "path": "microsoft.extensions.identity.stores/2.0.2",
+      "hashPath": "microsoft.extensions.identity.stores.2.0.2.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-FKeB93fwdaEf2EXpxczDjE1CkWoAIrijiG1RZeDyD0OvbC0yjTVp1kCJTLYPrFil9JveJzvgXpL7BMNil9Ht3w==",
+      "path": "microsoft.extensions.logging/2.0.1",
+      "hashPath": "microsoft.extensions.logging.2.0.1.nupkg.sha512"
+    },
+    "Microsoft.Extensions.Logging.Abstractions/2.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-DzCKlMdXOysXFDBXgNnxFlpSj5AOdMkUqKEjKT1n+japTxhQ3e3MaGODZGtbIj9ezykRs9oEBGmdSHHfh4oNVA==",
+      "path": "microsoft.extensions.logging.abstractions/2.0.1",
+      "hashPath": "microsoft.extensions.logging.abstractions.2.0.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Logging.Console/2.0.0": {
       "type": "package",
@@ -554,12 +601,12 @@
       "path": "microsoft.extensions.logging.console/2.0.0",
       "hashPath": "microsoft.extensions.logging.console.2.0.0.nupkg.sha512"
     },
-    "Microsoft.Extensions.Options/2.0.0": {
+    "Microsoft.Extensions.Options/2.0.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-sAKBgjl2gWsECBLLR9K54T7/uZaP2n9GhMYHay/oOLfvpvX0+iNAlQ2NJgVE352C9Fs5CDV3VbNTK8T2aNKQFA==",
-      "path": "microsoft.extensions.options/2.0.0",
-      "hashPath": "microsoft.extensions.options.2.0.0.nupkg.sha512"
+      "sha512": "sha512-gxo2Bgg4D6+uyQz1Wdj1FAcBD3870+t37YjplyQXmjLzPWaoU89AIg3AXBXw4fR9CCdWLputZBLm3YaBx+oDFQ==",
+      "path": "microsoft.extensions.options/2.0.1",
+      "hashPath": "microsoft.extensions.options.2.0.1.nupkg.sha512"
     },
     "Microsoft.Extensions.Primitives/2.0.0": {
       "type": "package",

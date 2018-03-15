@@ -88,10 +88,6 @@ namespace UPCTaggingInterface.Migrations
                     b.Property<int>("DescriptionID")
                         .HasColumnName("descriptionid");
 
-                    b.Property<bool>("IsMigrated")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValue(false);
-
                     b.Property<int?>("ProductCategoryID")
                         .HasColumnName("productcategoryid");
 
@@ -104,21 +100,15 @@ namespace UPCTaggingInterface.Migrations
                     b.Property<int?>("ProductTypeID")
                         .HasColumnName("producttypeid");
 
-                    b.Property<int?>("productcategoryid");
-
-                    b.Property<int?>("productsubcategoryid");
-
-                    b.Property<int?>("producttypeid");
-
                     b.HasKey("UPCCode");
 
-                    b.HasIndex("productcategoryid");
+                    b.HasIndex("ProductCategoryID");
 
-                    b.HasIndex("productsubcategoryid");
+                    b.HasIndex("ProductSubcategoryID");
 
-                    b.HasIndex("producttypeid");
+                    b.HasIndex("ProductTypeID");
 
-                    b.ToTable("TaggedUPC");
+                    b.ToTable("taggedupc");
                 });
 
             modelBuilder.Entity("Repositories.Entities.UntaggedUPC", b =>
@@ -137,7 +127,7 @@ namespace UPCTaggingInterface.Migrations
                     b.Property<int?>("ItemAssignedBy")
                         .HasColumnName("itemassignedby");
 
-                    b.Property<int?>("ItemAssignedTo")
+                    b.Property<int?>("ItemAssignedToFk")
                         .HasColumnName("itemassingedto");
 
                     b.Property<DateTime?>("ItemInsertedAt")
@@ -154,14 +144,25 @@ namespace UPCTaggingInterface.Migrations
                     b.Property<int?>("ItemModifiedBy")
                         .HasColumnName("itemmodifiedby");
 
+                    b.Property<int?>("ProductCategoryID")
+                        .HasColumnName("productcategoryid");
+
                     b.Property<string>("ProductSizing")
                         .HasColumnName("productsizing");
+
+                    b.Property<int?>("ProductSubcategoryID")
+                        .HasColumnName("productsubcategoryid");
+
+                    b.Property<int?>("ProductTypeID")
+                        .HasColumnName("producttypeid");
 
                     b.Property<int?>("StatusID")
                         .HasColumnName("statusid");
 
                     b.Property<string>("UPCCode")
                         .HasColumnName("upccode");
+
+                    b.Property<int?>("itemassingedto");
 
                     b.Property<int?>("productcategoryid");
 
@@ -170,6 +171,8 @@ namespace UPCTaggingInterface.Migrations
                     b.Property<int?>("producttypeid");
 
                     b.HasKey("UntaggedUPCID");
+
+                    b.HasIndex("itemassingedto");
 
                     b.HasIndex("productcategoryid");
 
@@ -180,23 +183,98 @@ namespace UPCTaggingInterface.Migrations
                     b.ToTable("untaggedupc");
                 });
 
+            modelBuilder.Entity("Repositories.Entities.UPCHistory", b =>
+                {
+                    b.Property<long>("UPCHistoryID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnName("upchistoryid");
+
+                    b.Property<int?>("ApprovedBy")
+                        .HasColumnName("approvedby");
+
+                    b.Property<DateTime>("ItemInsertedAt")
+                        .HasColumnName("iteminsertedat");
+
+                    b.Property<DateTime>("ItemModifiedAt")
+                        .HasColumnName("itemmodifiedat");
+
+                    b.Property<int?>("ModifiedApprovedBy")
+                        .HasColumnName("modifiedapprovedby");
+
+                    b.Property<int?>("ModifiedSubmittedBy")
+                        .HasColumnName("modifiedsubmittedby");
+
+                    b.Property<int?>("SubmittedBy")
+                        .HasColumnName("submittedby");
+
+                    b.Property<string>("TaggedUPCCode")
+                        .HasColumnName("taggedupccode");
+
+                    b.Property<string>("TaggedUPCUPCCode");
+
+                    b.HasKey("UPCHistoryID");
+
+                    b.HasIndex("TaggedUPCUPCCode");
+
+                    b.ToTable("upchistory");
+                });
+
             modelBuilder.Entity("Repositories.Entities.User", b =>
                 {
                     b.Property<int>("UserID")
                         .ValueGeneratedOnAdd()
                         .HasColumnName("userid");
 
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnName("accessfailedcount");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnName("concurrencystamp");
+
                     b.Property<string>("Email")
                         .HasColumnName("email");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnName("emailconfirmed");
+
+                    b.Property<string>("Id")
+                        .HasColumnName("id");
+
+                    b.Property<bool>("IsEnabled")
+                        .HasColumnName("isenabled");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnName("lockoutenabled");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnName("lockoutend");
 
                     b.Property<string>("Name")
                         .HasColumnName("name");
 
-                    b.Property<string>("Password")
-                        .HasColumnName("userpassword");
+                    b.Property<string>("NormalizedEmail")
+                        .HasColumnName("normalizedemail");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasColumnName("normalizedusername");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnName("passwordhash");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnName("phonenumber");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnName("phonenumberconfirmed");
 
                     b.Property<int>("RoleID")
-                        .HasColumnName("userrole");
+                        .HasColumnName("userroleid");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnName("securitystamp");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnName("twofactorenabled");
 
                     b.Property<string>("UserName")
                         .HasColumnName("username");
@@ -211,19 +289,23 @@ namespace UPCTaggingInterface.Migrations
                 {
                     b.HasOne("Repositories.Entities.ProductCategory", "ProductCategory")
                         .WithMany()
-                        .HasForeignKey("productcategoryid");
+                        .HasForeignKey("ProductCategoryID");
 
                     b.HasOne("Repositories.Entities.ProductSubCategory", "ProductSubCategory")
                         .WithMany()
-                        .HasForeignKey("productsubcategoryid");
+                        .HasForeignKey("ProductSubcategoryID");
 
                     b.HasOne("Repositories.Entities.ProductType", "ProductType")
                         .WithMany()
-                        .HasForeignKey("producttypeid");
+                        .HasForeignKey("ProductTypeID");
                 });
 
             modelBuilder.Entity("Repositories.Entities.UntaggedUPC", b =>
                 {
+                    b.HasOne("Repositories.Entities.User", "ItemAssignedTo")
+                        .WithMany()
+                        .HasForeignKey("itemassingedto");
+
                     b.HasOne("Repositories.Entities.ProductCategory", "ProductCategory")
                         .WithMany()
                         .HasForeignKey("productcategoryid");
@@ -235,6 +317,13 @@ namespace UPCTaggingInterface.Migrations
                     b.HasOne("Repositories.Entities.ProductType", "ProductType")
                         .WithMany()
                         .HasForeignKey("producttypeid");
+                });
+
+            modelBuilder.Entity("Repositories.Entities.UPCHistory", b =>
+                {
+                    b.HasOne("Repositories.Entities.TaggedUPC", "TaggedUPC")
+                        .WithMany()
+                        .HasForeignKey("TaggedUPCUPCCode");
                 });
 #pragma warning restore 612, 618
         }

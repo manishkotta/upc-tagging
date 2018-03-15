@@ -9,3 +9,14 @@ D:\Projects\UPCTaggingInterface\ViewModel.Entities\obj\Debug\netcoreapp2.0\ViewM
 D:\Projects\UPCTaggingInterface\ViewModel.Entities\obj\Debug\netcoreapp2.0\ViewModel.Entities.pdb
 D:\Projects\UPCTaggingInterface\ViewModel.Entities\bin\Debug\netcoreapp2.0\Business.Entities.dll
 D:\Projects\UPCTaggingInterface\ViewModel.Entities\bin\Debug\netcoreapp2.0\Business.Entities.pdb
+D:\Projects\upc-tagging\ViewModel.Entities\bin\Debug\netcoreapp2.0\ViewModel.Entities.deps.json
+D:\Projects\upc-tagging\ViewModel.Entities\bin\Debug\netcoreapp2.0\ViewModel.Entities.dll
+D:\Projects\upc-tagging\ViewModel.Entities\bin\Debug\netcoreapp2.0\ViewModel.Entities.pdb
+D:\Projects\upc-tagging\ViewModel.Entities\bin\Debug\netcoreapp2.0\Business.Entities.dll
+D:\Projects\upc-tagging\ViewModel.Entities\bin\Debug\netcoreapp2.0\Business.Entities.pdb
+D:\Projects\upc-tagging\ViewModel.Entities\obj\Debug\netcoreapp2.0\ViewModel.Entities.csprojResolveAssemblyReference.cache
+D:\Projects\upc-tagging\ViewModel.Entities\obj\Debug\netcoreapp2.0\ViewModel.Entities.csproj.CoreCompileInputs.cache
+D:\Projects\upc-tagging\ViewModel.Entities\obj\Debug\netcoreapp2.0\ViewModel.Entities.AssemblyInfoInputs.cache
+D:\Projects\upc-tagging\ViewModel.Entities\obj\Debug\netcoreapp2.0\ViewModel.Entities.AssemblyInfo.cs
+D:\Projects\upc-tagging\ViewModel.Entities\obj\Debug\netcoreapp2.0\ViewModel.Entities.dll
+D:\Projects\upc-tagging\ViewModel.Entities\obj\Debug\netcoreapp2.0\ViewModel.Entities.pdb
