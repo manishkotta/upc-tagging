@@ -11,5 +11,7 @@ namespace IRepository
     {
         Task<Result<List<User>>> GetUsers(int roleID);
         Task<Result<User>> GetUser(int userID);
+        Task<Result<User>> GetUser(string userName);
+        Task<Result<User>> CreateUser(User user);
     }
 }

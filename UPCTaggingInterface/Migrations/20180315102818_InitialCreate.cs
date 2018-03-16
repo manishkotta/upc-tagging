@@ -9,7 +9,8 @@ namespace UPCTaggingInterface.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            
+
+
             migrationBuilder.CreateTable(
                 name: "upcuser",
                 columns: table => new
@@ -39,6 +40,10 @@ namespace UPCTaggingInterface.Migrations
                 {
                     table.PrimaryKey("userid", x => x.userid);
                 });
+
+
+
+
 
         }
 

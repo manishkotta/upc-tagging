@@ -13,11 +13,13 @@ using Microsoft.AspNetCore.Cors;
 using System.Data;
 using System.Diagnostics;
 using Common.CommonUtilities;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UPCTaggingInterface.Controllers
 {
     [Produces("application/json")]
     [Route("api/upload-document")]
+    [Authorize]
     public class UploadDocumentController : Controller
     {
         IUPCTaggingService _upcTaggingService;

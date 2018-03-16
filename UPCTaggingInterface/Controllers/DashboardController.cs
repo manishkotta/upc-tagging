@@ -9,31 +9,24 @@ using Business.Entities;
 using Common.CommonEntities;
 using Common.CommonUtilities;
 using ViewModel.Entities;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 
 namespace UPCTaggingInterface.Controllers
 {
     [Produces("application/json")]
     [Route("api/dashboard")]
+    [Authorize]
     public class DashboardController : Controller
     {
-        private readonly UserManager<Repositories.Entities.User> _userManager;
-        private readonly SignInManager<Repositories.Entities.User> _signInManager;
-
-
         protected IUntaggedUPCService _untaggedUPCService;
         protected ICommonService _commonService;
         protected ITaggedUPCService _taggedUPCService;
         public DashboardController(IUntaggedUPCService untaggedUPCService,ICommonService commonService,
-            ITaggedUPCService taggedUPCService,
-            UserManager<Repositories.Entities.User> userManager,
-            SignInManager<Repositories.Entities.User> signInManager)
+            ITaggedUPCService taggedUPCService)
         {
             _untaggedUPCService = untaggedUPCService;
             _commonService = commonService;
             _taggedUPCService = taggedUPCService;
-            _userManager = userManager;
-            _signInManager = signInManager;
         }
 
         [HttpPost]

@@ -12,6 +12,10 @@ namespace Business.Entities
 
         public string Password { get; set; }
 
+        public byte[] PasswordHash { get; set; }
+
+        public byte[] PasswordSalt { get; set; }
+
         public int RoleID { get; set; }
 
         public string Name { get; set; }

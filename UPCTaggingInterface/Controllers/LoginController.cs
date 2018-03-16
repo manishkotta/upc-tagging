@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using IBusiness;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
@@ -14,33 +17,46 @@ namespace UPCTaggingInterface.Controllers
     [Route("api/login")]
     public class LoginController : Controller
     {
-        private readonly UserManager<Repositories.Entities.User> _userManager;
-        private readonly SignInManager<Repositories.Entities.User> _signInManager;
-
-        public LoginController(UserManager<Repositories.Entities.User> userManager,
-            SignInManager<Repositories.Entities.User> signInManager)
+        protected IUserService _userService;
+        public LoginController(IUserService userService)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
+
+            _userService = userService;
+
         }
 
 
         [HttpPost]
-        [AllowAnonymous]
-        [ValidateAntiForgeryToken]
         [Route("authenticate-user")]
         public async Task<IActionResult> Login([FromBody]LoginCredentialsDTO login)
         {
-           
-                // This doesn't count login failures towards account lockout
-                // To enable password failures to trigger account lockout, set lockoutOnFailure: true
-                var result = await _signInManager.PasswordSignInAsync(login.Email,login.Password,true,false);
-            if (result.Succeeded)
-                return Ok("Login Success");
-            else if (result.IsNotAllowed)
-                return BadRequest("Username password mismatch");
-            else
-                return BadRequest();
+            try
+            {
+
+                //await _userService.CreateUser(new Business.Entities.User { Email = "manish.kotta@gmail.com", Name = "Manish Kumar", RoleID = 2, UserName = "manish9119", Password = "Manish@9119" });
+                var result = await _userService.AuthenticateUser(login.Email, login.Password);
+
+                if (result.IsSuccessed)
+                {
+                    var claims = new List<Claim>
+                      {
+                          new Claim(ClaimTypes.Name,login.Email),
+                          new Claim("Role",result.Value?.RoleID.ToString())
+                      };
+                    var userIdentity = new ClaimsIdentity(claims, "login");
+                    ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
+                    await HttpContext.SignInAsync(principal);
+
+                    
+
+                    return Ok(true);
+                }
+                return BadRequest("User not authenticated");
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

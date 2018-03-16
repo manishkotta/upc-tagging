@@ -15,12 +15,13 @@ namespace BusinessProvider
         protected IUserRepository _userRepo;
         protected ITaggedUPCService _taggedUPCService;
         protected IUntaggedUPCRepository _untaggedUPCRepo;
+
         public CommonService(ICommonRepository commonRepo,IUserRepository userRepo,IUntaggedUPCRepository untaggedUPCRepo,ITaggedUPCService taggedUPCService)
         {
             _commonRepo = commonRepo;
             _userRepo = userRepo;
             _taggedUPCService = taggedUPCService;
-            _untaggedUPCRepo = untaggedUPCRepo;
+            _untaggedUPCRepo = untaggedUPCRepo;         
         }
 
         public async Task<Result<List<ProductType>>> GetTypeGroup() => Result.Ok(ObjectMapper.CreateMap((await (_commonRepo.GetTypeGroup())).Value));
@@ -71,6 +72,8 @@ namespace BusinessProvider
             }
             return Result.Ok();
         }
+
+
 
     }
 }

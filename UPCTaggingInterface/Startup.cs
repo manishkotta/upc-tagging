@@ -15,6 +15,7 @@ using ServiceConfiguration;
 using Microsoft.EntityFrameworkCore;
 using UPCTaggingInterface.Diagnostics;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace UPCTaggingInterface
 {
@@ -38,38 +39,49 @@ namespace UPCTaggingInterface
             services.AddCors();
             services.AddMvc();
 
-            services.AddIdentity<Repositories.Entities.User, IdentityRole>()
-                    .AddEntityFrameworkStores<Repository.UPCTaggingDBContext>()
-                    .AddDefaultTokenProviders();
 
-            services.ConfigureApplicationCookie(options =>
-            {
-                // Cookie settings
-                options.Cookie.HttpOnly = true;
-                options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-                options.LoginPath = "/login"; // If the LoginPath is not set here, ASP.NET Core will default to /Account/Login
-                options.LogoutPath = "/logout"; // If the LogoutPath is not set here, ASP.NET Core will default to /Account/Logout
-                options.AccessDeniedPath = ""; // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied
-                options.SlidingExpiration = true;
-            });
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                    .AddCookie(options =>
+                    {
+                        options.AccessDeniedPath = "";
+                        options.LoginPath = "/api/login/authenticate-user";
+                        options.Events.OnRedirectToLogin = (context) =>
+                          {
+                              context.Response.StatusCode = 401;
+                              return Task.CompletedTask;
+                          };
 
-            services.Configure<IdentityOptions>(options =>
-            {
-                // Password settings
-                options.Password.RequireDigit = false;
-                options.Password.RequiredLength = 8;
-                options.Password.RequireNonAlphanumeric = false;
-                options.Password.RequireUppercase = false;
-                options.Password.RequireLowercase = false;
+                    });
+                    
 
-                // Lockout settings
-                options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
-                options.Lockout.MaxFailedAccessAttempts = 10;
-                options.Lockout.AllowedForNewUsers = true;
+            //services.ConfigureApplicationCookie(options =>
+            //{
+            //    // Cookie settings
+            //    options.Cookie.HttpOnly = true;
+            //    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
+            //    options.LoginPath = "/login"; // If the LoginPath is not set here, ASP.NET Core will default to /Account/Login
+            //    options.LogoutPath = "/logout"; // If the LogoutPath is not set here, ASP.NET Core will default to /Account/Logout
+            //    options.AccessDeniedPath = ""; // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied
+            //    options.SlidingExpiration = true;
+            //});
 
-                // User settings
-                options.User.RequireUniqueEmail = true;
-            });
+            //services.Configure<IdentityOptions>(options =>
+            //{
+            //    // Password settings
+            //    options.Password.RequireDigit = false;
+            //    options.Password.RequiredLength = 8;
+            //    options.Password.RequireNonAlphanumeric = false;
+            //    options.Password.RequireUppercase = false;
+            //    options.Password.RequireLowercase = false;
+
+            //    // Lockout settings
+            //    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
+            //    options.Lockout.MaxFailedAccessAttempts = 10;
+            //    options.Lockout.AllowedForNewUsers = true;
+
+            //    // User settings
+            //    options.User.RequireUniqueEmail = true;
+            //});
 
         }
 
@@ -81,11 +93,11 @@ namespace UPCTaggingInterface
                 app.UseDeveloperExceptionPage();
             }
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
-
+            app.UseAuthentication();
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             //app.UseMiddleware<ExceptionHandlingMiddleware>();
             app.UseMvc();
-            app.UseAuthentication();
+           
             app.UseDefaultFiles();
             app.UseStaticFiles();
 

@@ -101,7 +101,7 @@ namespace BusinessProvider
                 ProductSizing = businessObject.ProductSizing,
                 ProductTypeID = businessObject.ProductType != null ? businessObject.ProductType.TypeID : default(int?),
                 ProductCategoryID = businessObject.ProductCategory != null ? businessObject.ProductCategory.CategoryID : default(int?),
-                ProductSubcategoryID = businessObject.ProductSubCategory !=null ? businessObject.ProductSubCategory.SubCategoryID : default(int?)
+                ProductSubcategoryID = businessObject.ProductSubCategory != null ? businessObject.ProductSubCategory.SubCategoryID : default(int?)
             };
         }
 
@@ -210,7 +210,9 @@ namespace BusinessProvider
                 Name = userBusinessObj.Name,
                 RoleID = userBusinessObj.RoleID,
                 UserID = userBusinessObj.UserID,
-                UserName = userBusinessObj.UserName
+                UserName = userBusinessObj.UserName,
+                PasswordHash = userBusinessObj.PasswordHash,
+                PasswordSalt = userBusinessObj.PasswordSalt
             };
         }
 
@@ -223,7 +225,9 @@ namespace BusinessProvider
                 Name = userRepoObj.Name,
                 RoleID = userRepoObj.RoleID,
                 UserID = userRepoObj.UserID,
-                UserName = userRepoObj.UserName
+                UserName = userRepoObj.UserName,
+                PasswordHash = userRepoObj.PasswordHash,
+                PasswordSalt = userRepoObj.PasswordSalt
             };
         }
 

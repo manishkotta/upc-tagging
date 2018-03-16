@@ -40,5 +40,11 @@ namespace Common.CommonUtilities
         public const string No_Rows_Added = "No rows added";
 
         public const string SaveUPC_Group_To_Be_Approved_Are_Empty = "Save UPC group to be approved are empty";
+
+        public const string User_Not_Found = "User not found";
+
+        public const string User_Already_Exist = "User already exist";
+
+        public const string User_Not_Created = "User not created";
     }
 }

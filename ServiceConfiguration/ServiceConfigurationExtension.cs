@@ -6,6 +6,7 @@ using IRepository;
 using Repository;
 using IBusiness;
 using BusinessProvider;
+using System.Security.Cryptography;
 
 namespace ServiceConfiguration
 {
@@ -34,6 +35,10 @@ namespace ServiceConfiguration
             services.AddScoped<IUntaggedUPCService, UntagggedUPCService>();
             services.AddScoped<ICommonService, CommonService>();
             services.AddScoped<ITaggedUPCService, TaggedUPCService>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IHashingService, HashingService>();
+            services.AddScoped<HashAlgorithm, SHA256CryptoServiceProvider>();
+            services.AddSingleton<RandomNumberGenerator, RNGCryptoServiceProvider>();
         }
 
     }
