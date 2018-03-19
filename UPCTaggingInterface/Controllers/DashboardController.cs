@@ -21,6 +21,10 @@ namespace UPCTaggingInterface.Controllers
         protected IUntaggedUPCService _untaggedUPCService;
         protected ICommonService _commonService;
         protected ITaggedUPCService _taggedUPCService;
+
+        protected string GetValueFromClaim(string type) => HttpContext.User.Claims.Where(s=>s.Type == type).FirstOrDefault()?.Value;
+
+
         public DashboardController(IUntaggedUPCService untaggedUPCService,ICommonService commonService,
             ITaggedUPCService taggedUPCService)
         {
@@ -35,6 +39,11 @@ namespace UPCTaggingInterface.Controllers
         {
             try
             {
+                filter.RoleID = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserRole));
+                filter.UserID = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserId));
+
+                if (filter.RoleID != (int)Role.Admin && filter.RoleID != (int)Role.User) return Unauthorized();
+
                 var result = (await _untaggedUPCService.GetUPCList(filter));
                 if (!result.IsSuccessed) return BadRequest(Constants.BadRequestErrorMessage);
                 return Ok(result.Value);
@@ -50,6 +59,8 @@ namespace UPCTaggingInterface.Controllers
         [Route("tagged-upc")]
         public async Task<IActionResult> GetTaggedUPCList([FromBody] UPCSearchFilter filter)
         {
+            var roleId = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserRole));
+            if (roleId != (int)Role.Admin && roleId != (int)Role.User) return Unauthorized();
             var result = (await _taggedUPCService.GetUPCList(filter));
             if (!result.IsSuccessed) return BadRequest(Constants.BadRequestErrorMessage);
             return Ok(result.Value);
@@ -59,6 +70,8 @@ namespace UPCTaggingInterface.Controllers
         [Route("update-untagged-upc")]
         public async Task<IActionResult> UpdateUntaggedUPC([FromBody] UntaggedUPCBusinessModal untaggedUPCBusinessModal)
         {
+            var roleId = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserRole));
+            if (roleId != (int)Role.Admin) return Unauthorized();
             var result = (await _untaggedUPCService.UpdateUntaggedUPC(untaggedUPCBusinessModal, 1764));
             if (!result.IsSuccessed) return BadRequest(result.GetErrorString());
             return Ok(result.Value);
@@ -81,7 +94,9 @@ namespace UPCTaggingInterface.Controllers
         [Route("non-admins")]
         public async Task<IActionResult> GetUsers()
         {
-           var result =  await _commonService.GetUsersWhoCanTag();
+            var roleId = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserRole));
+            if (roleId != (int)Role.Admin) return Unauthorized();
+            var result =  await _commonService.GetUsersWhoCanTag();
             if (result.IsSuccessed) return Ok(result.Value.Select(s=>new { s.Name, s.UserID }));
             return BadRequest(result.GetErrorString());
         }
@@ -91,6 +106,9 @@ namespace UPCTaggingInterface.Controllers
         [Route("assign-untagged-upc")]
         public async Task<IActionResult> AssignUntaggedUPCToUser([FromBody] AssignUntagUpcDTO upcDTO)
         {
+            var roleId = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserRole));
+            if (roleId != (int)Role.Admin) return Unauthorized();
+
             if (upcDTO == null) return BadRequest(Constants.BadRequestErrorMessage);
             else if (upcDTO.untaggedUPCIDs.Count() <= 0) return BadRequest(Constants.BadRequestErrorMessage);
             else if (upcDTO.user?.UserID == 0) return BadRequest(Constants.BadRequestErrorMessage);
@@ -103,6 +121,9 @@ namespace UPCTaggingInterface.Controllers
         [Route("approve-saved-upc")]
         public async Task<IActionResult> ApproveSavedUPC([FromBody] int[] savedUPC)
         {
+            var roleId = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserRole));
+            if (roleId != (int)Role.Admin) return Unauthorized();
+
             var result = await _commonService.ApprovedSavedUPC(savedUPC, 1764);
             if (!result.IsSuccessed) return BadRequest(result.GetErrorString());
             return Ok();

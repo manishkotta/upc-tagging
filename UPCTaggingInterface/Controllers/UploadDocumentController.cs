@@ -35,7 +35,14 @@ namespace UPCTaggingInterface.Controllers
             {
                 //Stopwatch stopWatch = new Stopwatch();
                 //stopWatch.Start();
-                
+
+                var role = HttpContext.User.Claims.Where(s => s.Type == Constants.AuthConstants.UserRole).FirstOrDefault();
+                var user = HttpContext.User.Claims.Where(s => s.Type == Constants.AuthConstants.UserId).FirstOrDefault();
+                var roleID  = Convert.ToInt32(role?.Value);
+                var userID = Convert.ToInt32(user?.Value);
+
+                if (roleID != (int)Role.Admin) return Unauthorized();
+                        
                 var files = Request.Form.Files;
                 if (files.Count() <= 0) return BadRequest(Constants.BadRequestErrorMessage);
                 var rootFolder = Directory.GetCurrentDirectory();

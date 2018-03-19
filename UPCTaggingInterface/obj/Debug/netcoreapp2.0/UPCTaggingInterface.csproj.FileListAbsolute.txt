@@ -56,3 +56,5 @@ D:\Projects\upc-tagging\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Repository.p
 D:\Projects\upc-tagging\UPCTaggingInterface\obj\Debug\netcoreapp2.0\UPCTaggingInterface.csproj.CoreCompileInputs.cache
 D:\Projects\upc-tagging\UPCTaggingInterface\obj\Debug\netcoreapp2.0\UPCTaggingInterface.AssemblyInfoInputs.cache
 D:\Projects\upc-tagging\UPCTaggingInterface\obj\Debug\netcoreapp2.0\UPCTaggingInterface.AssemblyInfo.cs
+D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Authentication.dll
+D:\Projects\UPCTaggingInterface\UPCTaggingInterface\bin\Debug\netcoreapp2.0\Authentication.pdb

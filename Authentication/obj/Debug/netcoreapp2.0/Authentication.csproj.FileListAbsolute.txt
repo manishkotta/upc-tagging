@@ -1,0 +1,15 @@
+D:\Projects\UPCTaggingInterface\Authentication\bin\Debug\netcoreapp2.0\Authentication.deps.json
+D:\Projects\UPCTaggingInterface\Authentication\bin\Debug\netcoreapp2.0\Authentication.dll
+D:\Projects\UPCTaggingInterface\Authentication\obj\Debug\netcoreapp2.0\Authentication.csprojResolveAssemblyReference.cache
+D:\Projects\UPCTaggingInterface\Authentication\obj\Debug\netcoreapp2.0\Authentication.csproj.CoreCompileInputs.cache
+D:\Projects\UPCTaggingInterface\Authentication\obj\Debug\netcoreapp2.0\Authentication.AssemblyInfoInputs.cache
+D:\Projects\UPCTaggingInterface\Authentication\obj\Debug\netcoreapp2.0\Authentication.AssemblyInfo.cs
+D:\Projects\UPCTaggingInterface\Authentication\bin\Debug\netcoreapp2.0\Business.Entities.dll
+D:\Projects\UPCTaggingInterface\Authentication\bin\Debug\netcoreapp2.0\Common.dll
+D:\Projects\UPCTaggingInterface\Authentication\bin\Debug\netcoreapp2.0\Repositories.Entities.dll
+D:\Projects\UPCTaggingInterface\Authentication\bin\Debug\netcoreapp2.0\Common.pdb
+D:\Projects\UPCTaggingInterface\Authentication\bin\Debug\netcoreapp2.0\Business.Entities.pdb
+D:\Projects\UPCTaggingInterface\Authentication\bin\Debug\netcoreapp2.0\Repositories.Entities.pdb
+D:\Projects\UPCTaggingInterface\Authentication\bin\Debug\netcoreapp2.0\Authentication.pdb
+D:\Projects\UPCTaggingInterface\Authentication\obj\Debug\netcoreapp2.0\Authentication.dll
+D:\Projects\UPCTaggingInterface\Authentication\obj\Debug\netcoreapp2.0\Authentication.pdb

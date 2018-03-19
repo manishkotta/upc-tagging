@@ -29,5 +29,7 @@ namespace Common.CommonEntities
         public int First { get; set; }
 
         public int UserID { get; set; }
+
+        public int RoleID { get; set; }
     }
 }

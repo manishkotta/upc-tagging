@@ -19,10 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.0.3" />
@@ -38,6 +34,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Authentication\Authentication.csproj" />
     <ProjectReference Include="..\Business.Entities\Business.Entities.csproj" />
     <ProjectReference Include="..\CommonEntities\Common.csproj" />
     <ProjectReference Include="..\IBusiness\IBusiness.csproj" />
@@ -56,6 +53,10 @@
     <TypeScriptCompile Include="clientApp\src\app\modals\upc.untagged.ts" />
     <TypeScriptCompile Include="clientApp\src\app\modals\user.ts" />
     <TypeScriptCompile Include="clientApp\src\app\utilities\utilities.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
   </ItemGroup>
 
 </Project>

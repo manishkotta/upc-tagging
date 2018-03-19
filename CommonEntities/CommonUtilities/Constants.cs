@@ -46,5 +46,26 @@ namespace Common.CommonUtilities
         public const string User_Already_Exist = "User already exist";
 
         public const string User_Not_Created = "User not created";
+
+        public const string User_Token_Object_Should_Not_Be_null = "User token object should not be null";
+
+        public class AuthConstants
+        {
+            public const string SecretKey = "upctagging-secret-key";
+
+            public const string CleintName = "UPCTagging";
+
+            public const string UserId = "UserId";
+
+            public const int ExpiryInMinutes = 60 * 8;
+
+            public const string RoleUser = "User";
+
+            public const string PolicyUser = "User";
+
+            public const string RoleAdmin = "Admin";
+
+            public const string UserRole = "UserRole";
+        }
     }
 }

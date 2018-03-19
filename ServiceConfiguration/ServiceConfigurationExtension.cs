@@ -7,6 +7,8 @@ using Repository;
 using IBusiness;
 using BusinessProvider;
 using System.Security.Cryptography;
+using Authentication;
+using Microsoft.AspNetCore.Http;
 
 namespace ServiceConfiguration
 {
@@ -39,6 +41,9 @@ namespace ServiceConfiguration
             services.AddScoped<IHashingService, HashingService>();
             services.AddScoped<HashAlgorithm, SHA256CryptoServiceProvider>();
             services.AddSingleton<RandomNumberGenerator, RNGCryptoServiceProvider>();
+            services.AddScoped<IUserIdentityProvider, UserIdentityProvider>();
+            services.AddScoped<ITokenProvider, TokenProvider>();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
         }
 
     }

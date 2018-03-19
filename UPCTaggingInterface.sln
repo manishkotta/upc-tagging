@@ -33,6 +33,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repositories.Entities", "Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModel.Entities", "ViewModel.Entities\ViewModel.Entities.csproj", "{E88BBC53-CFDC-4F5D-B713-B552CA52C61B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication", "Authentication\Authentication.csproj", "{836DBCA0-693B-4382-8BFE-CA9A8F940ECC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -79,6 +81,10 @@ Global
 		{E88BBC53-CFDC-4F5D-B713-B552CA52C61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E88BBC53-CFDC-4F5D-B713-B552CA52C61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E88BBC53-CFDC-4F5D-B713-B552CA52C61B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{836DBCA0-693B-4382-8BFE-CA9A8F940ECC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{836DBCA0-693B-4382-8BFE-CA9A8F940ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{836DBCA0-693B-4382-8BFE-CA9A8F940ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{836DBCA0-693B-4382-8BFE-CA9A8F940ECC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +99,7 @@ Global
 		{CE8BA465-8E12-48F4-A99F-CB72103CECB8} = {E36F2843-4A50-4114-9F2F-F6127A80684D}
 		{EB8B45D6-8786-48A0-BCF3-8B6FD5F934E2} = {E36F2843-4A50-4114-9F2F-F6127A80684D}
 		{E88BBC53-CFDC-4F5D-B713-B552CA52C61B} = {E36F2843-4A50-4114-9F2F-F6127A80684D}
+		{836DBCA0-693B-4382-8BFE-CA9A8F940ECC} = {F04F3644-6FEB-40EF-8FAE-58E73D75EFAD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {77889EC2-BB8A-4F06-82D6-30600F43569E}

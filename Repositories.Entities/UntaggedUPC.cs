@@ -10,7 +10,7 @@ namespace Repositories.Entities
         public int UntaggedUPCID { get; set; }
 
         [Column("descriptionid")]
-        public int DescriptionID { get; set; }
+        public long DescriptionID { get; set; }
         [Column("description")]
         public string Description { get; set; }
 

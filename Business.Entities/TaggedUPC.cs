@@ -2,7 +2,7 @@
 {
     public class TaggedUPC
     {
-        public int DescriptionID { get; set; }
+        public long DescriptionID { get; set; }
         public string Description { get; set; }
 
         public string UPCCode { get; set; }

@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ViewModel.Entities;
+using Authentication;
+using Common.CommonEntities;
+using Common.CommonUtilities;
 
 namespace UPCTaggingInterface.Controllers
 {
@@ -18,11 +21,12 @@ namespace UPCTaggingInterface.Controllers
     public class LoginController : Controller
     {
         protected IUserService _userService;
-        public LoginController(IUserService userService)
+        protected ITokenProvider _tokenProvider;
+        public LoginController(IUserService userService,ITokenProvider tokenProvider)
         {
 
             _userService = userService;
-
+            _tokenProvider = tokenProvider;
         }
 
 
@@ -33,25 +37,27 @@ namespace UPCTaggingInterface.Controllers
             try
             {
 
-                //await _userService.CreateUser(new Business.Entities.User { Email = "manish.kotta@gmail.com", Name = "Manish Kumar", RoleID = 2, UserName = "manish9119", Password = "Manish@9119" });
+                //await _userService.CreateUser(new Business.Entities.User { Email = "harshika.gupta@ggktech.com", Name = "Harshika Gupta", RoleID = 1, UserName = "harshikagupta", Password = "Harshika@9119" });
                 var result = await _userService.AuthenticateUser(login.Email, login.Password);
 
                 if (result.IsSuccessed)
                 {
-                    var claims = new List<Claim>
-                      {
-                          new Claim(ClaimTypes.Name,login.Email),
-                          new Claim("Role",result.Value?.RoleID.ToString())
-                      };
-                    var userIdentity = new ClaimsIdentity(claims, "login");
-                    ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity);
-                    await HttpContext.SignInAsync(principal);
+                    var user = result.Value;
 
+                    var userToken = new UserToken
+                    {
+                        Id = user.UserID,
+                        FullName = user.Name,
+                        RoleID = user.RoleID
+                    };
+
+                    var token = _tokenProvider.CreateToken(userToken);
+
+                    if (!token.IsSuccessed) BadRequest(token.GetErrorString());
                     
-
-                    return Ok(true);
+                    return Ok(new AuthTokenDTO { AuthToken = token.Value.Value, RoleName = Utilities.GetRoleName(user.RoleID) });
                 }
-                return BadRequest("User not authenticated");
+                return BadRequest("User is not authenticated");
             }
             catch (Exception ex)
             {

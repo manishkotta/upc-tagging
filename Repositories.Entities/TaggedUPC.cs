@@ -8,7 +8,7 @@ namespace Repositories.Entities
     public class TaggedUPC
     {
         [Column("descriptionid")]
-        public int DescriptionID { get; set; }
+        public long DescriptionID { get; set; }
         [Column("description")]
         public string Description { get; set; }
 

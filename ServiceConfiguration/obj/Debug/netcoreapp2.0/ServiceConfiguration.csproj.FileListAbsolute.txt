@@ -44,3 +44,5 @@ D:\Projects\upc-tagging\ServiceConfiguration\obj\Debug\netcoreapp2.0\ServiceConf
 D:\Projects\upc-tagging\ServiceConfiguration\obj\Debug\netcoreapp2.0\ServiceConfiguration.AssemblyInfo.cs
 D:\Projects\upc-tagging\ServiceConfiguration\obj\Debug\netcoreapp2.0\ServiceConfiguration.dll
 D:\Projects\upc-tagging\ServiceConfiguration\obj\Debug\netcoreapp2.0\ServiceConfiguration.pdb
+D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\Authentication.dll
+D:\Projects\UPCTaggingInterface\ServiceConfiguration\bin\Debug\netcoreapp2.0\Authentication.pdb

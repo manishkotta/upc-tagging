@@ -16,6 +16,12 @@ using Microsoft.EntityFrameworkCore;
 using UPCTaggingInterface.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Rewrite;
+using Microsoft.AspNetCore.Http;
+using Common.CommonEntities;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using Authentication;
 
 namespace UPCTaggingInterface
 {
@@ -32,56 +38,50 @@ namespace UPCTaggingInterface
         public void ConfigureServices(IServiceCollection services)
         {
             var connectionString = Configuration[Common.CommonUtilities.Constants.PostgresqlConnStr];
-            services.AddEntityFrameworkNpgsql().AddDbContext<Repository.UPCTaggingDBContext>(options => options.UseNpgsql(connectionString,b=>b.MigrationsAssembly("UPCTaggingInterface")));
+            services.AddEntityFrameworkNpgsql().AddDbContext<Repository.UPCTaggingDBContext>(options => options.UseNpgsql(connectionString, b => b.MigrationsAssembly("UPCTaggingInterface")));
 
             services.RegisterServices();
+
+            //services.Configure<MvcOptions>(options =>
+            //{
+            //    options.Filters.Add(new RequireHttpsAttribute());
+            //});
 
             services.AddCors();
             services.AddMvc();
 
 
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                    .AddCookie(options =>
-                    {
-                        options.AccessDeniedPath = "";
-                        options.LoginPath = "/api/login/authenticate-user";
-                        options.Events.OnRedirectToLogin = (context) =>
+            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            //        .AddCookie(options =>
+            //        {
+            //            options.AccessDeniedPath = "";
+            //            options.LoginPath = "/api/login/authenticate-user";
+            //            options.Cookie.HttpOnly = false;
+            //            options.Events.OnRedirectToLogin = (context) =>
+            //              {
+            //                  context.Response.StatusCode = 401;
+            //                  return Task.CompletedTask;
+            //              };
+            //            options.Cookie.SecurePolicy = CookieSecurePolicy.None;
+            //        });
+
+            var settings = Configuration.GetSection("Authentication:Security");
+            services.Configure<AuthSettings>(settings);
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                          .AddJwtBearer(options =>
                           {
-                              context.Response.StatusCode = 401;
-                              return Task.CompletedTask;
-                          };
+                              options.TokenValidationParameters = new TokenValidationParameters
+                              {
+                                  ValidateIssuer = true,
+                                  ValidateAudience = true,
+                                  ValidateLifetime = true,
+                                  ValidateIssuerSigningKey = true,
 
-                    });
-                    
-
-            //services.ConfigureApplicationCookie(options =>
-            //{
-            //    // Cookie settings
-            //    options.Cookie.HttpOnly = true;
-            //    options.ExpireTimeSpan = TimeSpan.FromMinutes(30);
-            //    options.LoginPath = "/login"; // If the LoginPath is not set here, ASP.NET Core will default to /Account/Login
-            //    options.LogoutPath = "/logout"; // If the LogoutPath is not set here, ASP.NET Core will default to /Account/Logout
-            //    options.AccessDeniedPath = ""; // If the AccessDeniedPath is not set here, ASP.NET Core will default to /Account/AccessDenied
-            //    options.SlidingExpiration = true;
-            //});
-
-            //services.Configure<IdentityOptions>(options =>
-            //{
-            //    // Password settings
-            //    options.Password.RequireDigit = false;
-            //    options.Password.RequiredLength = 8;
-            //    options.Password.RequireNonAlphanumeric = false;
-            //    options.Password.RequireUppercase = false;
-            //    options.Password.RequireLowercase = false;
-
-            //    // Lockout settings
-            //    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(30);
-            //    options.Lockout.MaxFailedAccessAttempts = 10;
-            //    options.Lockout.AllowedForNewUsers = true;
-
-            //    // User settings
-            //    options.User.RequireUniqueEmail = true;
-            //});
+                                  ValidIssuer = settings["ClientName"],
+                                  ValidAudience = settings["ClientName"],
+                                  IssuerSigningKey = TokenProvider.GenerateSecret(settings["SecretKey"])
+                              };
+                          });
 
         }
 
@@ -96,8 +96,14 @@ namespace UPCTaggingInterface
             app.UseAuthentication();
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             //app.UseMiddleware<ExceptionHandlingMiddleware>();
+
+            //var options = new RewriteOptions()
+            //  .AddRedirectToHttps();
+
+            //app.UseRewriter(options);
+
             app.UseMvc();
-           
+
             app.UseDefaultFiles();
             app.UseStaticFiles();
 

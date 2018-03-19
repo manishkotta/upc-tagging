@@ -68,6 +68,10 @@ namespace Repository
                 query.AppendFormat($" { Utilities.AppendWhereOrAnd(whereAppended) } s.description LIKE '%{upcSearch.Description}%'");
                 whereAppended = true;
             }
+            if(upcSearch.RoleID == (int)Common.CommonUtilities.Role.User)
+            {
+                query.AppendFormat($" { Utilities.AppendWhereOrAnd(whereAppended) } s.itemassingedto={ upcSearch.UserID }");
+            }
 
             return query;
         }

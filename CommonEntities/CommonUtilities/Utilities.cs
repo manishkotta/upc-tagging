@@ -56,6 +56,13 @@ namespace Common.CommonUtilities
         }
 
         public static string AppendWhereOrAnd(bool isWhereAppended) => isWhereAppended ? "AND" : "WHERE";
+
+        public static string GetRoleName(int roleID)
+        {
+            if (roleID == (int)Role.Admin) return "Admin";
+            else if (roleID == (int)Role.User) return "User";
+            else return string.Empty;
+        }
     }
 
 
