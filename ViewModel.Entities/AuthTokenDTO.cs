@@ -9,5 +9,7 @@ namespace ViewModel.Entities
         public string AuthToken { get; set; }
 
         public string RoleName { get; set; }
+
+        public DateTime ValidTo { get; set; }
     }
 }

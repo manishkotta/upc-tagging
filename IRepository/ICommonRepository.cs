@@ -15,5 +15,7 @@ namespace IRepository
         Task<Result<List<ProductCategory>>> GetProductCategoryGroup();
 
         Task<Result<List<ProductSubCategory>>> GetProductSubCategoryGroup();
+
+        void LogExceptionsToDB(List<Repositories.Entities.ExceptionLoggerEntity> exceptionGroup);
     }
 }

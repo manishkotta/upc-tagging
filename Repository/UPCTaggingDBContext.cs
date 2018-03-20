@@ -33,6 +33,8 @@ namespace Repository
         public DbSet<Role> Role { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<UPCHistory> UPCHistory {get;set;}
+
+        public DbSet<ExceptionLoggerEntity> ExceptionLogger { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<UntaggedUPC>().ToTable("untaggedupc");
@@ -107,6 +109,13 @@ namespace Repository
                 entity.Property(e => e.ItemModifiedAt).HasColumnName("itemmodifiedat");
                 entity.Property(e => e.ModifiedApprovedBy).HasColumnName("modifiedapprovedby");
                 entity.Property(e => e.ModifiedSubmittedBy).HasColumnName("modifiedsubmittedby");
+            });
+
+            modelBuilder.Entity<ExceptionLoggerEntity>(entity =>
+            {
+                entity.ToTable("upcexceptions");
+                entity.HasKey(e => e.ExceptionID);
+
             });
 
             base.OnModelCreating(modelBuilder);

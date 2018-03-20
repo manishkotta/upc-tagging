@@ -10,6 +10,6 @@ namespace IBusiness
     {
         void SaveFileToTable(DataTable dt,string seperator);
 
-        bool CaptureUntaggedUPC();
+        bool CaptureUntaggedUPC(int userID);
     }
 }

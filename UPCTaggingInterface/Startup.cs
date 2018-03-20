@@ -88,15 +88,16 @@ namespace UPCTaggingInterface
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseExceptionHandlingMiddleware();
             }
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
             app.UseAuthentication();
             app.UseCors(builder => builder.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader().AllowCredentials());
-            //app.UseMiddleware<ExceptionHandlingMiddleware>();
-
+           
             //var options = new RewriteOptions()
             //  .AddRedirectToHttps();
 

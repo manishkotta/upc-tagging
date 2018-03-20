@@ -26,6 +26,20 @@ namespace BusinessProvider
             }).ToList();
         }
 
+        public static List<Repositories.Entities.ExceptionLoggerEntity> CreateMap(List<Common.CommonEntities.ExceptionLoggerEntity> exObj)
+        {
+            return exObj.Select(s => new ExceptionLoggerEntity()
+            {
+                ExceptionType = s.ExceptionType,
+                HelpLink = s.HelpLink,
+                HResult = s.HResult,
+                Message = s.Message,
+                Source = s.Source,
+                StackTrace = s.StackTrace
+            }).ToList();
+        }
+
+
         public static List<Business.Entities.TaggedUPC> CreateMap(List<Repositories.Entities.TaggedUPC> repoObject)
         {
             return repoObject.Select(s => new Business.Entities.TaggedUPC()

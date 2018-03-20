@@ -24,18 +24,14 @@ namespace UPCTaggingInterface.Controllers
         protected ITokenProvider _tokenProvider;
         public LoginController(IUserService userService,ITokenProvider tokenProvider)
         {
-
             _userService = userService;
             _tokenProvider = tokenProvider;
         }
-
 
         [HttpPost]
         [Route("authenticate-user")]
         public async Task<IActionResult> Login([FromBody]LoginCredentialsDTO login)
         {
-            try
-            {
 
                 //await _userService.CreateUser(new Business.Entities.User { Email = "harshika.gupta@ggktech.com", Name = "Harshika Gupta", RoleID = 1, UserName = "harshikagupta", Password = "Harshika@9119" });
                 var result = await _userService.AuthenticateUser(login.Email, login.Password);
@@ -55,14 +51,10 @@ namespace UPCTaggingInterface.Controllers
 
                     if (!token.IsSuccessed) BadRequest(token.GetErrorString());
                     
-                    return Ok(new AuthTokenDTO { AuthToken = token.Value.Value, RoleName = Utilities.GetRoleName(user.RoleID) });
+                    return Ok(new AuthTokenDTO { AuthToken = token.Value.Value, RoleName = Utilities.GetRoleName(user.RoleID),ValidTo = token.Value.ValidTo });
                 }
                 return BadRequest("User is not authenticated");
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+           
         }
     }
 }

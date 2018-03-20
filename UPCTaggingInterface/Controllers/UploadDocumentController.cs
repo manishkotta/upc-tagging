@@ -31,8 +31,6 @@ namespace UPCTaggingInterface.Controllers
         [HttpPost]
         public async Task<IActionResult> UploadDocument()
         {
-            try
-            {
                 //Stopwatch stopWatch = new Stopwatch();
                 //stopWatch.Start();
 
@@ -55,7 +53,7 @@ namespace UPCTaggingInterface.Controllers
                 if (dataTable.IsNullOrEmpty()) return BadRequest(Constants.BadRequestErrorMessage);
 
                 _upcTaggingService.SaveFileToTable(dataTable,"\t");
-                _upcTaggingService.CaptureUntaggedUPC();
+                return Ok(_upcTaggingService.CaptureUntaggedUPC(userID));
 
                 //stopWatch.Stop();
 
@@ -64,13 +62,6 @@ namespace UPCTaggingInterface.Controllers
                 //string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
                 //    ts.Hours, ts.Minutes, ts.Seconds,
                 //    ts.Milliseconds / 10);
-            }
-            catch(Exception ex)
-            {
-                return BadRequest(Constants.BadRequestErrorMessage);
-            }
-
-            return Ok();
         }
     }
 }

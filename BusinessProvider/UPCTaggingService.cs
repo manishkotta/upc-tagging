@@ -22,10 +22,10 @@ namespace BusinessProvider
             _upcRepo.BulkCopyToDB(value);
         }
 
-        public bool CaptureUntaggedUPC()
+        public bool CaptureUntaggedUPC(int userID)
         {
             Dictionary<string, object> dict = new Dictionary<string, object>();
-            dict.Add("userid", 1764);
+            dict.Add("userid", userID);
             _upcRepo.ExecuteStoreProc("captureuntaggedupc", dict);
             return true;
         }

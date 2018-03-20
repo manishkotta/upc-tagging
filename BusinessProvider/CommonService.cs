@@ -73,7 +73,15 @@ namespace BusinessProvider
             return Result.Ok();
         }
 
+        public void LogExceptionIntoDB(Exception ex)
+        {
+            var exObj = new LogException();
+            exObj.ExceptionLogger(ex);
+            var exList = exObj.ExceptionGroup;
 
+            _commonRepo.LogExceptionsToDB(ObjectMapper.CreateMap(exList));
+            
+        }
 
     }
 }

@@ -37,8 +37,6 @@ namespace UPCTaggingInterface.Controllers
         [Route("untagged-upc")]
         public async Task<IActionResult> GetUntaggedUPCList([FromBody] UPCSearchFilter filter)
         {
-            try
-            {
                 filter.RoleID = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserRole));
                 filter.UserID = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserId));
 
@@ -47,11 +45,6 @@ namespace UPCTaggingInterface.Controllers
                 var result = (await _untaggedUPCService.GetUPCList(filter));
                 if (!result.IsSuccessed) return BadRequest(Constants.BadRequestErrorMessage);
                 return Ok(result.Value);
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
         }
 
 
@@ -72,7 +65,10 @@ namespace UPCTaggingInterface.Controllers
         {
             var roleId = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserRole));
             if (roleId != (int)Role.Admin) return Unauthorized();
-            var result = (await _untaggedUPCService.UpdateUntaggedUPC(untaggedUPCBusinessModal, 1764));
+
+            var userID = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserId));
+
+            var result = (await _untaggedUPCService.UpdateUntaggedUPC(untaggedUPCBusinessModal, userID));
             if (!result.IsSuccessed) return BadRequest(result.GetErrorString());
             return Ok(result.Value);
         }
@@ -109,10 +105,12 @@ namespace UPCTaggingInterface.Controllers
             var roleId = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserRole));
             if (roleId != (int)Role.Admin) return Unauthorized();
 
+            var userID = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserId));
+
             if (upcDTO == null) return BadRequest(Constants.BadRequestErrorMessage);
             else if (upcDTO.untaggedUPCIDs.Count() <= 0) return BadRequest(Constants.BadRequestErrorMessage);
             else if (upcDTO.user?.UserID == 0) return BadRequest(Constants.BadRequestErrorMessage);
-            var result = await _untaggedUPCService.AssignUserToUntaggedUPC(upcDTO.untaggedUPCIDs, upcDTO.user, 1764);
+            var result = await _untaggedUPCService.AssignUserToUntaggedUPC(upcDTO.untaggedUPCIDs, upcDTO.user, userID);
             if (result.IsSuccessed) return Ok();
             return BadRequest(result.GetErrorString());
         }
@@ -124,7 +122,9 @@ namespace UPCTaggingInterface.Controllers
             var roleId = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserRole));
             if (roleId != (int)Role.Admin) return Unauthorized();
 
-            var result = await _commonService.ApprovedSavedUPC(savedUPC, 1764);
+            var userID = Convert.ToInt32(GetValueFromClaim(Constants.AuthConstants.UserId));
+
+            var result = await _commonService.ApprovedSavedUPC(savedUPC, userID);
             if (!result.IsSuccessed) return BadRequest(result.GetErrorString());
             return Ok();
         }

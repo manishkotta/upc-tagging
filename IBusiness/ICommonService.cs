@@ -19,6 +19,6 @@ namespace IBusiness
 
         Task<Result> ApprovedSavedUPC(int[] untaggedUPCIDs, int currentUserID);
 
-        
+        void LogExceptionIntoDB(Exception ex);
     }
 }

@@ -4,6 +4,7 @@ using System.Text;
 using System.Data;
 using System.Linq;
 using ExcelDataReader;
+using Common.CommonEntities;
 
 namespace Common.CommonUtilities
 {
@@ -17,7 +18,7 @@ namespace Common.CommonUtilities
             {
                 for (int i = 0; i < 3; i++)
                 {
-                    sb.Append(dr[i].ToString().Replace('\t',' '));
+                    sb.Append(dr[i].ToString().Replace('\t', ' '));
 
                     if (i < 3 - 1)
                         sb.Append(seperator);
@@ -28,7 +29,7 @@ namespace Common.CommonUtilities
             return splittedRows.SkipLast(1);
         }
 
-        public static DataTable ExcelToDataTable(string extension,System.IO.Stream stream)
+        public static DataTable ExcelToDataTable(string extension, System.IO.Stream stream)
         {
             IExcelDataReader reader;
 
@@ -67,5 +68,5 @@ namespace Common.CommonUtilities
 
 
 
-    
+
 }

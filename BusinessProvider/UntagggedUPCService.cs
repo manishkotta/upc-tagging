@@ -31,8 +31,6 @@ namespace BusinessProvider
 
         public async Task<Result<UntaggedUPCBusinessModal>> UpdateUntaggedUPC(UntaggedUPCBusinessModal upcBusinessModal, int userID)
         {
-            try
-            {
                 var upcResult = await _untagggedUPCRepo.GetUntaggedUPCOnID(upcBusinessModal.UntaggedUPCID);
 
                 if (!upcResult.IsSuccessed) return Result.Fail<UntaggedUPCBusinessModal>(Constants.No_Records_Found);
@@ -50,11 +48,6 @@ namespace BusinessProvider
                 var result = await _untagggedUPCRepo.UpdateUntaggedUPC(untaggedUPCRepoObj);
                 if (result == null) return Result.Fail<UntaggedUPCBusinessModal>(Constants.BadRequestErrorMessage);
                 return Result.Ok(ObjectMapper.CreateMap(result.Value));
-            }
-            catch(Exception ex)
-            {
-                return null;
-            }
         }
 
 

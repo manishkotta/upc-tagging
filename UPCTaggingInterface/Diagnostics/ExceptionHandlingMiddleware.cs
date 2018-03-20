@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IBusiness;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 
@@ -11,21 +12,21 @@ namespace UPCTaggingInterface.Diagnostics
     public class ExceptionHandlingMiddleware
     {
         private readonly RequestDelegate _next;
-
         public ExceptionHandlingMiddleware(RequestDelegate next)
         {
             _next = next;
         }
 
-        public Task Invoke(HttpContext httpContext)
+        public async Task Invoke(HttpContext httpContext,ICommonService commonService)
         {
             try
             {
-                return _next(httpContext);
+                await _next(httpContext);
             }
             catch(Exception ex)
             {
-                throw ex;
+                commonService.LogExceptionIntoDB(ex);
+                return;
             }
         }
     }

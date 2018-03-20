@@ -40,5 +40,26 @@ namespace Repository
         }
 
 
+        public void LogExceptionsToDB(List<Repositories.Entities.ExceptionLoggerEntity> exceptionGroup)
+        {
+            try
+            {
+                    int? parentID = null;
+                    foreach (var i in exceptionGroup)
+                    {
+                        i.ExceptionParentID = parentID;
+                        _dbContext.ExceptionLogger.Add(i);
+                        parentID = i.ExceptionID;
+                    }
+
+                    _dbContext.SaveChanges();
+            }
+            catch(Exception ex)
+            {
+                var foo = ex;
+            }
+          
+        }
+
     }
 }

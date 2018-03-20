@@ -145,25 +145,14 @@ namespace Repository
 
         public async Task<Result<UntaggedUPC>> UpdateUntaggedUPC(UntaggedUPC upc)
         {
-            try
-            {
-                //_dbContext.Entry(upc.ItemAssignedTo).State = EntityState.Unchanged;
-                //upc.ItemAssignedTo = null;
                 _dbContext.UntaggedUPC.Update(upc);
                 await _dbContext.SaveChangesAsync();
                 return Result.Ok(upc);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
         }
 
 
         public async Task<Result> AssignUserToUntaggedUPC(int[] untaggedUPCIDs, User user, int adminUserID)
         {
-            try
-            {
                 //user = await _dbContext.User.FirstOrDefaultAsync(s => s.UserID == user.UserID);
                 foreach (var i in untaggedUPCIDs)
                 {
@@ -182,18 +171,11 @@ namespace Repository
 
                 if (result <= 0) return Result.Fail(Constants.No_Rows_Updated);
                 return Result.Ok();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
         }
 
 
         public async Task<Result<UntaggedUPC>> GetUntaggedUPCOnID(int untaggedUPCID)
         {
-            try
-            {
                 var untaggedUPC = await _dbContext.UntaggedUPC.Include(s => s.ItemAssignedTo)
                     .Include(s => s.ProductType)
                     .Include(s => s.ProductCategory)
@@ -203,27 +185,15 @@ namespace Repository
 
                 if (untaggedUPC == null) return Result.Fail<UntaggedUPC>(Constants.No_Records_Found);
                 return Result.Ok(untaggedUPC);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
         }
 
         public async Task<Result> Delete(int untaggedUPCID)
         {
-            try
-            {
                 var untaggedUPC = new UntaggedUPC { UntaggedUPCID = untaggedUPCID };
                 _dbContext.Entry(untaggedUPC).State = EntityState.Deleted;
                 var result = await _dbContext.SaveChangesAsync();
                 if (result <= 0) return Result.Fail(Constants.No_Rows_Deleted);
                 return Result.Ok();
-            }
-            catch(Exception ex)
-            {
-                throw ex;
-            }
         }
 
     }
